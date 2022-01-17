@@ -243,3 +243,61 @@ input{
     width: 300px;
   }
 }
+
+/* Lorenzo CSS */
+
+.postsL{
+  background-color: bisque;
+  width:500px;
+  margin:0 auto;
+  /* flex-direction: column;
+  justify-content: flex-start; */
+  /* align-items: center; */
+  padding: 2rem;
+  height: 70vh;
+}
+/* .posts p {
+  align-items:flex-start
+} */
+
+
+.postImgL{
+  width: 100%;
+  height: 15rem;
+}
+.icons{
+  display: flex;
+  justify-content: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.iconBookmark{
+  margin-right: 1.5rem;
+
+}
+
+.buttonL{
+  background-color: hotpink; 
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 12px;
+  text-align: right;
+  float: right;
+  font-weight: bold;
+}
+
+.commentL {
+  color: rgb(48, 58, 67);
+  padding: 0.8rem;
+  border: solid 1px;
+  border-radius: 10px;
+}
+
+
+
+

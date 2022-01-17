@@ -1,7 +1,7 @@
 const UserSchema = require("../models/User");
 const { validationResult } = require("express-validator");
 const { compare } = require('../lib/encryption');
-
+const uuid = require("uuid");
 /************ LIST OF USERS */
 async function getUsers(req, res, next) {
     try {
@@ -36,6 +36,7 @@ async function registerUser(req, res, next) {
             lastName,
             source} = req.body;
         const newUser = new UserSchema({
+            id: uuid.v4(),
             userName,
             password,
             email,
@@ -45,7 +46,7 @@ async function registerUser(req, res, next) {
         });
         await newUser.save();
         console.log(userName)
-        res.status(201).send('test')
+        res.status(200).json({msg:'successfully registered'})
         
     } catch (error) {
         next(error);

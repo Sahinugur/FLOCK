@@ -20,7 +20,7 @@ const userSchema = new Schema({
       lastName: String,
       profilePhoto: String,
       password: String,
-      source: { type: String, required: [true, "source not specified"] },
+      source: { type: String, default:'local' },
       lastVisited: { type: Date, default: new Date() }
 })
 

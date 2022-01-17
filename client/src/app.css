@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 2px solid pink;
+
+} 
+
 .navbar {
-  height: 50px;
+  height: 10vh;
   background-color: rgba(102, 16, 83, 0.698);
   color: white;
   display: flex;
@@ -8,7 +15,7 @@
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -205,6 +212,7 @@ input{
 }
 
 .link{
+  margin-left: 2rem;
   color: inherit;
   text-decoration: none;
 }
@@ -242,4 +250,63 @@ input{
     height: 0.5px;
     width: 300px;
   }
+}
+
+
+/* css variables */
+
+:root {
+  --bg: #242526;
+  --text-color: white;
+  --border: 1px solid black;
+  --border-radius: 8px;
+}
+
+/* Dropdown */
+
+.container {
+
+  width: 100%;
+  height: 100vh;
+}
+
+.dropdown{
+  user-select: none;
+  margin-left: 40px;
+  height: 40px;
+  width: 80px;
+  margin: 100px auto;
+}
+
+.dropdown .dropdown-btn {
+  padding: 15px 20px;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dropdown .dropdown-content {
+  postion: absolute;
+  /* top: 110%; */
+  /* padding: -55px; */
+  font-weight: 300;
+}
+
+.dropdown .dropdown-content .dropdown-item {
+  border-radius: 20px;
+  background: black;
+  color: white;
+
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.dropdown .dropdown-content .dropdown-item:hover{
+  background-color: rgb(187, 174, 174);
 }

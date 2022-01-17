@@ -9,6 +9,7 @@ import {
 import SharedContext from "./context/SharedContext";
 import Login from "./components/Login.jsx";
 import Home from "./pages/Home.js";
+import Register from "./components/Register"
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
            <Route path="/home" element={<Home />}></Route>
-         {/* <Route path="/join" element={<Join />}></Route> */}
+         <Route path="/register" element={<Register />}></Route> 
         </Routes>
       </div>
     </SharedContext>

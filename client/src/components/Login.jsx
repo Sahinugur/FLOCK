@@ -1,4 +1,5 @@
 import React, {useState, useContext } from "react";
+import {Link} from 'react-router-dom'
 import makeCall from "../api/Call";
 import { ChatContext } from "../context/SharedContext";
 import { useNavigate } from "react-router-dom";
@@ -64,6 +65,8 @@ export default function Login() {
             <input type="password" placeholder="password" name="password" />
             <input type="submit" className="submit" value="Login"/>
           </form>
+          <li><Link to='/users/resetpassword'>Password forgotten?</Link></li>
+          <li><Link to='/register'>Create an account</Link></li>
         </div>
       </div>
     </div>

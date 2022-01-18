@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const {uploadImage, uploadVideo} = require("../helpers/multer");
+const postSchema = require("../models/Post");
 
 const {
   getPost,
@@ -14,12 +17,8 @@ router.post("/createPost", createPost);
 
 module.exports = router;
 
-const multer = require("multer");
-const upload = require("../helpers/multer");
-const videoUpload = require("../helpers/multer");
-const postSchema = require("../models/Post");
 
-router.post("/single", upload.single("image"), (req, res, next) => {
+router.post("/single", uploadImage.single("image"), (req, res, next) => {
   try {
     console.log(req.file, req.body);
   } catch (error) {
@@ -29,7 +28,7 @@ router.post("/single", upload.single("image"), (req, res, next) => {
 
 router.post(
   "/uploadVideo",
-  videoUpload.single("video"),
+  uploadVideo.single("video"),
   (req, res, next) => {
     res.send(req.file);
   },

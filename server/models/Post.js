@@ -2,8 +2,18 @@ const mongoose = require('mongoose');
 const {Schema}=mongoose;
 
 const postSchema = new Schema({
-    // title: {type: String, required: true},
-    video: {type: String}
+    desc_content: {type: String, required: true, minlength: 3, maxlength: 255},
+    author: {type: Schema.Types.ObjectId, ref: "User", required: true},
+    createdTime: {type: Date, default: Date.now},
+    deletedTime: {type: Date, default: Date.now},
+    likes: {type: Number, required: true},
+    thumbnailPath: {type: String},
+    contentType: [{ "type": String }, { "enum": ["image", "video", "article", "none"] },],
+    bookmark: {type: String}
 });
 
 module.exports = mongoose.model('Posts', postSchema);
+
+// comments: joined o postSchema
+
+// save : ??  joined with userSchema

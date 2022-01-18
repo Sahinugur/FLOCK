@@ -1,28 +1,28 @@
 const express = require("express");
 const multer  = require("multer");
 
-const fileStorage = multer.diskStorage({
+const imgStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "./uploads/images")
     },
     filename: (req, file, cb) => {
-        //const picName = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
-        cb(null, Date.now() + file.originalname);
-        req.picName = picName; //to attach file's path 
+        const thumbnailPath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+        cb(null, );
+        req.thumbnailPath = thumbnailPath; //to attach file's path 
     }
 });
 
-// const upload = multer({ 
-//     storage: fileStorage,
-//     fileFilter: (req, file, cb) => {
-//         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-//         cb(null, true);
-//         } else {
-//         cb(null, false);
-//         return cb(new Error('Only .png, .jpg and .jpeg format allowed'));
-//         }
-//     }
-// });
+const uploadImage = multer({ 
+    storage: imgStorage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+        cb(null, true);
+        } else {
+        cb(null, false);
+        return cb(new Error('Only .png, .jpg and .jpeg format allowed'));
+        }
+    }
+});
 
 const videoStorage = multer.diskStorage({
     destination: "./uploads/videos", // Destination to store video 
@@ -32,7 +32,7 @@ const videoStorage = multer.diskStorage({
     }
 });
 
-const videoUpload = multer({
+const uploadVideo = multer({
     storage: videoStorage,
     limits: {
     fileSize: 10000000 // 10000000 Bytes = 10 MB
@@ -46,7 +46,14 @@ const videoUpload = multer({
 }
 })
 
-module.exports = videoUpload;
+
+
+module.exports = {  imgStorage, 
+                    uploadImage, 
+                    videoStorage, 
+                    uploadVideo};
+
+
 
 
 /** FRONT-END 

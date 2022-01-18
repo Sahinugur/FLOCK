@@ -2,6 +2,9 @@ const UserSchema = require("../models/User");
 const { validationResult } = require("express-validator");
 const { compare } = require('../lib/encryption');
 const uuid = require("uuid");
+const jwt = require("jsonwebtoken");
+const emailSender = require("../models/emailSender")
+const bcrypt = require("bcryptjs");
 /************ LIST OF USERS */
 async function getUsers(req, res, next) {
     try {
@@ -27,7 +30,7 @@ async function getUser(req, res, next) {
 
 /************ REGISTER USER */
 async function registerUser(req, res, next) {
-    try {
+   /*  try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).send(errors);
@@ -50,8 +53,67 @@ async function registerUser(req, res, next) {
         
     } catch (error) {
         next(error);
-        }
-}
+        } */
+       
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+              return res
+                .status(422)
+                .json({ errors: errors.array().map((err) => err.msg) });
+            }
+            const {firstName,lastName,userName, password, email,
+                
+                source} = req.body;
+            try {
+              let registeredUser = await UserSchema.findOne({ email: email });
+              if (registeredUser) {
+                res.status(400).json({ msg: "user already registered" });
+              }
+              
+          
+              //create new user
+              const newUser = new UserSchema({
+                id: uuid.v4(),
+                userName,
+                password,
+                email,
+                firstName,
+                lastName,
+                source
+            });
+          
+              //hash password
+              const salt = await bcrypt.genSalt();
+              const hashedPasswords = await bcrypt.hash(password, salt);
+              newUser.password = hashedPasswords;
+              newUser.verified=false;
+              //save user
+              await newUser.save();
+              //send email validation before saving in database
+             let confirmation= emailSender.confirmEmail(email,userName,newUser._id)
+             if(confirmation){
+               console.log('confirmed');
+             }
+              //sign JWT and res token to the FE
+              const payload={
+                  newUser:{
+                      id:newUser.id,
+                      userName:newUser.userName
+          
+                  }
+              };
+              jwt.sign(payload,'randomString',{expiresIn:'1h'},(err,token) => {
+          
+                  if(err) throw err;
+                  res.status(200).json({token})
+              })
+          
+             // res.status(200).send(newUser);
+            } catch (error) {
+              next(error);
+            }
+          };
+
 
 /************ UPDATE USER */
 async function updateUser(req, res, next) {

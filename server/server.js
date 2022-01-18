@@ -10,6 +10,7 @@ const usersRoute = require('./routes/usersRoute');
 const passportSetup = require("./passport");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
+const emailRouter = require("./routes/confirmations.js");
 const cookieSession = require("cookie-session");
 
 /*Middlewares*/
@@ -47,6 +48,7 @@ mongoose.connection.once("open", () => {
 /**ROUTES */
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
+app.use('/confirm',emailRouter)
 
 /**SETUP SERVER */
 const port = process.env.PORT || 5001;

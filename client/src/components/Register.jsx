@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import makeCall from "../api/Call";
 import env from "../api/env";
 import { useNavigate } from "react-router-dom";
+import { ChatContext } from "../context/SharedContext";
+
 export default function Registration() {
+  const { state, dispatch } = useContext(ChatContext);
     let navigate = useNavigate();
   const [infos, setInfos] = useState({
     firstName: "",
@@ -20,7 +23,8 @@ export default function Registration() {
   async function postInfos(e) {
     try {
       e.preventDefault();
-      await makeCall(env.REGISTRATION, "POST", infos);
+      await makeCall(env.REGISTRATION, "POST", infos).then(result => {console.log(`resultpost`, result.errors);});
+      
       navigate(`/home`);
     } catch (error) {
       console.log(error);
@@ -76,16 +80,15 @@ export default function Registration() {
           id="password"
           name="password"
         />
-        <input
+        {/* <input
           onChange={getValue}
           type="password"
           placeholder="confirm your password"
           id="confirm_password"
           name="confirm_password"
-        />
+        /> */}
         <input
           onChange={getValue}
-          class="w-3/12"
           type="submit"
           value="Register"
         />

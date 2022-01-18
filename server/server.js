@@ -12,7 +12,10 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const emailRouter = require("./routes/confirmations.js");
 const cookieSession = require("cookie-session");
-
+const {
+  mainErrorHandler,
+ 
+} = require("./middleware/errorHandler");
 /*Middlewares*/
 
 
@@ -49,7 +52,7 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use('/confirm',emailRouter)
-
+app.use(  mainErrorHandler  );
 /**SETUP SERVER */
 const port = process.env.PORT || 5001;
 server.listen(port, () => {

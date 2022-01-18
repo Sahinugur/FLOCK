@@ -9,8 +9,8 @@ const userSchema = new Schema({
       },
       userName: {
         type: String,
-        required: [true, "email required"],
-        unique: [true, "email already registered"],
+        required: [true, "username required"],
+        unique: [true, "username already registered"],
       },
       email: {
         type: String,

@@ -16,12 +16,12 @@ const userSchema = new Schema({
         type: String,
         //unique: [true, "email already registered"],
       },
-      firstName: String,
-      lastName: String,
-      profilePhoto: String,
-      password: String,
-      source: { type: String, required: [true, "source not specified"] },
-      lastVisited: { type: Date, default: new Date() }
+      // firstName: String,
+      // lastName: String,
+      // profilePhoto: String,
+      // password: String,
+      // source: { type: String, required: [true, "source not specified"] },
+      // lastVisited: { type: Date, default: new Date() }
 })
 
 userSchema.pre('save', async function (next) {

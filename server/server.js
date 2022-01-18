@@ -51,7 +51,11 @@ mongoose.connection.once("open", () => {
 /**ROUTES */
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
+<<<<<<< HEAD
 // app.use("/posts", postsRoute);
+=======
+app.use("/posts", postRoute);
+>>>>>>> e7d12db1dc2877358e4d8e6dc67a778f6e2bd0e7
 
 app.use("/post", postRoute);
 

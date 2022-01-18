@@ -27,6 +27,7 @@ export default function Login() {
       .then((result) => {
       dispatch({ type: "AUTHENTICATED", payload: result.user });
       navigate(`/home`);
+     
     }); 
   }
 
@@ -43,9 +44,12 @@ export default function Login() {
 
   return (
     <div className="login">
-      <h1 className="loginTitle">Choose a Login Method</h1>
+      
       <div className="wrapper">
-        <div className="left">
+        
+       <div>here gonna rock the animation</div>
+        <div className="right">
+          <h1 className="loginTitle">Choose a Login Method</h1>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />
             Google
@@ -54,21 +58,20 @@ export default function Login() {
             <img src={Github} alt="" className="icon" />
             Github
           </div>
-        </div>
-        <div className="center">
+          <div className="center">
           <div className="line" />
-          
+          <div className="or">OR</div>
         </div>
-        <div className="right">
-          <form onChange={getValue} onSubmit={login}>
+          <form onChange={getValue} onSubmit={login} className="form">
             <input type="text" placeholder="username" name="username" />
             <input type="password" placeholder="password" name="password" />
             <input type="submit" className="submit" value="Login"/>
           </form>
           <li><Link to='/users/resetpassword'>Password forgotten?</Link></li>
           <li><Link to='/register'>Create an account</Link></li>
+        </div> 
         </div>
       </div>
-    </div>
+    
   );
 }

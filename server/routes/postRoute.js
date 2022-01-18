@@ -1,5 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = require("../helpers/multer");
+const videoUpload = require("../helpers/multer");
+const postSchema = require("../models/Post");
 
 const {
   getPost,
@@ -11,13 +15,6 @@ router.get("/", getPost);
 // router.route("/").get(getPost);
 router.post("/createPost", createPost);
 // router.route("/createPost").post(createPost);
-
-module.exports = router;
-
-const multer = require("multer");
-const upload = require("../helpers/multer");
-const videoUpload = require("../helpers/multer");
-const postSchema = require("../models/Post");
 
 router.post("/single", upload.single("image"), (req, res, next) => {
   try {

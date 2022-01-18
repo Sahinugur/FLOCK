@@ -251,3 +251,10 @@ input{
     width: 300px;
   }
 }
+.registration-form{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}

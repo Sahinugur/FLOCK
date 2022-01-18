@@ -36,9 +36,11 @@ export default function Registration() {
   }
 
   return (
-    <div class="w 6/12 flex flex-col flex-around text-lg ">
+    <div className="login" >
+      <div className="wrapper">
+     
+      <form onSubmit={postInfos} className="registration-form "> 
       <h1>Registration</h1>
-      <form onSubmit={postInfos} class="flex flex-col border-2 border-inherit flex-around ">
         <input
           onChange={getValue}
           type="text"
@@ -76,12 +78,21 @@ export default function Registration() {
         />
         <input
           onChange={getValue}
+          type="password"
+          placeholder="confirm your password"
+          id="confirm_password"
+          name="confirm_password"
+        />
+        <input
+          onChange={getValue}
           class="w-3/12"
           type="submit"
           value="Register"
         />
+         <button onClick={getUsers}>list of registered users</button>
       </form>
-      <button onClick={getUsers}>list of registered users</button>
+     
+    </div>
     </div>
   );
 }

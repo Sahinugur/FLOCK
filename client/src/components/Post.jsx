@@ -32,7 +32,7 @@ return (
     <div>
             {console.log("posts", posts)}
             <button >Call server</button>
-            <div className="postsL">
+            <div className="postsL"> ""
       {posts?posts.map((post,index)=>{
           return (  <>
             <h3>{post.content}</h3> 

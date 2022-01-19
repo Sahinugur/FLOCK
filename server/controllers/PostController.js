@@ -10,6 +10,7 @@ async function createPost(req, res, next) {
     if (user) {
       //add the new post to collection Post
       const result = await postSchema.create({
+        title: req.body.title,
         content: req.body.content,
         author: user._id,
         filePath: req.filePath,

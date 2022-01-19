@@ -55,7 +55,9 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/posts", postRoute);
-// app.use("/post", postRoute);
+
+/**MAIN ERROR HANDLER */
+
 
 /**SETUP SERVER */
 const port = process.env.PORT || 5001;

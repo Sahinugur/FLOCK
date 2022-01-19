@@ -10,10 +10,10 @@ async function createPost(req, res, next) {
     if (user) {
       //add the new post to collection Post
       const result = await postSchema.create({
-        content: req.body.content,
-        author: user._id,
-        image: req.imagePath
-      });
+         content: req.body.content,
+         author: user._id,
+         filePath: req.filePath
+       });
       //send result to the front end
       res.status(200).send(result);
     } else {
@@ -69,4 +69,13 @@ async function getAllPosts(req, res, next) {
   }
 }
 
-module.exports = { createPost, getAllPosts, getPost };
+async function getLatest(req, res, next) {
+  try {
+    const latestPost = await postSchema.find().sort({_id: -1 });
+    res.status(200).send(latestPost);
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { createPost, getAllPosts, getPost, getLatest };

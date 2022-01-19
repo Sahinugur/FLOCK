@@ -58,10 +58,6 @@ async function registerUser(req, res, next) {
             source
         });
 
-        //hash password
-        const salt = await bcrypt.genSalt();
-        const hashedPasswords = await bcrypt.hash(password, salt);
-        newUser.password = hashedPasswords;
         newUser.verified = false;
         //save user
         await newUser.save();
@@ -120,7 +116,16 @@ async function deleteUser(req, res, next) {
 }
 
 /************ LOGIN USER */
-async function loginUser(req, res, next) {
+async function loginUser(req, res, next) { 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res
+            .status(422)
+            .json({ msg: errors.array().map((err) =>{
+                console.log(`err`, err.msg);
+                return err.msg}) });
+    }
+    try {
     console.log(`req.body`, req.body);
     let username = req.body.username;
     //find a user with the given username{userName:username}
@@ -128,7 +133,7 @@ async function loginUser(req, res, next) {
     console.log('user', user);
 
 
-    try {
+   
         //if there is no user in db with the given username
 
         if (!user) {

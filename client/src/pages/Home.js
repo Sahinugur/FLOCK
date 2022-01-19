@@ -17,7 +17,7 @@ export default function Home() {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-          dispatch({ type: "AUTHENTICATED", payload: resObject.user });
+          dispatch({ type: "AUTHENTICATED", payload: resObject.user },console.log(`resObject.user`, resObject.user));
         })
         .catch((err) => {
           console.log(err);
@@ -27,12 +27,12 @@ export default function Home() {
     getUser();
   }, []);
 
-  console.log(state);
+  console.log('state',state);
   return (
     <div>
          <NavBar/> 
         <h1>this is the Home page</h1>
-      <h2>{state.user.userName}</h2>
+      <h2>{state.user.email}</h2>
       
     </div>
   );

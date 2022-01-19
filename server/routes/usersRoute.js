@@ -48,10 +48,12 @@ router.post(
       registerUser
   );
 
-router.post('/login', body("username")
+router.post('/login' ,body("password")
 .trim()
 .notEmpty()
-.withMessage("username is Required")
-.isLength({ min: 3, max: 15 }),loginUser);
+.withMessage("password is Required"),body("username")
+.trim()
+.notEmpty()
+.withMessage("username is Required"), loginUser);
 
 module.exports = router;

@@ -1,8 +1,22 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
+import makeCall from "../api/Call";
+import env from "../api/env";
 
-function Posts() {
+function Post() {
+  let result = [];
+  const getServerData = (e) => {
+    makeCall(env.POST).then((result) => {
+      e.preventDefault();
+      console.log("triggered", result);
+
+      return result;
+    });
+  };
+  console.log("the content of ", result, "<<<<<<<ends here");
+
+  // console.log(getServerData);
   //useEffect(() => {
   //fetch("url from the backend to receive all the posts")
   // const posts =fetch("url from BE")
@@ -18,6 +32,7 @@ function Posts() {
 
   return (
     <div>
+      <button onClick={getServerData}>Call server</button>
       <div className="postsL">
         <h3>The title of the post </h3>
         <p>the owner of the post </p>
@@ -36,4 +51,4 @@ function Posts() {
   );
 }
 
-export default Posts;
+export default Post;

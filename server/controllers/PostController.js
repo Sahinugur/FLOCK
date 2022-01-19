@@ -28,8 +28,12 @@ async function createPost(req, res, next) {
 //             Get a single post
 async function getPost(req, res, next) {
   try {
-    const post = await postSchema.find();
-    res.status(200).send(post);
+    if (req.body.id) {
+      const post = await postSchema.findById(req.body.id);
+      res.status(200).send(post);
+    } else if (!req.body.id) {
+      res.status(200).send("Please include `id` in the body of the request");
+    }
   } catch (error) {
     next(error);
   }

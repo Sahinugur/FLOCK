@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const {Schema}=mongoose;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const postSchema = new Schema({
     title: {type: String, required: true, minlength: 3, maxlength: 255},
@@ -13,4 +13,4 @@ const postSchema = new Schema({
     link: {type: String, minlength: 3, maxlength: 255}
 });
 
-module.exports = mongoose.model('Posts', postSchema);
+module.exports = mongoose.model("Posts", postSchema);

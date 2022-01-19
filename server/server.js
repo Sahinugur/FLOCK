@@ -16,7 +16,7 @@ const cookieSession = require("cookie-session");
 
 /*Middlewares*/
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -54,13 +54,13 @@ mongoose.connection.once("open", () => {
 /**ROUTES */
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
+
 app.use("/posts", postRoute);
 
 /**MAIN ERROR HANDLER */
 
-
 /**SETUP SERVER */
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 server.listen(port, () => {
   console.log(`Server is up and running on port: http://localhost:${port}`);
 });

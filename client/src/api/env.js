@@ -5,7 +5,7 @@ const env = {
   USERS: "/user/all",
   GOOGLE: "/auth/google",
   GITHUB: "/auth/github",
-  POST: "/post",
+  POST: "/posts",
 };
 
 export default env;

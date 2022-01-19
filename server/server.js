@@ -59,7 +59,6 @@ app.use("/posts", postRoute);
 
 /**MAIN ERROR HANDLER */
 
-
 /**SETUP SERVER */
 const port = process.env.PORT || 5002;
 server.listen(port, () => {

@@ -25,30 +25,6 @@ async function createPost(req, res, next) {
   }
 }
 
-// async function createPost(req, res, next) {
-//   try {
-//     const user = await userSchema.findById(req.params.uid);
-//     // const { content, author } = req.body;
-//     console.log(req.body);
-//     const newPost = new postSchema({
-//       content: req.body.content,
-//       author: user._id,
-//       // createdTime,
-//       // deletedTime,
-//       // likes,
-//       // thumbnailPath,
-//       // contentType,
-//       // link
-//     });
-//     await newPost.save();
-//     res.status(200).send("New post created");
-
-//     console.log(req.body);
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
 //             Get a single post
 async function getPost(req, res, next) {
   try {

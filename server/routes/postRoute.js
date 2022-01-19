@@ -17,7 +17,7 @@ router.post("/createPost/:uid", createPost);
 module.exports = router;
 
 
-router.post("/uploadImage/:uid", uploadImage.single("imagePath"), createPost);
+// router.post("/uploadImage/:uid", uploadImage.single("imagePath"), createPost);
 
 
 // router.post("/uploadVideo", uploadVideo.single("thumbnailPath"), (req, res, next) => {

@@ -1,18 +1,30 @@
 const express = require("express");
 const multer  = require("multer");
 
-const imgStorage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./uploads/images")
+
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, "./uploads/images/")
+        }
+
+        else if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+                cb(null, "./uploads/videos/")
+            }
+
+        else (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, "./uploads/articles/")
+        }
+
     },
     filename: (req, file, cb) => {
-        const thumbnailPath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+        const imagePath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
         cb(null, );
-        req.thumbnailPath = thumbnailPath; //to attach file's path 
+        req.imagePath = imagePath; //to attach file's path 
     }
 });
 
-const uploadImage = multer({ 
+const uploadFile = multer({ 
     storage: imgStorage,
     fileFilter: (req, file, cb) => {
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
@@ -25,25 +37,26 @@ const uploadImage = multer({
 });
 
 const videoStorage = multer.diskStorage({
-    destination: "./uploads/videos", // Destination to store video 
+    destination: "./uploads/videos/", // Destination to store video 
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '_' + Date.now() 
-        + file.originalname)
+        const thumbnailPath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+        cb(null, );
+        req.thumbnailPath = thumbnailPath;
     }
 });
 
 const uploadVideo = multer({
     storage: videoStorage,
-    limits: {
-    fileSize: 10000000 // 10000000 Bytes = 10 MB
-    },
-    fileFilter(req, file, cb) {
-      // upload only mp4 and mkv format
-    if (!file.originalname.match(/\.(mp4|MPEG-4|mkv)$/)) { 
-        return cb(new Error('Please upload a video'))
-    }
-    cb(undefined, true)
-}
+//     limits: {
+//         fileSize: 10000000 // 10000000 Bytes = 10 MB
+//     },
+//     fileFilter(req, file, cb) {
+//       // upload only mp4 and mkv format
+//     if (!file.originalname.match(/\.(mp4|MPEG-4|mkv)$/)) { 
+//         return cb(new Error('Please upload a video'))
+//     }
+//     cb(undefined, true)
+// }
 })
 
 

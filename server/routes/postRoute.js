@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const {uploadImage, uploadVideo} = require("../helpers/multer");
-const postSchema = require("../models/Post");
 
 const {
   getPost,
@@ -12,30 +11,22 @@ const {
 
 router.get("/", getPost);
 // router.route("/").get(getPost);
-router.post("/createPost", createPost);
+router.post("/createPost/:uid", createPost);
 // router.route("/createPost").post(createPost);
 
 module.exports = router;
 
 
-router.post("/single", uploadImage.single("image"), (req, res, next) => {
-  try {
-    console.log(req.file, req.body);
-  } catch (error) {
-    next(error);
-  }
-});
+router.post("/uploadImage/:uid", uploadImage.single("imagePath"), createPost);
 
-router.post(
-  "/uploadVideo",
-  uploadVideo.single("video"),
-  (req, res, next) => {
-    res.send(req.file);
-  },
-  (error, req, res, next) => {
-    res.status(400).send({ error: error.message });
-  }
-);
+
+// router.post("/uploadVideo", uploadVideo.single("thumbnailPath"), (req, res, next) => {
+//     res.send(req.file);
+//   },
+//   (error, req, res, next) => {
+//     res.status(400).send({ error: error.message });
+//   }
+// );
 
 // router.get('/getLatest', async (req, res) => {
 //     const getImage = await postSchema.findOne().sort({ _id: -1 });

@@ -1,34 +1,58 @@
 const postSchema = require("../models/Post");
-
+const userSchema = require("../models/User");
 //           Create a post
+
 async function createPost(req, res, next) {
   try {
-    const { postTitle, postAuthor, postDescription, postContent } = req.body;
-    // const newPost = new PostModel({
-    //   postTitle,
-    //   postAuthor,
-    //   postDescription,
-    //   postContent,
-    // });
-    const newPost = [
-      { Title: postTitle },
-      { Author: postAuthor },
-      { Description: postDescription },
-      { Content: postContent },
-    ];
-    // await newPost.save();
-    res.status(200).send("New post created");
+    //find the user who wants to add a post
+    const user = await userSchema.findById(req.params.uid);
 
-    console.log(req.body);
-  } catch (error) {
-    next(error);
+    if (user) {
+      //add the new post to collection Post
+      const result = await postSchema.create({
+        content: req.body.content,
+        author: user._id,
+        image: req.imagePath
+      });
+      //send result to the front end
+      res.status(200).send(result);
+    } else {
+      //if the id in req.params.uid doesn't exist
+      res.status(400).send({ error: "This user doesn't exist." });
+    }
+  } catch (err) {
+    next(err);
   }
 }
+
+// async function createPost(req, res, next) {
+//   try {
+//     const user = await userSchema.findById(req.params.uid);
+//     // const { content, author } = req.body;
+//     console.log(req.body);
+//     const newPost = new postSchema({
+//       content: req.body.content,
+//       author: user._id,
+//       // createdTime,
+//       // deletedTime,
+//       // likes,
+//       // thumbnailPath,
+//       // contentType,
+//       // link
+//     });
+//     await newPost.save();
+//     res.status(200).send("New post created");
+
+//     console.log(req.body);
+//   } catch (error) {
+//     next(error);
+//   }
+// }
 
 //             Get a single post
 async function getPost(req, res, next) {
   try {
-    const post = await PostModel.find();
+    const post = await postSchema.find();
     res.status(200).send(post);
   } catch (error) {
     next(error);
@@ -38,7 +62,7 @@ async function getPost(req, res, next) {
 //              Get all post
 async function getAllPosts(req, res, next) {
   try {
-    const posts = await PostModel.find();
+    const posts = await postSchema.find();
     res.status(200).send(posts);
   } catch (error) {
     next(error);

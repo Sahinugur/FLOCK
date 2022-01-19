@@ -39,7 +39,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /*SETUP DATABASE*/
-mongoose.connect(process.env.DB_URL);
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.connection.on("error", (err) => {
   console.log("connection err: ", err.message);
@@ -52,8 +55,7 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/posts", postRoute);
-
-app.use("/post", postRoute);
+// app.use("/post", postRoute);
 
 /**SETUP SERVER */
 const port = process.env.PORT || 5001;

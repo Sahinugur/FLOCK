@@ -13,8 +13,8 @@ const storage = multer.diskStorage({
                 cb(null, "uploads/videos/")
                 break;
 
-            case "article/pdf" || "article/doc" || "article/docx":
-                cb(null, "uploads/articles/")
+            case ".pdf" || ".doc" || ".docx":
+                cb(null, "uploads/files/")
                 break;
 
             default:
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
     },
     filename: (req, file, cb) => {
-        console.log(file);
+        // console.log(file);
         const filePath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
         cb(null, filePath);
         req.filePath = filePath; //to attach file's path 
@@ -31,25 +31,11 @@ const storage = multer.diskStorage({
 });
 
 const uploadFile = multer({ 
-    storage: storage
-    
+    storage: storage,
+    limits: {
+            fileSize: 10000000 // 10000000 Bytes = 10 MB
+        },
 });
-
-// const uploadVideo = multer({
-//     storage: videoStorage,
-//     limits: {
-//         fileSize: 10000000 // 10000000 Bytes = 10 MB
-//     },
-//     fileFilter(req, file, cb) {
-//       // upload only mp4 and mkv format
-//     if (!file.originalname.match(/\.(mp4|MPEG-4|mkv)$/)) { 
-//         return cb(new Error('Please upload a video'))
-//     }
-//     cb(undefined, true)
-// }
-// })
-
-
 
 module.exports = {  storage, uploadFile};
 

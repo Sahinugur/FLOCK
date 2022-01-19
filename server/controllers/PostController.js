@@ -10,10 +10,11 @@ async function createPost(req, res, next) {
     if (user) {
       //add the new post to collection Post
       const result = await postSchema.create({
-         content: req.body.content,
-         author: user._id,
-         filePath: req.filePath
-       });
+        title: req.body.title,
+        content: req.body.content,
+        author: user._id,
+        filePath: req.filePath
+      });
       //send result to the front end
       res.status(200).send(result);
     } else {

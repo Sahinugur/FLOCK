@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const {Schema}=mongoose;
 
 const postSchema = new Schema({
-    content: {type: String, required: true, minlength: 3, maxlength: 255},
+    title: {type: String, required: true, minlength: 3, maxlength: 255},
+    content: {type: String, minlength: 3, maxlength: 255},
     author: {type: Schema.Types.ObjectId, ref: "User"},
     createdTime: {type: Date, default: Date.now},
     deletedTime: {type: Date, default: Date.now},
     likes: [{type: Schema.Types.ObjectId, ref: "User"}],
     filePath: {type: String},
-    contentType: [{type: String }, { "enum": ["image", "video", "article", "none"] }],
+    contentType: [{type: String }, { "enum": ["image", "video", "file", "none"] }],
     link: {type: String, minlength: 3, maxlength: 255}
 });
 

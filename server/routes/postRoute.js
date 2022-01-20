@@ -9,15 +9,22 @@ const {
   getPost,
   createPost,
   getAllPosts,
+
+  //Sorting function added as default to getAllposts route
   getLatest,
+
+  updatePost,
+  deletePost,
 } = require("../controllers/PostController");
 
 // router.route("/").get(getPost);
 router.get("/", getAllPosts);
 router.get("/post", getPost);
-router.get("/getLatest", getLatest);
+router.put("/updatepost", updatePost);
+router.delete("/deletepost", deletePost);
+// router.get("/getLatest", getLatest);
 
 // router.post("/createPost and upload")
-router.post("/createPost/:uid", uploadFile.single("filePath"), createPost);
+router.post("/createpost/:uid", uploadFile.single("filePath"), createPost);
 
 module.exports = router;

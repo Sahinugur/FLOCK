@@ -116,15 +116,15 @@
   border-radius: 20px;
 }
 
-
-.left,.right{
+.left,
+.right {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.center{
+.center {
   height: 100%;
   display: flex;
   align-items: center;
@@ -132,7 +132,7 @@
   position: relative;
 }
 
-.or{
+.or {
   border: 2px solid lightgray;
   border-radius: 50%;
   padding: 10px;
@@ -141,7 +141,7 @@
   font-weight: bold;
 }
 
-.line{
+.line {
   width: 0.5px;
   height: 70%;
   background-color: lightgray;
@@ -154,7 +154,7 @@
   z-index: -1;
 }
 
-.loginButton{
+.loginButton {
   width: 150px;
   padding: 15px 25px;
   border-radius: 5px;
@@ -166,29 +166,29 @@
   cursor: pointer;
 }
 
-.google{
+.google {
   background-color: #df4930;
 }
-.facebook{
+.facebook {
   background-color: #507cc0;
 }
-.github{
+.github {
   background-color: black;
 }
 
-.icon{
+.icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-input{
+input {
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
 }
 
-.submit{
+.submit {
   width: 200px;
   background-color: rgba(128, 0, 128, 0.671);
   color: white;
@@ -198,13 +198,13 @@ input{
   border-radius: 5px;
 }
 
-.loginTitle{
+.loginTitle {
   position: absolute;
   top: 150px;
-  color:lightgray
+  color: lightgray;
 }
 
-.link{
+.link {
   color: inherit;
   text-decoration: none;
 }
@@ -246,39 +246,36 @@ input{
 
 /* Lorenzo CSS */
 
-.postsL{
+.postsL {
   background-color: bisque;
-  width:500px;
-  margin:0 auto;
+  width: 500px;
+  margin: 0 auto;
   /* flex-direction: column;
   justify-content: flex-start; */
   /* align-items: center; */
   padding: 2rem;
-  height: 70vh;
 }
 /* .posts p {
   align-items:flex-start
 } */
 
-
-.postImgL{
+.postImgL {
   width: 100%;
   height: 15rem;
 }
-.icons{
+.icons {
   display: flex;
   justify-content: right;
   margin-top: 1rem;
   margin-right: 1rem;
 }
 
-.iconBookmark{
+.iconBookmark {
   margin-right: 1.5rem;
-
 }
 
-.buttonL{
-  background-color: hotpink; 
+.buttonL {
+  background-color: hotpink;
   border: none;
   color: white;
   padding: 10px 15px;
@@ -297,7 +294,3 @@ input{
   border: solid 1px;
   border-radius: 10px;
 }
-
-
-
-

@@ -247,13 +247,14 @@ input {
 /* Lorenzo CSS */
 
 .postsL {
-  background-color: bisque;
+  background-color: rgba(235, 165, 165, 0.928);
   width: 500px;
   margin: 0 auto;
   /* flex-direction: column;
   justify-content: flex-start; */
   /* align-items: center; */
   padding: 2rem;
+  border: 1px solid  black;
 }
 /* .posts p {
   align-items:flex-start
@@ -267,15 +268,21 @@ input {
   display: flex;
   justify-content: right;
   margin-top: 1rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
-.iconBookmark {
-  margin-right: 1.5rem;
+.iconHeart {
+  color: #df4930;
+
 }
 
-.buttonL {
-  background-color: hotpink;
+.fa-bookmark{
+  margin-right: 1em;
+}
+
+
+  .buttonL{
+  background-color: rgb(35, 19, 27);
   border: none;
   color: white;
   padding: 10px 15px;
@@ -286,11 +293,28 @@ input {
   text-align: right;
   float: right;
   font-weight: bold;
-}
+} 
 
 .commentL {
   color: rgb(48, 58, 67);
   padding: 0.8rem;
-  border: solid 1px;
+  border: solid rgb(123, 109, 109) 1px;
   border-radius: 10px;
+  font-family: 'Work Sans', sans-serif;
+  margin-bottom: 6rem;
+  height: 8vh;
+}
+
+
+.post-authorL {
+  color: gray;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.post-contentL {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.date-postL {
+  font-family: 'Work Sans', sans-serif;
 }

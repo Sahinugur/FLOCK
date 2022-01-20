@@ -1,5 +1,5 @@
 const env  ={
-    BASE_URL: 'http://localhost:5001',
+    BASE_URL: 'http://localhost:5002',
     REGISTRATION: '/user/register',
     LOGIN: "/users/login",
     USERS: '/user/all',

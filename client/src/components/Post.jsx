@@ -28,28 +28,27 @@ function Post() {
       {console.log("posts", posts)}
       <button>Call server</button>
       <div className="postsL">
-        {" "}
-        ""
         {posts ? (
           posts.map((post, index) => {
             return (
-              <>
-                <h3>{post.content}</h3>
-                <p>{post.author}</p>
-                <img
+              <div key={index}>
+                <p class="post-authorL">{post.author}</p>
+                <h3 className="post-contentL">{post.content}</h3>
+                <h4 className="date-postL">date post</h4>
+                <img 
                   className="postImgL"
                   src="https://www.rismedia.com/wp-content/uploads/2019/05/social_media_post_936185802.jpg"
                 />
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}
-                    className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark"
+                   /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
                   <FontAwesomeIcon icon={faHeart} className="iconHeart" />
                 </div>
                 <h4 className="commentL">Write a comment ..</h4>
-                <button className="buttonL">back to the top</button>
-              </>
+                {/* <button className="buttonL">back to the top</button> */}
+              </div>
             );
           })
         ) : (
@@ -63,12 +62,13 @@ function Post() {
             <div className="icons">
               <FontAwesomeIcon
                 icon={faBookmark}
-                className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark"
+                className="iconBookmark"
               />
+              {/* iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark */}
               <FontAwesomeIcon icon={faHeart} className="iconHeart" />
             </div>
             <h4 className="commentL">Write a comment ..</h4>
-            <button className="buttonL">back to the top</button>{" "}
+            {" "}
           </>
         )}
       </div>

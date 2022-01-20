@@ -1,70 +1,43 @@
 const express = require("express");
 const multer  = require("multer");
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
+const storage = multer.diskStorage({
+    
+    destination: (req, file, cb) => {
+        switch (file.mimetype) {
+            case "image/png" || "image/jpg" || "image/jpeg":
+                cb(null, "uploads/images/")
+                break;
+            
+            case "video/mp4" || "video/MPEG-4" || "video/mkv":
+                cb(null, "uploads/videos/")
+                break;
 
-//         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-//             cb(null, "./uploads/images/")
-//         }
+            case ".pdf" || ".doc" || ".docx":
+                cb(null, "uploads/files/")
+                break;
 
-//         else if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-//                 cb(null, "./uploads/videos/")
-//             }
+            default:
+                break;
+        }
 
-//         else (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-//             cb(null, "./uploads/articles/")
-//         }
+    },
+    filename: (req, file, cb) => {
+        // console.log(file);
+        const filePath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+        cb(null, filePath);
+        req.filePath = filePath; //to attach file's path 
+    }
+});
 
-//     },
-//     filename: (req, file, cb) => {
-//         const imagePath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
-//         cb(null, );
-//         req.imagePath = imagePath; //to attach file's path 
-//     }
-// });
+const uploadFile = multer({ 
+    storage: storage,
+    limits: {
+            fileSize: 10000000 // 10000000 Bytes = 10 MB
+        },
+});
 
-// const uploadFile = multer({ 
-//     storage: imgStorage,
-//     fileFilter: (req, file, cb) => {
-//         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-//         cb(null, true);
-//         } else {
-//         cb(null, false);
-//         return cb(new Error('Only .png, .jpg and .jpeg format allowed'));
-//         }
-//     }
-// });
-
-// const videoStorage = multer.diskStorage({
-//     destination: "./uploads/videos/", // Destination to store video 
-//     filename: (req, file, cb) => {
-//         const thumbnailPath = file.originalname.split(".")[0] + "-" + Date.now() + "." + file.mimetype.split("/")[1]
-//         cb(null, );
-//         req.thumbnailPath = thumbnailPath;
-//     }
-// });
-
-//const uploadVideo = multer({
-//    storage: videoStorage,
-//     limits: {
-//         fileSize: 10000000 // 10000000 Bytes = 10 MB
-//     },
-//     fileFilter(req, file, cb) {
-//       // upload only mp4 and mkv format
-//     if (!file.originalname.match(/\.(mp4|MPEG-4|mkv)$/)) { 
-//         return cb(new Error('Please upload a video'))
-//     }
-//     cb(undefined, true)
-// }
-//})
-
-
-
-// module.exports = {  imgStorage, 
-//                     uploadImage, 
-//                     videoStorage, 
-//                     uploadVideo};
+module.exports = {  storage, uploadFile};
 
 
 

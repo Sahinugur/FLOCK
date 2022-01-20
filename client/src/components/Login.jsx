@@ -29,7 +29,6 @@ export default function Login() {
     }); 
   }
 
-
   const google = () => {
     window.open(env.BASE_URL + env.GOOGLE, "_self");
     console.log(`logged by google`);
@@ -56,7 +55,6 @@ export default function Login() {
         </div>
         <div className="center">
           <div className="line" />
-          
         </div>
         <div className="right">
           <form onChange={getValue} onSubmit={login}>

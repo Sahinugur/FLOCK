@@ -1,17 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  outline: 2px solid pink;
+/* the styles below apply to the unstyled React components.
+You see them around with no .style in the fileExtension! */
 
-} 
+
 
 .navbar {
-  height: 10vh;
+  height: 12vh;
   background-color: rgba(102, 16, 83, 0.698);
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-bottom: 3px solid black;
 }
 
 .logo {
@@ -29,6 +28,11 @@
   margin-right: 20px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.listItem:hover {
+  font-size: 17px;
+  color: tomato;
 }
 
 .avatar {
@@ -104,15 +108,76 @@
   font-size: 18px;
   line-height: 24px;
 }
+.link{
+  margin-left: 2rem;
+  color: inherit;
+  text-decoration: none;
 
-.login {
+}
+
+/* SearchBar */
+
+.searchBar {
+  position: relative;
+  left: 12rem;
+  font-size: 25px;
+  };
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .wrapper {
+    width: 65%;
+    height: 90%;
+    flex-direction: column;
+  }
+  .loginTitle {
+    display: none;
+  }
+  .or{
+    border: 2px solid lightgray;
+    border-radius: 50%;
+    padding: 10px;
+    color: gray;
+    background-color: white;
+    font-weight: bold;
+  }
+  .facebook{
+    background-color: #507cc0;
+  }
+
+  .left {
+    padding: 20px;
+  }
+
+  .searchBar {
+    position: absolute;
+    font-size: 25px;
+    };
+
+
+  /* css variables */
+
+:root {
+  --bg: #242526;
+  --text-color: white;
+  --border: 1px solid black;
+  --border-radius: 8px;
+}
+
+/*All the styles below are copied and applied to the styled React components and only here for saftey reasons.*/
+
+
+/* .login {
   height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.wrapper {
+/* .wrapper {
   width: 60%;
   height: 75%;
   -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -121,34 +186,25 @@
   display: flex;
   align-items: center;
   border-radius: 20px;
-}
+} */
 
 
-.left,.right{
+/* .left,.right{
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.center{
+/* .center{
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
+} */
 
-.or{
-  border: 2px solid lightgray;
-  border-radius: 50%;
-  padding: 10px;
-  color: gray;
-  background-color: white;
-  font-weight: bold;
-}
-
-.line{
+/* .line{
   width: 0.5px;
   height: 70%;
   background-color: lightgray;
@@ -159,9 +215,9 @@
   right: 0;
   margin: auto;
   z-index: -1;
-}
+} */
 
-.loginButton{
+/* .loginButton{
   width: 150px;
   padding: 15px 25px;
   border-radius: 5px;
@@ -171,31 +227,31 @@
   font-weight: bold;
   margin-bottom: 20px;
   cursor: pointer;
-}
+} */
 
+/* 
 .google{
   background-color: #df4930;
-}
-.facebook{
-  background-color: #507cc0;
-}
-.github{
-  background-color: black;
-}
+} */
 
-.icon{
+
+/* .github{
+  background-color: black;
+} */
+
+/* .icon{
   width: 20px;
   height: 20px;
   margin-right: 10px;
-}
+} */
 
-input{
+/* input{
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
-}
+} */
 
-.submit{
+/* .submit{
   width: 200px;
   background-color: rgba(128, 0, 128, 0.671);
   color: white;
@@ -203,82 +259,47 @@ input{
   border: none;
   padding: 15px 20px;
   border-radius: 5px;
-}
+} */
 
-.loginTitle{
+/* .loginTitle{
   position: absolute;
   top: 150px;
   color:lightgray
-}
+} */
 
-.link{
-  margin-left: 2rem;
-  color: inherit;
-  text-decoration: none;
-}
 
-@media screen and (max-width: 992px) {
-  .card {
-    width: 100%;
-    margin-bottom: 50px;
-  }
 
-  .wrapper {
-    width: 65%;
-    height: 90%;
-    flex-direction: column;
-  }
-
-  .loginTitle {
-    display: none;
-  }
-
-  .center {
+  /* .center {
     width: 100%;
     position: relative;
-  }
+  } */
 
-  .left {
+  /* .right {
     padding: 20px;
-  }
+  } */
 
-  .right {
-    padding: 20px;
-  }
-
-  .line {
+  /* .line {
     height: 0.5px;
     width: 300px;
-  }
-}
-
-
-/* css variables */
-
-:root {
-  --bg: #242526;
-  --text-color: white;
-  --border: 1px solid black;
-  --border-radius: 8px;
+  } */
 }
 
 /* Dropdown */
 
-.container {
-
+/* .container {
   width: 100%;
   height: 100vh;
-}
+} */
 
-.dropdown{
+/* .dropdown{
   user-select: none;
   margin-left: 40px;
   height: 40px;
   width: 80px;
   margin: 100px auto;
-}
+} */
 
-.dropdown .dropdown-btn {
+/* .dropdown .dropdown-btn {
   padding: 15px 20px;
   background-color: black;
   font-weight: bold;
@@ -288,16 +309,16 @@ input{
   justify-content: space-between;
   border-radius: 20px;
   cursor: pointer;
-}
+} */
 
-.dropdown .dropdown-content {
+/* .dropdown .dropdown-content {
   postion: absolute;
-  /* top: 110%; */
-  /* padding: -55px; */
+  top: 110%;
+  padding: -55px;
   font-weight: 300;
-}
+} */
 
-.dropdown .dropdown-content .dropdown-item {
+/* .dropdown .dropdown-content .dropdown-item {
   border-radius: 20px;
   background: black;
   color: white;
@@ -305,8 +326,8 @@ input{
   padding: 10px;
   cursor: pointer;
   transition: all 0.25s;
-}
+} */
 
-.dropdown .dropdown-content .dropdown-item:hover{
+/* .dropdown .dropdown-content .dropdown-item:hover{
   background-color: rgb(187, 174, 174);
-}
+} */

@@ -1,7 +1,8 @@
 import React, {useContext,useState } from "react";
 import { Link } from "react-router-dom";
 import { ChatContext } from "../context/SharedContext";
-import  Dropdown from "./Dropdown.jsx";
+import Menu from "./Dropdown.styled"
+import Options from "./OptionsLeft.styled"
 
 export default function NavBar() {
   const [selected,setSelected] = useState("Menu");
@@ -12,17 +13,21 @@ export default function NavBar() {
   };
 
   return (
-
     <div>
-
       <div className="navbar">
       <span className="logo">
         <Link className="link" to="/">
           Flock
         </Link>
       </span>
+
       
-      < Dropdown selected={selected} setSelected={setSelected} />
+
+      {/* Searchbar */}
+      <input className="searchBar" type="text" placeholder="Search.."></input>
+
+    {/* Dropdown checks his own name! :) */}
+    < Menu selected={selected} setSelected={setSelected} /> 
 
         <ul className="list">
           <li className="listItem">
@@ -32,16 +37,21 @@ export default function NavBar() {
               className="avatar"
             />
 
-       
-
           </li>
-          <li className="listItem">{state.user.source ==='google'?state.user.firstName + ' ' + state.user.lastName:state.user.userName}</li>
+
+          {/* line 39 displays username! */}
+          {/* <li className="listItem">{state.user.source ==='google'?state.user.firstName + ' ' + state.user.lastName:state.user.userName}</li> */}
+          
           <li className="listItem" onClick={logout}>
             Logout
           </li>
         </ul>
+        
     </div>
 
+
+    
+    <Options />
     </div>
   )
 }

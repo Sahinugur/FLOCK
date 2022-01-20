@@ -2,11 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from '../components/Navbar'
+import { GlobalStyles } from "../components/GlobalStyles.style"
+
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
 
-  useEffect(() => {
 
+
+  useEffect(() => {
     const getUser = () => {
       fetch("http://localhost:5001/auth/login/success", {
         method: "GET",
@@ -30,9 +33,11 @@ export default function Home() {
   console.log(state);
   return (
     <div>
+      <GlobalStyles/>
          <NavBar/> 
-        <h1>this is the Home page</h1>
-      <h2>{state.user.userName}</h2>
+        {/* <h1>this is the Home page</h1>
+      <h2>{state.user.userName}</h2> */}
+      <div Left></div>
       
     </div>
   );

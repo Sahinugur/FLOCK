@@ -7,13 +7,19 @@ import {
   Switch,
 } from "react-router-dom";
 import SharedContext from "./context/SharedContext";
-import Login from "./components/Login.jsx";
+import Login from "./components/Login.styled.js";
 import Home from "./pages/Home.js";
+
+
+import { GlobalStyles } from "./components/GlobalStyles.style"
 
 export default function App() {
   return (
+    <>  
+    <GlobalStyles />
     <SharedContext>
       <div>
+    
         <Routes>
           <Route path="/" element={<Login />}></Route>
            <Route path="/home" element={<Home />}></Route>
@@ -21,5 +27,6 @@ export default function App() {
         </Routes>
       </div>
     </SharedContext>
+    </>
   );
 }

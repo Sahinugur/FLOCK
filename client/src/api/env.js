@@ -1,4 +1,4 @@
-const env  ={
+const env  = {
     BASE_URL: 'http://localhost:5001',
     REGISTRATION: '/user/register',
     LOGIN: "/users/login",

@@ -4,22 +4,23 @@ const multer  = require("multer");
 const storage = multer.diskStorage({
     
     destination: (req, file, cb) => {
-        switch (file.mimetype) {
-            case "image/png" || "image/jpg" || "image/jpeg":
-                cb(null, "uploads/images/")
-                break;
+        cb(null, "uploads/")
+        // switch (file.mimetype) {
+        //     case "image/png" || "image/jpg" || "image/jpeg":
+        //         cb(null, "uploads/images/")
+        //         break;
             
-            case "video/mp4" || "video/MPEG-4" || "video/mkv":
-                cb(null, "uploads/videos/")
-                break;
+        //     case "video/mp4" || "video/MPEG-4" || "video/mkv":
+        //         cb(null, "uploads/videos/")
+        //         break;
 
-            case ".pdf" || ".doc" || ".docx":
-                cb(null, "uploads/files/")
-                break;
+        //     case ".pdf" || ".doc" || ".docx":
+        //         cb(null, "uploads/files/")
+        //         break;
 
-            default:
-                break;
-        }
+        //     default:
+        //         break;
+        // }
 
     },
     filename: (req, file, cb) => {

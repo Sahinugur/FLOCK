@@ -32,6 +32,7 @@ function Post() {
           posts.map((post, index) => {
             return (
               <div key={index}>
+                <div>{/* avatar */}</div>sk
                 <p class="post-authorL">{post.author}</p>
                 <h3 className="post-contentL">{post.content}</h3>
                 <h4 className="date-postL">date post</h4>

@@ -19,8 +19,8 @@ const {
 
 // router.route("/").get(getPost);
 router.get("/", getAllPosts);
-router.get("/post", getPost);
-router.put("/updatepost", updatePost);
+router.get("/post/:pid", getPost);
+router.put("/updatepost/:pid", updatePost);
 router.delete("/deletepost", deletePost);
 // router.get("/getLatest", getLatest);
 

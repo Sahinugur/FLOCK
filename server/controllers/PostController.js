@@ -6,17 +6,20 @@ async function createPost(req, res, next) {
   try {
     //find the user who wants to add a post
     const user = await userSchema.findById(req.params.uid);
-
     if (user) {
       //add the new post to collection Post
-      const result = await postSchema.create({
-        title: req.body.title,
-        content: req.body.content,
-        author: user._id,
-        filePath: req.filePath,
-      });
+      const newPost = await postSchema
+        .create({
+          title: req.body.title,
+          content: req.body.content,
+          author: user._id,
+          filePath: req.filePath,
+          likes: [],
+          link: req.body.link,
+        })
+        .populate("author", "userName");
       //send result to the front end
-      res.status(200).send(result);
+      res.status(200).send(newPost);
     } else {
       //if the id in req.params.uid doesn't exist
       res.status(400).send({ error: "This user doesn't exist." });
@@ -27,32 +30,65 @@ async function createPost(req, res, next) {
 }
 
 //             Get a single post
+
 async function getPost(req, res, next) {
   try {
-    const post = await postSchema.find();
+    const post = await postSchema
+      .findById(req.params.pid)
+      .populate("author", "userName");
+    console.log(post);
     res.status(200).send(post);
   } catch (error) {
     next(error);
   }
 }
-
-//              Get all post
+// ------ Get all posts
 async function getAllPosts(req, res, next) {
   try {
-    const posts = await postSchema.find();
+    const posts = await postSchema.find().populate("author", "userName");
     res.status(200).send(posts);
   } catch (error) {
     next(error);
   }
 }
-
-async function getLatest(req, res, next) {
+//              Get all post sorted
+async function getAllPosts(req, res, next) {
   try {
-    const latestPost = await postSchema.find().sort({ _id: -1 });
+    const latestPost = await postSchema
+      .find()
+      .sort({ createdTime: -1 })
+      .populate("author", "userName");
     res.status(200).send(latestPost);
   } catch (error) {
     next(error);
   }
 }
 
-module.exports = { createPost, getAllPosts, getPost, getLatest };
+//      Updating a post function
+async function updatePost(req, res, next) {
+  try {
+    const id = req.params.pid;
+    let updatedVersion = await postSchema
+      .findByIdAndUpdate(id, req.body, { new: true })
+      .populate("author", "userName");
+    updatedVersion = await postSchema.findById(id);
+    res.status(200).send(updatedVersion);
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function deletePost(req, res, next) {
+  try {
+    // let ownershipCheck = await postSchema.findById(req.param.pid);
+
+    const id = req.body.id;
+    const deletedPost = await postSchema.findByIdAndDelete(id);
+    res.status(200).send("post is deleted");
+    console.log(deletedPost);
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost };

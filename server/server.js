@@ -48,7 +48,7 @@ mongoose.connection.on("error", (err) => {
   console.log("connection err: ", err.message);
 });
 mongoose.connection.once("open", () => {
-  console.log("connection established successfully!");
+  console.log("connection with MongoDB established successfully!");
 });
 
 /**ROUTES */

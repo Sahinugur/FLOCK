@@ -107,7 +107,7 @@
 
 .wrapper {
   width: 80%;
-  height:90%;
+  height: 90%;
   -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -117,21 +117,17 @@
   justify-content: space-around;
 }
 
-
-.right{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .form {
-  
   display: flex;
   flex-direction: column;
 }
-.center{
- 
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,17 +135,17 @@ align-items: center;
   width: 100%;
 }
 
-.or{
+.or {
   border: 2px solid lightgray;
   border-radius: 50%;
   padding: 10px;
   color: gray;
   background-color: white;
   font-weight: bold;
-  margin-bottom:8px;
+  margin-bottom: 8px;
 }
 
-.line{
+.line {
   width: 100%;
   height: 2px;
   background-color: lightgray;
@@ -162,7 +158,7 @@ align-items: center;
   z-index: -1;
 }
 
-.loginButton{
+.loginButton {
   width: 150px;
   padding: 15px 25px;
   border-radius: 5px;
@@ -174,29 +170,29 @@ align-items: center;
   cursor: pointer;
 }
 
-.google{
+.google {
   background-color: #df4930;
 }
-.facebook{
+.facebook {
   background-color: #507cc0;
 }
-.github{
+.github {
   background-color: black;
 }
 
-.icon{
+.icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-input{
+input {
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
 }
 
-.submit{
+.submit {
   width: 200px;
   background-color: rgba(128, 0, 128, 0.671);
   color: white;
@@ -206,13 +202,13 @@ input{
   border-radius: 5px;
 }
 
-.loginTitle{
+.loginTitle {
   position: absolute;
   top: 150px;
-  color:lightgray
+  color: lightgray;
 }
 
-.link{
+.link {
   color: inherit;
   text-decoration: none;
 }
@@ -251,10 +247,84 @@ input{
     width: 300px;
   }
 }
-.registration-form{
+/* .registration-form{
   display: flex;
   flex-direction: column;
 
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+
+/* Lorenzo CSS */
+
+.postsL {
+  background-color: rgba(235, 165, 165, 0.928);
+  width: 500px;
+  margin: 0 auto;
+  /* flex-direction: column;
+  justify-content: flex-start; */
+  /* align-items: center; */
+  padding: 2rem;
+  /* border: 1px solid  black; */
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+/* .posts p {
+  align-items:flex-startstate.user.firstName
+} */
+
+.postImgL {
+  width: 100%;
+  height: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.icons {
+  display: flex;
+  justify-content: right;
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+
+.iconHeart {
+  color: #df4930;
+}
+
+.fa-bookmark {
+  margin-right: 1em;
+}
+
+.buttonL {
+  background-color: rgb(35, 19, 27);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 12px;
+  text-align: right;
+  float: right;
+  font-weight: bold;
+}
+
+.commentL {
+  color: rgb(48, 58, 67);
+  padding: 0.8rem;
+  border: solid rgb(123, 109, 109) 1px;
+  border-radius: 10px;
+  font-family: "Work Sans", sans-serif;
+  margin-bottom: 6rem;
+  height: 8vh;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px;
+}
+
+.post-authorL {
+  color: gray;
+  font-family: "Work Sans", sans-serif;
+}
+
+.post-contentL {
+  font-family: "Work Sans", sans-serif;
+}
+
+.date-postL {
+  font-family: "Work Sans", sans-serif;
 }

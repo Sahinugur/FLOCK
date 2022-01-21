@@ -21,7 +21,11 @@ const userSchema = new Schema({
       profilePhoto: String,
       password: String,
       source: { type: String, default:'local' },
-      lastVisited: { type: Date, default: new Date() }
+      lastVisited: { type: Date, default: new Date() },
+       verified: {
+        type: Boolean,
+        required: true,
+      }, 
 })
 
 userSchema.pre('save', async function (next) {

@@ -15,7 +15,7 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const emailRouter = require("./routes/confirmations.js");
 const cookieSession = require("cookie-session");
-const {mainErrorHandler} = require("./middleware/errorHandler");
+const { mainErrorHandler } = require("./middleware/errorHandler");
 /*Middlewares*/
 
 app.use(cors(corsOptions));
@@ -57,7 +57,7 @@ mongoose.connection.once("open", () => {
 /**ROUTES */
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
-app.use('/confirm',emailRouter);
+app.use("/confirm", emailRouter);
 
 app.use("/posts", postRoute);
 //Test images folder connection
@@ -66,10 +66,10 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 //
 
 /**MAIN ERROR HANDLER */
-app.use(  mainErrorHandler  );
+app.use(mainErrorHandler);
 
 /**SETUP SERVER */
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5001;
 server.listen(port, () => {
   console.log(`Server is up and running on port: http://localhost:${port}`);
 });

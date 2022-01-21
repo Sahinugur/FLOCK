@@ -6,7 +6,7 @@ import env from "../api/env";
 //import {ChatContext} from "../context/SharedContext"
 function Post() {
   const [posts, setPosts] = useState([]);
-  const PUBLIClocation = "http://localhost:5002/uploads/";
+  const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
@@ -26,7 +26,6 @@ function Post() {
   return (
     <div>
       {console.log("posts", posts)}
-      <button>Call server</button>
       <div className="postsL">
         {posts ? (
           posts.map((post, index) => {
@@ -39,7 +38,6 @@ function Post() {
                 <h4 className="date-postL">{post.createdTime}</h4>
                 <img
                   className="postImgL"
-                  // src="http://localhost:5002/uploads/fadi-xd-I4dR572y7l0-unsplash-1642755615657.jpeg"
                   src={PUBLIClocation + post.filePath}
                   alt="image of the post"
                 />

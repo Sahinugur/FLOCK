@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
+import Post from "../components/Post";
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
 
@@ -38,6 +39,7 @@ export default function Home() {
       ) : (
         <h2>{state.user.firstName}</h2>
       )}
+      <Post />
     </div>
   );
 }

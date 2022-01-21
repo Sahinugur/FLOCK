@@ -11,7 +11,7 @@ import Login from "./components/Login.jsx";
 import Home from "./pages/Home.js";
 import Register from "./components/Register";
 
-import Post from "./components/Post.jsx";
+// import Post from "./components/Post.jsx";
 export default function App() {
   return (
     <SharedContext>
@@ -20,7 +20,7 @@ export default function App() {
           <Route path="/" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/post" element={<Post />}></Route>
+          {/* <Route path="/posts" element={<Post />}></Route> */}
           {/* <Route path="/join" element={<Join />}></Route> */}
         </Routes>
       </div>

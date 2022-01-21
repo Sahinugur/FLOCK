@@ -4,7 +4,8 @@ const { compare } = require('../lib/encryption');
 const uuid = require("uuid");
 const jwt = require("jsonwebtoken");
 const emailSender = require("../models/emailSender")
-const bcrypt = require("bcryptjs");
+
+const {connect} = require('../helpers/connection')
 /************ LIST OF USERS */
 async function getUsers(req, res, next) {
     try {
@@ -30,7 +31,7 @@ async function getUser(req, res, next) {
 
 /************ REGISTER USER */
 async function registerUser(req, res, next) {
-  
+    await connect();
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res
@@ -55,10 +56,13 @@ async function registerUser(req, res, next) {
             email,
             firstName,
             lastName,
-            source
+            source,
+            verified:false,
+            isAdmin:false
         });
 
         newUser.verified = false;
+        newUser.isAdmin = false;
         //save user
         await newUser.save();
         //send email validation before saving in database

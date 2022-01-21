@@ -1,8 +1,8 @@
 const env  ={
     BASE_URL: 'http://localhost:5001',
-    REGISTRATION: '/user/register',
+    REGISTRATION: '/users/register',
     LOGIN: "/users/login",
-    USERS: '/user/all',
+    USERS: '/users',
     GOOGLE: "/auth/google",
     GITHUB: "/auth/github"
 }

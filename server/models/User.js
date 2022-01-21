@@ -9,8 +9,8 @@ const userSchema = new Schema({
       },
       userName: {
         type: String,
-        required: [true, "email required"],
-        unique: [true, "email already registered"],
+        required: [true, "username required"],
+        unique: [true, "username already registered"],
       },
       email: {
         type: String,
@@ -20,7 +20,7 @@ const userSchema = new Schema({
       lastName: String,
       profilePhoto: String,
       password: String,
-      source: { type: String, required: [true, "source not specified"] },
+      source: { type: String, default:'local' },
       lastVisited: { type: Date, default: new Date() }
 })
 

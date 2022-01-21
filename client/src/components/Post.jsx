@@ -6,7 +6,7 @@ import env from "../api/env";
 //import {ChatContext} from "../context/SharedContext"
 function Post() {
   const [posts, setPosts] = useState([]);
-
+  const PUBLIClocation = "http://localhost:5002/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
@@ -30,20 +30,23 @@ function Post() {
       <div className="postsL">
         {posts ? (
           posts.map((post, index) => {
+            console.log(PUBLIClocation + post.filePath);
             return (
               <div key={index}>
                 <div>{/* avatar */}</div>sk
-                <p class="post-authorL">{post.author}</p>
+                <p className="post-authorL">{post.author.userName}</p>
                 <h3 className="post-contentL">{post.content}</h3>
-                <h4 className="date-postL">date post</h4>
-                <img 
+                <h4 className="date-postL">{post.createdTime}</h4>
+                <img
                   className="postImgL"
-                  src="https://www.rismedia.com/wp-content/uploads/2019/05/social_media_post_936185802.jpg"
+                  // src="http://localhost:5002/uploads/fadi-xd-I4dR572y7l0-unsplash-1642755615657.jpeg"
+                  src={PUBLIClocation + post.filePath}
+                  alt="image of the post"
                 />
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}
-                   /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
+                    /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
                   <FontAwesomeIcon icon={faHeart} className="iconHeart" />
                 </div>
@@ -61,15 +64,11 @@ function Post() {
               src="https://www.rismedia.com/wp-content/uploads/2019/05/social_media_post_936185802.jpg"
             />
             <div className="icons">
-              <FontAwesomeIcon
-                icon={faBookmark}
-                className="iconBookmark"
-              />
+              <FontAwesomeIcon icon={faBookmark} className="iconBookmark" />
               {/* iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark */}
               <FontAwesomeIcon icon={faHeart} className="iconHeart" />
             </div>
-            <h4 className="commentL">Write a comment ..</h4>
-            {" "}
+            <h4 className="commentL">Write a comment ..</h4>{" "}
           </>
         )}
       </div>

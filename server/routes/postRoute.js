@@ -17,7 +17,6 @@ const {
   deletePost,
 } = require("../controllers/PostController");
 
-
 router.get("/", getAllPosts);
 router.get("/post/:pid", getPost);
 router.put("/updatepost/:pid", updatePost);

@@ -6,6 +6,7 @@ const corsOptions = require("../server/middleware/security");
 const http = require("http");
 const cors = require("cors");
 const server = http.createServer(app);
+const path = require("path");
 
 const usersRoute = require("./routes/usersRoute");
 const postRoute = require("./routes/postRoute");
@@ -34,6 +35,7 @@ app.use(
     maxAge: 24 * 60 * 60 * 100,
   })
 );
+
 /**SETUP PASSPORT JS */
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,6 +58,10 @@ app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 
 app.use("/posts", postRoute);
+//Test images folder connection
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+//
 
 /**MAIN ERROR HANDLER */
 

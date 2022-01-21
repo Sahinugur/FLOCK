@@ -8,16 +8,15 @@ async function createPost(req, res, next) {
     const user = await userSchema.findById(req.params.uid);
     if (user) {
       //add the new post to collection Post
-      const newPost = await postSchema
-        .create({
-          title: req.body.title,
-          content: req.body.content,
-          author: user._id,
-          filePath: req.filePath,
-          likes: [],
-          link: req.body.link,
-        })
-        .populate("author", "userName");
+      const newPost = await postSchema.create({
+        title: req.body.title,
+        content: req.body.content,
+        author: req.param.uid,
+        filePath: req.filePath,
+        likes: [],
+        link: req.body.link,
+      });
+      // .populate("author", "userName");
       //send result to the front end
       res.status(200).send(newPost);
     } else {

@@ -102,4 +102,3 @@ transition: all 0.25s;
     background-color: rgba(80,30,10,0.1);   
 }
 `;
-

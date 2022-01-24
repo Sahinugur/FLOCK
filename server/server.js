@@ -51,5 +51,5 @@ app.use("/users", usersRoute);
 /**SETUP SERVER */
 const port = process.env.PORT || 5001;
 server.listen(port, () => {
-  console.log(`Server is up and running on port:${port}`);
+  console.log(`Server is up and running on port: ${port}`);
 });

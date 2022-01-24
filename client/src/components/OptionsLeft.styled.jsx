@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import { GlobalStyles } from "./GlobalStyles.style.jsx" // works like a global css file.
 
 const Container = styled.div`
@@ -38,22 +39,27 @@ const Option = styled.button`
 
 export default function Options() {
 
-    const RouteToProjects = () => {
-    
-    }
 
-    const RouteToEvents = () => {
-    
-    }
-    
+    // <Option>
+    //     <Link className="link" to="/Room">Room</Link>
+    // </Option>
+    // <Option>
+    //     <Link className="link" to="/Chat">Chat</Link>
+    // </Option>
+    // <Option>
+    //      <Link className="link" to="/Events">Events</Link>
+    // </Option>
+
+
+
     return (
         <div>
             <>
-            <Container>  
-                <Option>View all Projects</Option>
-                <Option>Upcoming Events</Option>
-                <Option>Events</Option>
-            </Container>
+                <Container>
+                    <Option>Room</Option>
+                    <Option>Upcoming Events</Option>
+                    <Option>Events</Option>
+                </Container>
             </>
         </div>
     )

@@ -176,61 +176,47 @@ You see them around with no .style in the fileExtension! */
   justify-content: center;
 } */
 
-<<<<<<< HEAD
-/* .wrapper {
-  width: 60%;
-  height: 75%;
-=======
 .wrapper {
   width: 80%;
   height: 90%;
->>>>>>> Development
   -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   display: flex;
   align-items: center;
   border-radius: 20px;
-<<<<<<< HEAD
-} */
+}
 
 
 /* .left,.right{
   flex: 1;
-=======
   justify-content: space-around;
 }
 
 .right {
->>>>>>> Development
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
 } */
 
 /* .center{
   height: 100%;
-=======
 }
 .form {
   display: flex;
   flex-direction: column;
 }
 .center {
->>>>>>> Development
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-<<<<<<< HEAD
 } */
 
 /* .line{
   width: 0.5px;
   height: 70%;
-=======
   width: 100%;
 }
 
@@ -247,7 +233,6 @@ You see them around with no .style in the fileExtension! */
 .line {
   width: 100%;
   height: 2px;
->>>>>>> Development
   background-color: lightgray;
   position: absolute;
   top: 0;
@@ -258,11 +243,8 @@ You see them around with no .style in the fileExtension! */
   z-index: -1;
 } */
 
-<<<<<<< HEAD
 /* .loginButton{
-=======
 .loginButton {
->>>>>>> Development
   width: 150px;
   padding: 15px 25px;
   border-radius: 5px;
@@ -274,7 +256,6 @@ You see them around with no .style in the fileExtension! */
   cursor: pointer;
 } */
 
-<<<<<<< HEAD
 /* 
 .google{
   background-color: #df4930;
@@ -282,7 +263,6 @@ You see them around with no .style in the fileExtension! */
 
 
 /* .github{
-=======
 .google {
   background-color: #df4930;
 }
@@ -290,35 +270,25 @@ You see them around with no .style in the fileExtension! */
   background-color: #507cc0;
 }
 .github {
->>>>>>> Development
   background-color: black;
 } */
 
-<<<<<<< HEAD
 /* .icon{
-=======
 .icon {
->>>>>>> Development
   width: 20px;
   height: 20px;
   margin-right: 10px;
 } */
 
-<<<<<<< HEAD
 /* input{
-=======
 input {
->>>>>>> Development
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
 } */
 
-<<<<<<< HEAD
 /* .submit{
-=======
 .submit {
->>>>>>> Development
   width: 200px;
   background-color: rgba(128, 0, 128, 0.671);
   color: white;
@@ -328,14 +298,12 @@ input {
   border-radius: 5px;
 } */
 
-<<<<<<< HEAD
 /* .loginTitle{
   position: absolute;
   top: 150px;
   color:lightgray
 } */
 
-=======
 .loginTitle {
   position: absolute;
   top: 150px;
@@ -346,7 +314,6 @@ input {
   color: inherit;
   text-decoration: none;
 }
->>>>>>> Development
 
 
   /* .center {
@@ -361,7 +328,6 @@ input {
   /* .line {
     height: 0.5px;
     width: 300px;
-<<<<<<< HEAD
   } */
 }
 
@@ -412,9 +378,8 @@ input {
 /* .dropdown .dropdown-content .dropdown-item:hover{
   background-color: rgb(187, 174, 174);
 } */
-=======
-  }
-}
+
+
 /* .registration-form{
   display: flex;
   flex-direction: column;
@@ -496,4 +461,3 @@ input {
 .date-postL {
   font-family: "Work Sans", sans-serif;
 }
->>>>>>> Development

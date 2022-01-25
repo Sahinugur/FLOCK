@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { GlobalStyles } from "./GlobalStyles.style.jsx" // works like a global css file.
 
-
-
 // This is a styled React component!
 
 export default function Menu({ selected, setSelected }) {
@@ -17,7 +15,7 @@ export default function Menu({ selected, setSelected }) {
                 {selected}
 
             </DropdownBtn>
-            {isActive && (            // if active map trough the Elements of the DropdownItems and show them.
+            {isActive && (  // if active map trough the Elements of the DropdownItems and show them.
                 <DropdownContent>
                     {options.map((option) => (
                         <DropdownItem onclick={(e) => {
@@ -34,9 +32,6 @@ export default function Menu({ selected, setSelected }) {
 }
 
 // **** styled Components ****
-
-
-
 
 const Dropdown = styled.div`
 font-size: 14px;

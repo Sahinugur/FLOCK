@@ -32,7 +32,7 @@ const makeCall = async (
             })
             .catch((error) => {throw new Error(error)});
         } else {
-          throw new Error(`response status is ${response.status}`);
+          throw new Error(`response status is ${response.json().then((data) => resolve(data))}`);
         }
       })
       .catch(error =>console.log(error));

@@ -1,13 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
-import NavBar from '../components/Navbar'
-import { GlobalStyles } from "../components/GlobalStyles.style"
-
+import NavBar from "../components/Navbar";
+import Post from "../components/Post";
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
-
-
 
   useEffect(() => {
     const getUser = () => {
@@ -20,25 +17,29 @@ export default function Home() {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-          dispatch({ type: "AUTHENTICATED", payload: resObject.user });
+          dispatch(
+            { type: "AUTHENTICATED", payload: resObject.user },
+            console.log(`resObject.user`, resObject.user)
+          );
         })
         .catch((err) => {
           console.log(err);
-        }); 
-       
+        });
     };
     getUser();
   }, []);
 
-  console.log(state);
+  console.log("state", state);
   return (
     <div>
-      <GlobalStyles/>
-         <NavBar/> 
-        {/* <h1>this is the Home page</h1>
-      <h2>{state.user.userName}</h2> */}
-      <div Left></div>
-      
+      <NavBar />
+      <h1>this is the Home page</h1>
+      {state.user.source !== "github" ? (
+        <h2>{state.user.email}</h2>
+      ) : (
+        <h2>{state.user.firstName}</h2>
+      )}
+      <Post />
     </div>
   );
 }

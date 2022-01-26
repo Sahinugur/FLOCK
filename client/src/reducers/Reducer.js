@@ -1,6 +1,8 @@
 export const initialState = {
     user: {},
     rooms: [],
+  
+
     
 };
 

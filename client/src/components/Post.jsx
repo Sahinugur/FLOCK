@@ -6,7 +6,7 @@ import env from "../api/env";
 //import {ChatContext} from "../context/SharedContext"
 function Post() {
   const [posts, setPosts] = useState([]);
-  const PUBLIClocation = "http://localhost:5002/uploads/";
+  const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
@@ -26,7 +26,6 @@ function Post() {
   return (
     <div>
       {console.log("posts", posts)}
-      <button>Call server</button>
       <div className="postsL">
         {posts ? (
           posts.map((post, index) => {

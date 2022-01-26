@@ -34,6 +34,7 @@ passport.use(
       const lastName = profile.name.familyName;
       const profilePhoto = profile.photos[0].value;
       const source = "google";
+      const isVerified = true;
 
       const currentUser = await getUserByUserName({ userName })
 
@@ -45,7 +46,8 @@ passport.use(
           firstName,
           lastName,
           profilePhoto,
-          source
+          source,
+          isVerified
         })
         return done(null, newUser);
       }
@@ -56,6 +58,7 @@ passport.use(
       }
 
       currentUser.lastVisited = new Date();
+      currentUser.isVerified=true;
   
 
       done(null, profile);
@@ -106,7 +109,7 @@ passport.use(
   )
 );
 
-passport.use(new LocalStrategy(
+/* passport.use(new LocalStrategy(
   async function (userName, password, done) {
     const currentUser = await getUserByUserName({ userName })
     console.log(`currentUser`, currentUser);
@@ -125,7 +128,7 @@ passport.use(new LocalStrategy(
     return done(null, currentUser);
   }
 ));
-
+ */
 
 //because we are using sessions we should serialize and deserialize users
 passport.serializeUser((user, done) => {

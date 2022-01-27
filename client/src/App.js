@@ -17,7 +17,8 @@ import { GlobalStyles } from "./components/GlobalStyles.style"
 // import Post from "./components/Post.jsx";
 export default function App() {
   return (
-    <>  
+    <> 
+     
     <GlobalStyles />
     <SharedContext>
       <div>

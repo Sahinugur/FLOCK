@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
-import makeCall from "../api/Call";
-import env from "../api/env";
+import makeCall from "../../api/Call";
+import env from "../../api/env";
+
+import "./post.css";
+import "../../pages/home.css";
+
 //import {ChatContext} from "../context/SharedContext"
+
 function Post() {
   const [posts, setPosts] = useState([]);
   const PUBLIClocation = "http://localhost:5001/uploads/";
@@ -15,16 +20,11 @@ function Post() {
 
   /*  const getServerData = (e) => {
     e.preventDefault();
- 
-  
-
-
-
 };
  */
 
   return (
-    <div>
+    <div className="postWrap">
       {console.log("posts", posts)}
       <div className="postsL">
         {posts ? (

@@ -1,8 +1,12 @@
 import React, {useContext,useState } from "react";
 import { Link } from "react-router-dom";
-import { ChatContext } from "../context/SharedContext";
-import Menu from "./Dropdown.styled"
-import Options from "./OptionsLeft.styled"
+import { ChatContext } from "../../context/SharedContext";
+import Menu from "../LeftSidebarLinks/LeftSideBarLinks";
+
+// the style of the menu is not right!! thats the white thing in the navbar!!!
+import "../Dropdown/Dropdown";
+import "./navbar.css";
+import "../../pages/home.css";
 
 export default function NavBar() {
   const [selected,setSelected] = useState("Menu");
@@ -21,13 +25,11 @@ export default function NavBar() {
         </Link>
       </span>
 
-      
-
       {/* Searchbar */}
       <input className="searchBar" type="text" placeholder="Search.."></input>
 
     {/* Dropdown checks his own name! :) */}
-    < Menu selected={selected} setSelected={setSelected} /> 
+    {/* < Menu selected={selected} setSelected={setSelected} />  */}
 
         <ul className="list">
           <li className="listItem">
@@ -45,13 +47,8 @@ export default function NavBar() {
           <li className="listItem" onClick={logout}>
             Logout
           </li>
-        </ul>
-        
-    </div>
-
-
-    
-    <Options />
+        </ul>  
+      </div>
     </div>
   )
 }

@@ -1,11 +1,10 @@
 .postWrap {
     grid-area: post;
-  
   }
   .postsL {
     background-color: rgb(228, 83, 83);
     /* background-color: rgba(102, 16, 83, 0.698); */
-    width: 500px;
+    width: 300px;
     margin: 0 auto;
     /* flex-direction: column;
     justify-content: flex-start; */

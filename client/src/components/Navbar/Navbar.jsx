@@ -38,7 +38,6 @@ export default function NavBar() {
               alt=""
               className="avatar"
             />
-
           </li>
 
           {/* line 39 displays username! */}

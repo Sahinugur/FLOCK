@@ -35,10 +35,13 @@
     padding: 0;
     font-family: ‘Roboto’, sans-serif;
     /*  outline: 2px solid pink; */
+   
 }
 body {
     background-color:   white;
     color: black; /* hello pietro */
+    
+
 }
 /* navbar = nav */
 /* Container with options on the left =  left */
@@ -50,10 +53,12 @@ body {
 .grid-container {
   display: grid;
   width: 100vw;
+
   grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows:  300px;
+
   grid-template-areas:
-    “nav nav nav nav nav”
-    “left post post post ”
+    "nav nav nav nav nav" 
+    "left post post post ."
   }
     

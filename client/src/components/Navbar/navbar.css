@@ -1,13 +1,7 @@
+
 .navbar {
- /*  grid-area: nav;
-  height: 12vh;
-  background-color: rgba(102, 16, 83, 0.698);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 3px solid black; */
-  grid-area: nav;
+    grid-area: nav;
+    width: 100vw;
     height: 12vh;
     background-color: rgba(102, 16, 83, 0.698);
     color: white;
@@ -16,7 +10,7 @@
     justify-content: space-around;
     border-bottom: 3px solid black;
     width: 100%;
-    
+
 }
   .logo {
     font-size: 30px;

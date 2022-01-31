@@ -47,8 +47,11 @@
 
   /*  searchbar in navbar */
 
+
   .searchBar {
     position: relative;
-    left: 12rem;
+    top: 0.6rem;
+    left: 1rem;
     font-size: 25px;
+    width:40%;
     };

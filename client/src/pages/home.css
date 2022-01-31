@@ -25,6 +25,7 @@ body {
 
 .grid-container {
   display: grid;
+  
   width: 100vw;
 
   grid-template-columns: 3fr 1fr 1fr;
@@ -32,7 +33,7 @@ body {
 
   grid-template-areas:
     "nav nav nav nav nav" 
-    "left post post . ."
+    "left post . . . "
   }
   
   @media (max-width: 768px){

@@ -52,6 +52,7 @@ body {
 }
 .grid-container {
   display: grid;
+  
   width: 100vw;
 
   grid-template-columns: 3fr 1fr 1fr;

@@ -15,6 +15,7 @@ function Post() {
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
+      console.log(result);
     });
   }, []);
 
@@ -39,7 +40,7 @@ function Post() {
                 <img
                   className="postImgL"
                   // src="http://localhost:5002/uploads/fadi-xd-I4dR572y7l0-unsplash-1642755615657.jpeg"
-                  src={PUBLIClocation + post.filePath}
+                  src={post.filePath?PUBLIClocation + post.filePath:PUBLIClocation+""}
                   alt="image of the post"
                 />
                 <div className="icons">

@@ -57,6 +57,7 @@ async function getAllPosts(req, res, next) {
       .find()
       .sort({ createdTime: -1 })
       .populate("author", "userName");
+      
     res.status(200).send(latestPost);
   } catch (error) {
     next(error);

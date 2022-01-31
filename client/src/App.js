@@ -7,22 +7,20 @@ import {
   Switch,
 } from "react-router-dom";
 import SharedContext from "./context/SharedContext";
-import Login from "./components/Login.styled.js";
+import Login from "./components/Login/Login";
 import Home from "./pages/Home.js";
-import Register from "./components/Register";
+import Register from "./components/Register/Register";
 
-
-import { GlobalStyles } from "./components/GlobalStyles.style"
 
 // import Post from "./components/Post.jsx";
 export default function App() {
   return (
     <> 
      
-    <GlobalStyles />
+   {/*  <GlobalStyles /> */}
+     
     <SharedContext>
       <div>
-    
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>

@@ -1,11 +1,14 @@
 import React, { useState, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import makeCall from "../api/Call";
-import { ChatContext } from "../context/SharedContext";
+import makeCall from "../../api/Call";
+import { ChatContext } from "../../context/SharedContext";
 import { useNavigate } from "react-router-dom";
-import Google from "../img/google.png";
-import Github from "../img/github.png";
-import env from "../api/env";
+import Google from "../../img/google.png";
+import Github from "../../img/github.png";
+import env from "../../api/env";
+
+import "./login.css";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -21,6 +24,7 @@ const schema = yup
       .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   })
   .required();
+  
 export default function Login() {
   const {
     register,

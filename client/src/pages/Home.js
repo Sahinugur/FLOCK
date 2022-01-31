@@ -1,8 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
-import NavBar from "../components/Navbar";
-import Post from "../components/Post";
+import NavBar from "../components/Navbar/Navbar";
+import Post from "../components/Post/Post";
+import Options from "../components/LeftSidebarLinks/LeftSideBarLinks"
+
+import "./home.css";
+
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
 
@@ -31,14 +35,18 @@ export default function Home() {
 
   console.log("state", state);
   return (
-    <div>
+    <div className="grid-container">´
       <NavBar />
-      <h1>this is the Home page</h1>
+
+
+      <p>helllllllo</p>
+      <h1 className = "head">this is the Home page</h1>
       {state.user.source !== "github" ? (
         <h2>{state.user.email}</h2>
       ) : (
         <h2>{state.user.firstName}</h2>
       )}
+      <Options />
       <Post />
     </div>
   );

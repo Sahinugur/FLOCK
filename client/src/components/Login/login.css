@@ -1,0 +1,127 @@
+
+/*  all the classes follow the structure of the given classes in the html */
+
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  
+  .wrapper {
+    width: 80%;
+    height: 90%;
+    -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+  }
+
+   .left, .right{
+    flex: 1;
+    justify-content: space-around;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  .loginTitle {
+    position: absolute;
+    top: 150px;
+    color: lightgray;
+  }
+
+
+  .loginButton {
+    width: 150px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+  } 
+
+  .google {
+    background-color: #df4930;
+  }
+
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .center{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* .line {
+    width: 0.5px;
+    height: 70%;
+  } */
+
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: lightgray;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+  } 
+
+  .or {
+    border: 2px solid lightgray;
+    border-radius: 50%;
+    padding: 10px;
+    color: gray;
+    background-color: white;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    width: 200px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .submit {
+    width: 200px;
+    background-color: rgba(128, 0, 128, 0.671);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+  }
+
+
+ 
+
+
+    

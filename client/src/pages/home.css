@@ -40,9 +40,9 @@
 body {
     background-color:   white;
     color: black; /* hello pietro */
-    
-
+    width: 100vw;
 }
+
 /* navbar = nav */
 /* Container with options on the left =  left */
 /* post = post */
@@ -61,4 +61,10 @@ body {
     "nav nav nav nav nav" 
     "left post post post ."
   }
+
+  @media (max-width: 768px){
+    body{
+      width: 100vw;
+    }
+  };
     

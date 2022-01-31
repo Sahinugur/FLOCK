@@ -35,11 +35,11 @@ export default function Home() {
 
   console.log("state", state);
   return (
-    <div className="grid-container">´
+    <div className="grid-container">
       <NavBar />
 
 
-      <p>helllllllo</p>
+      
       <h1 className = "head">this is the Home page</h1>
       {state.user.source !== "github" ? (
         <h2>{state.user.email}</h2>

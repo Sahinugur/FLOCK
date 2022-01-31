@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div className="grid-container">´
       <NavBar />
-      <h1 className = "head">this is the Home page</h1>
+      {/* <h1 className = "head">this is the Home page</h1> */}
       {state.user.source !== "github" ? (
         <h2>{state.user.email}</h2>
       ) : (

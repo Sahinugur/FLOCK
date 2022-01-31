@@ -17,7 +17,7 @@ export default function NavBar() {
   };
 
   return (
-    <div>
+    
       <div className="navbar">
       <span className="logo">
         <Link className="link" to="/">
@@ -49,6 +49,6 @@ export default function NavBar() {
           </li>
         </ul>  
       </div>
-    </div>
+    
   )
 }

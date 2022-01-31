@@ -1,5 +1,7 @@
+
 .navbar {
     grid-area: nav;
+    width: 100vw;
     height: 12vh;
     background-color: rgba(102, 16, 83, 0.698);
     color: white;

@@ -6,6 +6,8 @@ const env = {
   GOOGLE: "/auth/google",
   GITHUB: "/auth/github",
   POST: "/posts",
+  LOGPROJECT: "/projects/log",
+  PROJECTS: "/projects"
 };
 
 export default env;

@@ -1,7 +1,7 @@
 export const initialState = {
     user: {},
     rooms: [],
-  
+    project: {}
 
     
 };
@@ -13,6 +13,7 @@ export const reduce = (state = initialState, action) => {
         ...state,
         user: action.payload,
         rooms: ["family-room", "travelling-room"],
+        project: action.payload
       };
 
     default:

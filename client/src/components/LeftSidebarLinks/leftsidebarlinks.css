@@ -1,5 +1,4 @@
 .container {
-
     grid-area: left;
    
     width: 300px;
@@ -16,7 +15,6 @@
 
 .options {
     
-  
     color: white;
     
     width: 250px;
@@ -27,11 +25,9 @@
     margin: 1.5rem;
     align-items: center; 
     text-align: center;
-   
 }
 
 .options:hover {
-    
     left: 10px;
     border-radius:40px;
     transition: 1s;

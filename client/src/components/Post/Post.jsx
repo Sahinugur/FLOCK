@@ -41,12 +41,15 @@ function Post() {
                   src={PUBLIClocation + post.filePath}
                   alt="image of the post"
                 />
+              
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
+                  
                   <FontAwesomeIcon icon={faHeart} className="iconHeart" />
+                  
                 </div>
                 <h4 className="commentL">Write a comment ..</h4>
                 {/* <button className="buttonL">back to the top</button> */}

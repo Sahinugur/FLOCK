@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-const { uploadImage, uploadVideo, uploadFile } = require("../helpers/multer");
+const { uploadFile } = require("../helpers/multer");
 const postSchema = require("../models/Post");
 
 const {

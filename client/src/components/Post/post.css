@@ -1,17 +1,24 @@
 .postWrap {
     grid-area: post;
+    position: absolute;
+    
+  
   }
   .postsL {
+    position: relative;
+    top: 18rem;
+    left: 29rem;
     background-color: rgb(228, 83, 83);
     /* background-color: rgba(102, 16, 83, 0.698); */
-    width: 300px;
-    margin: 0 auto;
-    /* flex-direction: column;
-    justify-content: flex-start; */
+    width: 25rem;
+    margin: 1rem;
+    flex-direction: column; 
+    justify-content: flex-start; 
     /* align-items: center; */
     padding: 2rem;
     /* border: 1px solid  black; */
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
   }
   /* .posts p {
     align-items:flex-startstate.user.firstName

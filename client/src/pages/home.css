@@ -60,7 +60,7 @@ body {
 
   grid-template-areas:
     "nav nav nav nav nav" 
-    "left post post . ."
+    "left post . . . "
   }
   
   @media (max-width: 768px){

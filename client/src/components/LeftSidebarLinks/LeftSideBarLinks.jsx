@@ -1,15 +1,15 @@
 import React from 'react'
 import './leftsidebarlinks.css';
-import "../../pages/home.css";
+// import "../../pages/home.css";
 
-function leftComponent() {
+export default function leftComponent() {
     return (
         <div className="container">
-            <buttons className ="options">Room</buttons>
-            <buttons className ="options">Upcoming Events</buttons>
-            <buttons className ="options">Events</buttons>
+            <button className ="options">Room</button>
+            <button className ="options">Upcoming Events</button>
+            <button className ="options">Events</button>
         </div>
     )
 }
 
-export default leftComponent
+ 

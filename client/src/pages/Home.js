@@ -43,6 +43,7 @@ export default function Home() {
       ) : (
         <h2>{state.user.firstName}</h2>
       )}
+      
       <Options />
       <Post />
     </div>

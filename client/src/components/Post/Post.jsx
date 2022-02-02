@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
 import makeCall from "../../api/Call";
 import env from "../../api/env";
-
+import axios from "axios"
 import "./post.css";
 import "../../pages/home.css";
-
-//import {ChatContext} from "../context/SharedContext"
+import {useContext} from 'react';
+import {ChatContext} from "../../context/SharedContext";
 
 function Post() {
   const [posts, setPosts] = useState([]);
+  const [likes,setLikes]=useState(0);
+  const { state, dispatch } = useContext(ChatContext);
+  console.log(state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
@@ -24,16 +27,31 @@ function Post() {
 };
  */
 
+const likePost=async(postId, userId)=>{
+  //How to understand who (userid) logged in? 
+  const res = await axios.patch(`http://localhost:5001/posts/like/${postId}/${userId}`);
+  console.log(res.data)
+  // posts.filter((post)=>{
+  //  //return post._id===id?setLikes(likes+1):"not match"
+
+  //  if(post._id==id){
+  //     const data =  axios.post(`http://localhost:5001/posts/${id}`)
+  //     console.log(data);
+  //  }
+  //})
+}
+
   return (
     <div className="postWrap">
       {console.log("posts", posts)}
       <div className="postsL">
-        {posts ? (
+        {posts.length>0? (
           posts.map((post, index) => {
             console.log(PUBLIClocation + post.filePath);
+            //start of a single post
             return (
               <div key={index}>
-                <div>{/* avatar */}</div>sk
+                <div>{/* avatar */}</div>
                 <p className="post-authorL">{post.author.userName}</p>
                 <h3 className="post-contentL">{post.content}</h3>
                 <h4 className="date-postL">{post.createdTime}</h4>
@@ -50,8 +68,8 @@ function Post() {
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
                   
-                  <FontAwesomeIcon icon={faHeart} className="iconHeart" />
-                  
+                  <FontAwesomeIcon icon={faHeart} className="iconHeart" onClick={()=>likePost(post._id, state.user.id)}/>
+                  {post.likes && post.likes.length>0?post.likes.length:""}
                 </div>
                 <h4 className="commentL">Write a comment ..</h4>
                 {/* <button className="buttonL">back to the top</button> */}

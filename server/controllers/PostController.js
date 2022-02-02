@@ -78,6 +78,20 @@ async function updatePost(req, res, next) {
   }
 }
 
+//added by hiba
+async function likePost (req,res,next){
+  try {
+    //extract postid and userid
+    //findByIdAndUpdate 
+    console.log('params:',req.params)
+    res.send({params:req.params})
+  } catch (error) {
+    next(error)
+  }
+}
+
+//like a post (which post?, who liked the post?)
+
 async function deletePost(req, res, next) {
   try {
     // let ownershipCheck = await postSchema.findById(req.param.pid);
@@ -91,4 +105,4 @@ async function deletePost(req, res, next) {
   }
 }
 
-module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost };
+module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost ,likePost};

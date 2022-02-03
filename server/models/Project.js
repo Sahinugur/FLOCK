@@ -7,16 +7,17 @@ const projectSchema = new Schema({
     founder: 
         { type: Schema.Types.ObjectId, ref: "User" },
     size_of_project:
-        [{type: Array}, {enum: ["small", "medium", "large"]}],
-    add_participants: 
-        Array,
+        [{type: String}, {enum: ["small", "medium", "large"]}],
+    participants: 
+        String,
     type_of_project: 
         [{ type: String }, { enum: ["Static Web Apps", "Dynamic Web Apps", "Single Page Apps", "Multiple Page Apps", "Animated Web Apps", "Content Management System", "E-commerce Apps", "Portal Web Apps", "Progressive Web Apps" ] }],
     technologies: 
-        Array,
+        String,
     stage_of_project: 
         [{type: String}, {enum: ["first steps", "in construction", "done"]}],
-    about_project: 
+    add_link: String,
+    few_words: 
         {type: String, minlength: 3, maxlength: 255}
 });
 

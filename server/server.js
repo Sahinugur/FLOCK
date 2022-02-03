@@ -19,7 +19,7 @@ const cookieSession = require("cookie-session");
 const { mainErrorHandler } = require("./middleware/errorHandler");
 /*Middlewares*/
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 app.use(
   cors({
     origin: "http://localhost:3000",

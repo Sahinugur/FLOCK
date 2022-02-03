@@ -1,9 +1,9 @@
+
 export const initialState = {
     user: {},
     rooms: [],
-    project: {}
+    projects: []
 
-    
 };
 
 export const reduce = (state = initialState, action) => {
@@ -11,9 +11,9 @@ export const reduce = (state = initialState, action) => {
     case "AUTHENTICATED":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
         rooms: ["family-room", "travelling-room"],
-        project: action.payload
+        projects: action.payload.projects
       };
 
     default:

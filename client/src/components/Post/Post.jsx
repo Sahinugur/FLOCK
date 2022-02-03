@@ -19,10 +19,9 @@ function Post() {
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
-      // console.log(result);
+      console.log();
     });
   }, []);
-// console.log("state",state.user.id)
 
   // makeCall(env.LIKE, "GET").then((result)=>setLikes(result))
   // console.log("RESULT FROM THE LIKES FETCH :",likes)
@@ -33,9 +32,9 @@ function Post() {
    //How to understand who (userid) logged in? 
    
    //make call
-   const res = await axios.patch(`http://localhost:5001/posts/like/${postId}/${userId}`);
-   console.log("posID: ", postId, "userID: ", userId)
-   // console.log(res.data)
+  
+    const res = await axios.patch(`http://localhost:5001/posts/like/${postId}/${userId}`).then((response)=>{console.log(response)}).catch((err)=>console.log(err));
+  
    // posts.filter((post)=>{
    //  //return post._id===id?setLikes(likes+1):"not match"
    //  if(post._id==id){
@@ -52,10 +51,12 @@ function Post() {
       <div className="postsL">
         {posts.length>0? (
           posts.map((post, index) => {
-            // console.log(PUBLIClocation + post.filePath);
+            
             //start of a single post
+            
             return (
-              <div key={index}>
+              <div key={index} >
+                
                 <div>{/* avatar */}</div>
                 <p className="post-authorL">{post.author.userName}</p>
                 <h3 className="post-contentL">{post.content}</h3>
@@ -67,21 +68,27 @@ function Post() {
                   alt="image of the post"
                 />
               
+      setLikes(result.likes)
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
-                  />
+                    />
                   
-                  <FontAwesomeIcon icon={faHeart} className="iconHeart" onClick={(e)=>likePost(post._id, state.user.id)}/>
+                  <FontAwesomeIcon icon={faHeart} className="iconHeart" onClick={(e)=>likePost(post._id, state.user._id)}>
+                    
+                    
+                  </FontAwesomeIcon>
                   {post.likes && post.likes.length>0?post.likes.length:""}
+                    {/* (e)=>likePost(e.target.value, state.user.id) */}
+                                    
                 </div>
                 <h4 className="commentL">Write a comment ..</h4>
                 {/* <button className="buttonL">back to the top</button> */}
               </div>
             );
           })
-        ) : (
+          ) : (
           <>
             <h3>hello</h3>
             <p>the owner of the post </p>

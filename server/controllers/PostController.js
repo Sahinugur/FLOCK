@@ -85,7 +85,7 @@ async function likePost (req,res,next){
     let postID = req.params.pid;
     let userID = req.params.uid
     //findByIdAndUpdate 
-    const addLike = await postSchema.findByIdAndUpdate(postID,{$push:{likes:userID}})
+    const addLike = await postSchema.findByIdAndUpdate(postID,{$push:{likes:userID}},{new:true})
     const post = await postSchema.findById(postID)
     res.send(post)
     console.log("postID", postID,"userID",userID)

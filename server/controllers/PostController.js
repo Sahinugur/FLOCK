@@ -82,9 +82,13 @@ async function updatePost(req, res, next) {
 async function likePost (req,res,next){
   try {
     //extract postid and userid
+    let postID = req.params.pid;
+    let userID = req.params.uid
     //findByIdAndUpdate 
-    console.log('params:',req.params)
-    res.send({params:req.params})
+    const addLike = await postSchema.findByIdAndUpdate(postID,{$push:{likes:userID}})
+    const post = await postSchema.findById(postID)
+    res.send(post)
+    console.log("postID", postID,"userID",userID)
   } catch (error) {
     next(error)
   }

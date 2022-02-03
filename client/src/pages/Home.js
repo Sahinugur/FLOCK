@@ -33,7 +33,7 @@ export default function Home() {
     getUser();
   }, []);
 
-  console.log("state", state);
+  // console.log("state", state);
   return (
     <div className="grid-container">
       <NavBar />

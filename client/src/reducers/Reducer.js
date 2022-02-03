@@ -1,9 +1,6 @@
 export const initialState = {
     user: {},
     rooms: [],
-  
-
-    
 };
 
 export const reduce = (state = initialState, action) => {

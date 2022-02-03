@@ -13,33 +13,38 @@ function Post() {
   const [posts, setPosts] = useState([]);
   const [likes,setLikes]=useState(0);
   const { state, dispatch } = useContext(ChatContext);
-  console.log(state.user.id)
+  const [likedPost, setLikedPost] = useState()
+  //  console.log("userID: ",state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
-      console.log(result);
+      // console.log(result);
     });
   }, []);
+// console.log("state",state.user.id)
 
-  /*  const getServerData = (e) => {
-    e.preventDefault();
-};
- */
+  // makeCall(env.LIKE, "GET").then((result)=>setLikes(result))
+  // console.log("RESULT FROM THE LIKES FETCH :",likes)
+  
+//  makeCall(env.LIKE, "POST", likes ).then((result)=>{})
 
-const likePost=async(postId, userId)=>{
-  //How to understand who (userid) logged in? 
-  const res = await axios.patch(`http://localhost:5001/posts/like/${postId}/${userId}`);
-  console.log(res.data)
-  // posts.filter((post)=>{
-  //  //return post._id===id?setLikes(likes+1):"not match"
-
-  //  if(post._id==id){
-  //     const data =  axios.post(`http://localhost:5001/posts/${id}`)
-  //     console.log(data);
-  //  }
-  //})
-}
+ const likePost=async(postId, userId)=>{
+   //How to understand who (userid) logged in? 
+   
+   //make call
+   const res = await axios.patch(`http://localhost:5001/posts/like/${postId}/${userId}`);
+   console.log("posID: ", postId, "userID: ", userId)
+   // console.log(res.data)
+   // posts.filter((post)=>{
+   //  //return post._id===id?setLikes(likes+1):"not match"
+   //  if(post._id==id){
+   //     const data =  axios.post(`http://localhost:5001/posts/${id}`)
+   //     console.log(data);
+   //  }
+   //})
+   // console.log("FE postID",postID, "FE userID",userID)
+ }
 
   return (
     <div className="postWrap">
@@ -47,7 +52,7 @@ const likePost=async(postId, userId)=>{
       <div className="postsL">
         {posts.length>0? (
           posts.map((post, index) => {
-            console.log(PUBLIClocation + post.filePath);
+            // console.log(PUBLIClocation + post.filePath);
             //start of a single post
             return (
               <div key={index}>
@@ -68,7 +73,7 @@ const likePost=async(postId, userId)=>{
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
                   
-                  <FontAwesomeIcon icon={faHeart} className="iconHeart" onClick={()=>likePost(post._id, state.user.id)}/>
+                  <FontAwesomeIcon icon={faHeart} className="iconHeart" onClick={(e)=>likePost(post._id, state.user.id)}/>
                   {post.likes && post.likes.length>0?post.likes.length:""}
                 </div>
                 <h4 className="commentL">Write a comment ..</h4>

@@ -11,6 +11,7 @@ const path = require("path");
 const usersRoute = require("./routes/usersRoute");
 const postRoute = require("./routes/postRoute");
 const passportSetup = require("./passport");
+const roomRoute = require("./routes/roomRoute");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const emailRouter = require("./routes/confirmations.js");
@@ -58,12 +59,11 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/confirm", emailRouter);
-
 app.use("/posts", postRoute);
-//Test images folder connection
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/room", roomRoute);
 
-//
+//Image providing
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 /**MAIN ERROR HANDLER */
 app.use(mainErrorHandler);

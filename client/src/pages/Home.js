@@ -3,6 +3,8 @@ import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import Post from "../components/Post";
+import { ModalPopUp } from "../components/Form/ModalPopUp";
+
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
 
@@ -39,6 +41,7 @@ export default function Home() {
       ) : (
         <h2>{state.user.firstName}</h2>
       )}
+      <ModalPopUp />
       <Post />
     </div>
   );

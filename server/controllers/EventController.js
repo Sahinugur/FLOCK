@@ -1,10 +1,20 @@
 const mongoose = require("mongoose");
-const EventCreator = require("../models/Event");
+const Event = require("../models/Event");
+
+//GET
+async function getEvents(req, res) {
+  try {
+    const Events = await Event.find();
+    res.status(200).json(Events);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
 
 //CREATE EVENT
 async function createEvent(req, res) {
   const event = req.body;
-  const newEvent = new EventCreator(event);
+  const newEvent = new Event(event);
   try {
     await newEvent.save();
     res.status(201).json(newEvent);
@@ -16,7 +26,7 @@ async function createEvent(req, res) {
 
 //UPDATE EVENT
 
-async function updateEvent(req, res) {
+async function updatedEvent(req, res) {
   const { id: _id } = req.params;
   const event = req.body;
 
@@ -24,11 +34,11 @@ async function updateEvent(req, res) {
     console.log(mongoose);
     return res.status(404).send("No post with that id");
   }
-  const updatedEvent = await EventCreator.findByIdAndUpdate(_id, event, {
+  const updatedEvent = await Event.findByIdAndUpdate(_id, event, {
     new: true,
   });
 
   res.json(updatedEvent);
 }
 
-module.exports = { createEvent, updateEvent };
+module.exports = { createEvent, updatedEvent, getEvents };

@@ -10,6 +10,7 @@ import SharedContext from "./context/SharedContext";
 import Login from "./components/Login.jsx";
 import Home from "./pages/Home.js";
 import Register from "./components/Register";
+import Events from "./components/Events/Events";
 
 // import Post from "./components/Post.jsx";
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/register" element={<Register />}></Route>
           {/* <Route path="/posts" element={<Post />}></Route> */}
           {/* <Route path="/join" element={<Join />}></Route> */}
+          <Route path="/events" element={<Events />}></Route>
         </Routes>
       </div>
     </SharedContext>

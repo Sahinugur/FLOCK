@@ -16,6 +16,7 @@ const authRoute = require("./routes/auth");
 const emailRouter = require("./routes/confirmations.js");
 const cookieSession = require("cookie-session");
 const { mainErrorHandler } = require("./middleware/errorHandler");
+const eventRoute = require("./routes/eventRoute");
 /*Middlewares*/
 
 app.use(cors(corsOptions));
@@ -58,6 +59,7 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/confirm", emailRouter);
+app.use("/events", eventRoute);
 
 app.use("/posts", postRoute);
 //Test images folder connection

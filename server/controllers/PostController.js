@@ -46,6 +46,7 @@ async function getAllPosts(req, res, next) {
   try {
     const posts = await postSchema.find().populate("author", "userName");
     res.status(200).send(posts);
+    
   } catch (error) {
     next(error);
   }

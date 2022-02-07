@@ -11,7 +11,7 @@ import { ChatContext } from "../../context/SharedContext";
 
 function Post() {
   const [posts, setPosts] = useState([]);
-  const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
   const { state, dispatch } = useContext(ChatContext);
   const [likedPost, setLikedPost] = useState();
   //  console.log("userID: ",state.user.id)
@@ -21,7 +21,7 @@ function Post() {
       setPosts(result);
       console.log();
     });
-  }, []);
+  }, [isLiked]);
 
   // makeCall(env.LIKE, "GET").then((result)=>setLikes(result))
   // console.log("RESULT FROM THE LIKES FETCH :",likes)
@@ -31,16 +31,35 @@ function Post() {
   const likePost = async (postId, userId) => {
     //How to understand who (userid) logged in?
 
-    //make call
+    //is this user liked the post
+    const filteredPost =await posts.find((post)=> post._id === postId);
+    console.log(filteredPost);
 
+    const isUserLikedPost = await filteredPost.likes.some(user=> user === userId)
+    if(isUserLikedPost){
+      //what should happend if user already liked the post and clicked again
+     console.log('user already liked the post');
+
+     const res = await axios
+      .patch(`http://localhost:5001/posts/unlike/${postId}/${userId}`)
+      .then((response) => {
+        console.log(response);
+        setIsLiked(!isLiked);
+        /* console.log(res);  */
+      })
+      .catch((err) => console.log(err));
+    }else{
+
+    //make call
     const res = await axios
       .patch(`http://localhost:5001/posts/like/${postId}/${userId}`)
       .then((response) => {
         console.log(response);
+        setIsLiked(!isLiked);
         /* console.log(res);  */
       })
       .catch((err) => console.log(err));
-
+    }
     // posts.filter((post)=>{
     //  //return post._id===id?setLikes(likes+1):"not match"
     //  if(post._id==id){

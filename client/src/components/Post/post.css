@@ -16,7 +16,10 @@
   /* background-color: rgb(173, 230, 210);
   background-color: lightgoldenrodyellow;
   background-color: rgba(0,20,20,0.4); */
-  background-color: rgb(182, 237, 209);
+  background-color: rgb(224, 228, 31);
+  background-color: #362cf9;
+  /* background:rgb(252, 78, 15); */
+
   
   flex-direction: column; 
   justify-content: flex-start;

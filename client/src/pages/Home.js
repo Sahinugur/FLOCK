@@ -3,6 +3,7 @@ import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/Navbar";
 import Post from "../components/Post/Post";
+import Dummie from "../components/Dummie/Dummie";
 import Options from "../components/LeftSidebarLinks/LeftSideBarLinks"
 
 import "./home.css";
@@ -47,6 +48,7 @@ export default function Home() {
       
       <Options />
       <Post />
+      <Dummie />
     </div>
   );
 }

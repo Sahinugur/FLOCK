@@ -3,12 +3,12 @@
     grid-area: nav;
     width: 500vw;
     height: 12vh;
-    background-color: rgba(102, 16, 83, 0.698);
-    color: white;
+    background-color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-bottom: 3px solid black;
+    border-bottom: 50px solid black;
     width: 100%;
 
 }
@@ -40,7 +40,7 @@
   }
 
   .avatar {
-    width: 32px;
+    width: 52px;
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
@@ -52,7 +52,7 @@
   .searchBar {
     position: relative;
     top: 0.6rem;
-    left: 1rem;
+    left: 0.1rem;
     font-size: 25px;
     width:40%;
     };

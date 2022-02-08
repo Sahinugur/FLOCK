@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/Navbar";
-import PostContainer from "../components/Post/PostContainer";
+import Post from "../components/Post/Post";
 import Options from "../components/LeftSidebarLinks/LeftSideBarLinks"
 
 import "./home.css";
@@ -33,19 +33,20 @@ export default function Home() {
     getUser();
   }, []);
 
-  console.log("state", state);
+  // console.log("state", state);
   return (
     <div className="grid-container">
       <NavBar />
       {/* <h1 className = "head">this is the Home page</h1> */}
-      {state.user.source !== "github" ? (
+      {/* {state.user.source !== "github" ? (
+        // <h2>Your logged in as</h2>
         <h2>{state.user.email}</h2>
       ) : (
         <h2>{state.user.firstName}</h2>
-      )}
+      )} */}
       
       <Options />
-      <PostContainer />
+      <Post />
     </div>
   );
 }

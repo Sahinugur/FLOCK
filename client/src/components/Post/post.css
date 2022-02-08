@@ -1,30 +1,61 @@
-.postWrap {
-    grid-area: post;
-    position: absolute;
-    
+.postOuterWrap {
+  grid-area: post;
+  position: absolute;
+  font-family: "Raleway",sans-serif;
+}
+.posts {
+  border-radius: 20px;
+  margin: 1.5rem;
+  padding: 2rem;
   
-  }
-  .postsL {
-    position: relative;
-    top: 18rem;
-    left: 29rem;
-    background-color: lightblue;
-    /* background-color: rgba(102, 16, 83, 0.698); */
-    width: 25rem;
-    margin: 1rem;
-    flex-direction: column; 
-    justify-content: flex-start; 
-    /* align-items: center; */
-    padding: 2rem;
-    /* border: 1px solid  black; */
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    
-  }
+  position: relative;
+  top: 10rem;
+  left: 24rem;
+  width: 25rem;
+ 
+  /* background-color: rgb(173, 230, 210);
+  background-color: lightgoldenrodyellow;
+  background-color: rgba(0,20,20,0.4); */
+  background-color: rgb(182, 237, 209);
+  
+  flex-direction: column; 
+  justify-content: flex-start;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  /* align-items: center; */
+/* background-color: rgba(102, 16, 83, 0.698); */
+  /* border: 1px solid  black; */
+  
+}
+
+
+/* @keyframes animation{
+  50% {background-color: rgb(255, 255, 255)}
+}
+.posts:hover{
+  background-color: rgb(182, 237, 209);
+  animation-name: animation;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;    
+  animation-play-state: running;
+} */
+
+.postContainer {
+  border-radius: 10px;
+  background: white;
+  height: 40vh;
+  border: 1px solid black;
+  margin: 20px ;
+  font-family: "Raleway",sans-serif;
+}
+
+
   /* .posts p {
     align-items:flex-startstate.user.firstName
   } */
   
-  .postImgL {
+  .postImg {
+    margin: 0.5rem;
     width: 100%;
     height: 15rem;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -32,6 +63,8 @@
   .icons {
     display: flex;
     justify-content: right;
+    position: relative;
+    top: 1.2rem;
     margin-top: 1rem;
     margin-right: 2rem;
   }
@@ -39,46 +72,57 @@
   .iconHeart {
     color: #df4930;
   }
+
+  .comment {
+    color: black;
+    background: rgba(237, 231, 231, 0.1);
+    font-family: "Raleway",sans-serif;
+    margin: 1.2rem;
+    padding: 0.8rem;
+    height: 9vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
   
   .fa-bookmark {
     margin-right: 1em;
   }
   
-  .buttonL {
-    background-color: rgb(35, 19, 27);
+  /* .button {
+    margin: 0.5rem;
+    background-color: rgb(215, 29, 122);
     border: none;
     color: white;
     padding: 10px 15px;
-    /* text-align: center; */
+    text-align: center;
     text-decoration: none;
     font-size: 16px;
     border-radius: 12px;
     text-align: right;
     float: right;
     font-weight: bold;
-  }
+  } */
   
-  .commentL {
-    color: rgb(48, 58, 67);
-    padding: 0.8rem;
-    border: solid rgb(123, 109, 109) 1px;
-    border-radius: 10px;
-    font-family: "Work Sans", sans-serif;
-    margin-bottom: 6rem;
-    height: 8vh;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px;
-  }
+
   
-  .post-authorL {
+  .author {
+    margin: 0.5rem;
     color: gray;
-    font-family: "Work Sans", sans-serif;
+    font-family: "Raleway",sans-serif;
+   
+  
   }
   
-  .post-contentL {
-    font-family: "Work Sans", sans-serif;
+  .content {
+    font-size: 20px;
+    margin: 0.5rem;
+    font-family: "Raleway";
+    font-weight: bold;
+    
   }
   
-  .date-postL {
-    font-family: "Work Sans", sans-serif;
+  .date {
+
+    font-family: "Raleway";
   }
   

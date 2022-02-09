@@ -1,0 +1,10 @@
+.dummieContainer{
+    height: 500px;
+    width: 300px;
+    background-color: rgba(165, 183, 238, 0.6);
+    margin: 3rem;
+    position: relative;
+    bottom: 13rem;
+    left: 5rem;
+    border-radius: 20px;
+}

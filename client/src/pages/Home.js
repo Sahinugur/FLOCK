@@ -36,6 +36,7 @@ export default function Home() {
 
   // console.log("state", state);
   return (
+    
     <div className="grid-container">
       <NavBar />
       {/* <h1 className = "head">this is the Home page</h1> */}
@@ -50,5 +51,6 @@ export default function Home() {
       <Post />
       <Dummie />
     </div>
+    
   );
 }

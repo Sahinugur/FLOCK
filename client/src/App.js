@@ -18,9 +18,8 @@ export default function App() {
     <> 
      
    {/*  <GlobalStyles /> */}
-     
+  
     <SharedContext>
-      <div>
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
@@ -28,8 +27,9 @@ export default function App() {
           {/* <Route path="/posts" element={<Post />}></Route> */}
           {/* <Route path="/join" element={<Join />}></Route> */}
         </Routes>
-      </div>
+     
     </SharedContext>
+   
     </>
   );
 }

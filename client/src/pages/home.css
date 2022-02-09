@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,100;1,200&display=swap');
 
+
+
 /* @import url(‘https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap’); */
 /* @import url(https://fonts.googleapis.com/css?family=Roboto);
 /*  {
@@ -32,23 +34,45 @@
   /* pietCOde */
 
   @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
+
+
+
 * {
     margin: 0;
     padding: 0;
     font-family: ‘Roboto’, sans-serif;
     /*  outline: 2px solid pink; */
+    border: none;
     
     
    
 }
 body {
+    height: 2500px;
+    border-bottom: 2px solid black;
+    background: #fde7e6;
+
+    background: rgb(224,224,202);
+    background: linear-gradient(180deg, rgba(224,224,202,0.4638783269961977) 0%, rgba(195, 152, 169, 0.726) 23%, rgba(228,137,137,0.3) 100%);
     
-    height: 2200px;
-    border-bottom: 100px solid black;
-    background-color:   white;
-    color: black; /* hello pietro */
+
+    color: black; /* hello Lorenzo */
     width: 100vw;
+
+
+    /*  background-color:   rgba(245, 212, 197, 0.719);
+    background: rgb(231,229,231);
+    background: linear-gradient(180deg, rgba(231,229,231,1) 0%, rgba(238,79,15,1) 100%);
+    background: rgb(249,246,249);
+    background: linear-gradient(180deg, rgba(249,246,249,1) 0%, rgb(215, 213, 208) 100%); */
+
+    /* background: rgba(200, 200, 250, 0.2);  */
+
+    /* background: rgb(249,246,249);
+    background: linear-gradient(180deg, rgba(251,249,249,1) 0%, rgb(222, 203, 197) 100%); */
 }
+
+
 
 /* navbar = nav */
 /* Container with options on the left =  left */
@@ -58,9 +82,19 @@ body {
   grid-area: head;
 }
 .grid-container {
-  display: grid;
+
+  /* background-image: url('../img/alex.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100%;
+  background-repeat: no-repeat; */
   
+
+  /* background: rgba(199, 196, 193, 0.2); */
+
+  display: grid;
   width: 100vw;
+  height: 250rem;
 
   grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows:  300px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import './leftsidebarlinks.css';
+import './leftsidebar.css';
 // import "../../pages/home.css";
 
 export default function leftComponent() {

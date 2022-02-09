@@ -15,10 +15,13 @@
     left: 1.5rem;
     margin: 1rem 0;
     padding: 1rem; 
+
+    
     
     
 }
 .options {
+   
      font-family: "Raleway",sans-serif;
     /* border: 1px solid tomato; */
     width: 250px;
@@ -26,8 +29,8 @@
     font-size: 1.8rem;
     font-weight: bold;
     border-radius: 20px;
-    background-color: lightsteelblue;
-    background-color: rgba(165, 183, 238, 0.6);
+    /* background-color: lightsteelblue;
+    background-color: rgba(165, 183, 238, 0.6); */
     position: relative;
     left: 5rem;
     bottom: 12rem;

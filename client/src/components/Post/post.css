@@ -44,22 +44,27 @@
 } */
 
 .postContainer {
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  
   height: 35vh;
   width: 25vw;
+
   position: relative;
   top: 20rem;
   left: 12rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  /* background-color: rgb(182, 237, 209); */
- /*  background-color: rgba(255, 225, 240, 0.1); */
- /*  background: #6cbbb8bb; */
- background: rgb(231, 235, 184);
- /* background: radial-gradient(circle, rgba(216,174,238,1) 0%, rgba(148,187,233,1) 100%); */
- /*  background: #E8ECD6; */
+
   margin: 30px ;
   font-family: "Raleway",sans-serif;
+
+  /* background-color: rgb(182, 237, 209); */
+  /*  background-color: rgba(255, 225, 240, 0.1); */
+  /*  background: #6cbbb8bb; */
+  /* background: radial-gradient(circle, rgba(216,174,238,1) 0%, rgba(148,187,233,1) 100%); */
+  /*  background: #E8ECD6; */
+
+  background: rgb(231, 235, 184);
+
+  
 }
 
 
@@ -73,6 +78,7 @@
     height: 15rem;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
+
   .icons {
     display: flex;
     justify-content: right;

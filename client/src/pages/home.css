@@ -50,12 +50,6 @@
 body {
     height: 2500px;
     border-bottom: 2px solid black;
-    background: #fde7e6;
-
-    background: rgb(224,224,202);
-    background: linear-gradient(180deg, rgba(224,224,202,0.4638783269961977) 0%, rgba(195, 152, 169, 0.726) 23%, rgba(228,137,137,0.3) 100%);
-    
-
     color: black; /* hello Lorenzo */
     width: 100vw;
 
@@ -67,7 +61,6 @@ body {
     background: linear-gradient(180deg, rgba(249,246,249,1) 0%, rgb(215, 213, 208) 100%); */
 
     /* background: rgba(200, 200, 250, 0.2);  */
-
     /* background: rgb(249,246,249);
     background: linear-gradient(180deg, rgba(251,249,249,1) 0%, rgb(222, 203, 197) 100%); */
 }

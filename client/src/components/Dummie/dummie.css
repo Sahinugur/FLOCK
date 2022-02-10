@@ -1,14 +1,11 @@
-.dummieContainer{
+.dummieContainer {
     height: 500px;
     width: 300px;
     /* background-color: rgba(165, 183, 238, 0.6); */
-    background-color: ;
+    background-color: red;
     margin: 3rem;
     position: relative;
     bottom: 13rem;
     left: 5rem;
     border-radius: 20px;
-
-    background: rgb(224,224,202);
-background: linear-gradient(180deg, rgba(224,224,202,0.4638783269961977) 0%, rgba(186,75,119,0.7262357414448669) 23%, rgba(209,224,9,1) 42%, rgba(178,221,233,1) 68%, rgba(172,27,27,1) 84%, rgba(228,137,137,1) 100%);
 }

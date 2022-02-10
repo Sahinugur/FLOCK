@@ -67,11 +67,12 @@ export default function Login() {
   };
 
   return (
+  
     <div className="login">
       <div className="wrapper">
-        <div>here gonna rock the animation</div>
+        <div className="animation-or-picture">here gonna rock the animation</div>
         <div className="right">
-          <h1 className="loginTitle">Choose a Login Method</h1>
+          <h1 className="loginTitle">Login </h1>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />
             Google
@@ -82,7 +83,7 @@ export default function Login() {
           </div>
           <div className="center">
             <div className="line" />
-            <div className="or">OR</div>
+            <div className="or"></div>
           </div>
           <form
             onFocus={handleErrors}
@@ -108,10 +109,10 @@ export default function Login() {
           </form>
 
           <li>
-            <Link to="/users/resetpassword">Password forgotten?</Link>
+            <Link to="/users/resetpassword" className="password-forgotten" >Password forgotten?</Link>
           </li>
           <li>
-            <Link to="/register">Create an account</Link>
+            <Link to="/register" className="create-account" >Create an account</Link>
           </li>
         </div>
       </div>

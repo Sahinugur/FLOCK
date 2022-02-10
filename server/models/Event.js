@@ -5,5 +5,9 @@ const eventSchema = new Schema({
   title: String,
   description: String,
   category: String,
+  createdAt: {
+    type: Date,
+    default: new Date(),
+  },
 });
 module.exports = mongoose.model("Event", eventSchema);

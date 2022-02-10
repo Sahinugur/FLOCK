@@ -1,0 +1,10 @@
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 20px;
+  border: none;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 5px;
+  background-color: #58ce60;
+}

@@ -3,7 +3,6 @@ import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import Post from "../components/Post";
-import { ModalPopUp } from "../components/Form/ModalPopUp";
 
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
@@ -35,13 +34,15 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <h1>this is the Home page</h1>
+      <Link to="/events">
+        <button className="btn-modal">events</button>
+      </Link>
+      *<h1>this is the Home page</h1>
       {state.user.source !== "github" ? (
         <h2>{state.user.email}</h2>
       ) : (
         <h2>{state.user.firstName}</h2>
       )}
-      <ModalPopUp />
       <Post />
     </div>
   );

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Modal.css";
-import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/events";
+import axios from "axios";
 
 export const ModalPopUp = () => {
+  const createEvents = async (postEvent) =>
+    axios.post("http://localhost:5001/events", postEvent);
+
   const [modal, setModal] = useState(false);
   const [postEvent, setPostEvent] = useState({
     creator: "",
@@ -12,8 +14,6 @@ export const ModalPopUp = () => {
     category: "",
   });
 
-  const dispatch = useDispatch();
-
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -21,8 +21,7 @@ export const ModalPopUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ postEvent });
-    dispatch(createPost(postEvent));
-
+    setPostEvent(createEvents(postEvent));
     toggleModal();
   };
 

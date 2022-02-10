@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,100;1,200&display=swap');
 
+
 .login {
     height: calc(100vh - 50px);
     display: flex;
@@ -7,16 +8,16 @@
     justify-content: center;
     background-color:rgba(240, 248, 255, 0.938);
     background-color:rgb(151, 191, 191);
-    
   }
+
   
   .wrapper {
     width: 80%;
     height: 90%;
     background: rgba(255, 253, 248, 1);
-    box-shadow: 0 8px 32px 0 rgba(199, 199, 211, 0.904);
+    /* box-shadow: 0 8px 32px 0 rgba(199, 199, 211, 0.904); */
     backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    /* -webkit-backdrop-filter: blur( 4px ); */
     border-radius: 10px;
     border: 1px solid rgba(41, 41, 41, 0);
     display: flex;
@@ -25,9 +26,30 @@
     
   }
 
+
+
+  #animation {
+    min-height: 300px;
+    color: black;
+    padding: 20px;
+    font-size: 24px;
+  }
+
+
    .left, .right{
     flex: 1;
     justify-content: space-around;
+    text-align: center;
+
+  }
+
+  h1{
+    font-size: 20px;
+    width: 180px;
+  }
+
+  span{
+    color: rgb(201, 201, 220);
   }
   
   .right {
@@ -56,13 +78,21 @@
     border-radius: 5px;
     color: black;
     display: flex;
-    align-items: center;
+   
     font-weight: bold;
     margin-bottom: 20px;
     cursor: pointer;
     position: relative;
     top: 3rem;
   } 
+
+  .loginButton:hover{
+    
+    
+    width: 150px;
+    text-align: center;
+    transition: width 0.7s;
+  }
 
   .google {
     width: 190px;
@@ -148,6 +178,13 @@
     border-radius: 5px;
   }
 
+
+  .submit:hover {
+    align-self: center;
+    width: 100px;
+    transition: width 2s;
+  }
+
   li {
     list-style: none;
   }
@@ -155,13 +192,22 @@
   .password-forgotten {
     color: black;
     text-decoration: none;
-  
+  }
+
+  .password-forgotten:hover{
+    color: grey;
   }
 
   .create-account {
     color: black;
     text-decoration: none;
   }
+
+  .create-account:hover{
+    color: grey;
+  }
+
+  
   
 
  

@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 import Google from "../../img/google.png";
 import Github from "../../img/github.png";
 import env from "../../api/env";
-
 import "./login.css";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// import { MyComponent } from "./Vanta/Vanta";
+
+
 
 const schema = yup
   .object()
@@ -69,9 +70,15 @@ export default function Login() {
   return (
   
     <div className="login">
+      
       <div className="wrapper">
-        <div className="animation-or-picture">here gonna rock the animation</div>
+      
+        <div id="animation">
+      {/* <MyComponent />BIRDY ANIMATION */}
+      </div>
+
         <div className="right">
+        <h1><span>Login to</span> Flock</h1>
           <h1 className="loginTitle">Login </h1>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />

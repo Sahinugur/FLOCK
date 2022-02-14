@@ -1,8 +1,6 @@
-
 export const initialState = {
     user: {},
     rooms: [],
-    projects: []
 
 };
 
@@ -11,9 +9,8 @@ export const reduce = (state = initialState, action) => {
     case "AUTHENTICATED":
       return {
         ...state,
-        user: action.payload.user,
+        user: action.payload,
         rooms: ["family-room", "travelling-room"],
-        projects: action.payload.projects
       };
 
     default:

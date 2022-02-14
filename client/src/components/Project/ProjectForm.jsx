@@ -6,14 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import './ProjectForm.css';
 
 const schema = yup.object().shape({
         title: yup
             .string()
-            .required(),
+            .required("Please provide title of your project"),
         founder: yup
             .string()
-            .required(),
+            .required("Please provide username"),
         size_of_project: yup
             .string(),
         participants: yup
@@ -32,9 +33,9 @@ const schema = yup.object().shape({
     .required(); 
 
     
-export default function ProjectForm() {
-    const { state, dispatch } = useContext(ChatContext);
-
+export default function ProjectForm({reload, setReload}) {
+    const { state } = useContext(ChatContext);
+    const [modal, setModal] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
     const {register, handleSubmit, formState:{ errors } } = useForm({
@@ -42,216 +43,239 @@ export default function ProjectForm() {
         reValidateMode: "onFocus",
     });
         
-    // const { dispatch } = useContext(ChatContext);
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // async function logProject(logs) {
-    //         // e.preventDefault();
-    //         console.log("hello logs");
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    async function logProject(logs) {
+            console.log("hello logs");
         
-    //         await makeCall(env.LOGPROJECT, "POST", logs)
-    //         .then((result) => {
-    //         dispatch({type: "AUTHENTICATED", payload: result.project})
-    //         console.log(`result.status`, result);
-    //         if(result.status) {
-    //             navigate(`/projects`)
-    //         } else {
-    //             setErrorMsg(result.msg)
-    //         }
-    //     }); 
-    // }
+            await makeCall(env.LOGPROJECT, "POST", logs)
+            .then((result) => {
+                setReload(!reload);
+                console.log("result of projectForm", result)
+                navigate(`/projects`);
+                toggleModal();
+            })
+        };
 
-    async function getProjects(e) {
-        try {
-            const result = await makeCall(env.PROJECTS);
-            console.log("hello",result);
-        } catch (error) {
-            console.log(error);
+    function handleErrors() {
+            console.log(`errors`, errors);
+            setErrorMsg("");
         }
-    }
-
-    const onSubmit = (d)=>{console.log("onSubmit",d);}
 
     return (
-        <div className="logProjectForm">
-            <form 
-            onSubmit={handleSubmit(onSubmit)}
-            className="form" 
-            >
-                <h1>Log your project</h1>
-                <label htmlFor="title"> Title:
-                </label>
-                    <input
-                        type="text"
-                        // placeholder="Title"
-                        id="title"
-                        name="projectTitle"
-                        {...register("title", { required: "Please provide title of your project" })}
-                    />
-                <p>{errors.title?.message}</p>
-{/* 
-                <label htmlFor="password">Password:
-                </label>
-                    <input
-                        type="password"
-                        // placeholder="Password"
-                        id="password"
-                        name="projectPassword"
-                        {...register("password", { required: "No password provided" })}
-                    />
-                <p>{errors.password?.message}</p> */}
+        <>
+        <button onClick={toggleModal} className="btn_prModal_container">Create Project</button>
+            {modal && (
+                <div className="prModal">
+                    <div onClick={toggleModal} className="prOverlay"></div>
+                        <div className="prModal-content">
+                        <h2>Log your project</h2>
+                        <button onClick={toggleModal} className="close-modal">Close</button>
+                            <form
+                            onFocus={handleErrors}
+                            onSubmit={handleSubmit((data)=>logProject(data))}
+                            className="pr_form" 
+                            >
+                                
+                            <div className="left_side">
+                                <label htmlFor="title"> Title:</label>
+                                    <input
+                                        // placeholder="Title:"
+                                        type="text"
+                                        id="title"
+                                        name="projectTitle"
+                                        {...register("title", { required: "Please provide title of your project" })}
+                                    />
+                                <p>{errors.title?.message}</p>
 
-                <label htmlFor="founder">Founder:
-                </label>
-                    <input
-                        type="text"
-                        id="founder"
-                        name="founder"
-                        value={state.user._id}
-                        {...register("founder", { required: "Please provide username" })}
-                    />
-                <p>{errors.password?.message}</p>
 
-                <p>Size of project:</p>
-                <label htmlFor="size_small">
-                    <input
-                        {...register("size_of_project")}
-                        type="radio"
-                        name="size_of_project"
-                        value="small"
-                        id="size_small"
-                    />
-                    small
-                </label>
-                <label htmlFor="size_medium">
-                    <input
-                        {...register("size_of_project")}
-                        type="radio"
-                        name="size_of_project"
-                        value="medium"
-                        id="size_medium"
-                    />
-                    medium
-                </label>
-                <label htmlFor="size_large">
-                    
-                    <input
-                        {...register("size_of_project")}
-                        type="radio"
-                        name="size_of_project"
-                        value="large"
-                        id="size_large"
-                    />
-                    large
-                </label>
+                                <label htmlFor="founder">Founder:</label>
+                                    <input
+                                        type="text"
+                                        id="founder"
+                                        name="founder"
+                                        // placeholder="Username:"
+                                        // value={state.user._id}
+                                        {...register("founder", { required: "Please provide username" })}
+                                    />
+                                <p>{errors.password?.message}</p>
+                                
+                                <div className="size_and_stage">
+                                {/* <p>Size of project:</p> */}
+                                <p>Size of project:</p>
+                                    <div className="radioBtn">
+                                        <label htmlFor="size_small">
+                                            <input
+                                                {...register("size_of_project")}
+                                                type="radio"
+                                                name="size_of_project"
+                                                value="small"
+                                                id="size_small"
+                                            />
+                                            small
+                                        </label>
+                                    
 
-                <label htmlFor="participants">Add participants:
-                </label>
-                    <input
-                        {...register("participants")}
-                        type="text"
-                        name="participants"
-                        id="participants"
-                    />
-                    
+                                        <label htmlFor="size_medium">
+                                            <input
+                                                {...register("size_of_project")}
+                                                type="radio"
+                                                name="size_of_project"
+                                                value="medium"
+                                                id="size_medium"
+                                            />
+                                            medium
+                                        </label>
+                                    
 
-                <label htmlFor="type_of_project">Select type of project
-                </label>
-                    <select 
-                        {...register("type_of_project")} defaultValue={'DEFAULT'}
-                        name="type_of_project"
-                        id="type_of_project">
-                        <option value="DEFAULT" disabled>Select...</option>
-                        <option value="static_web_apps">Static Web Apps</option>
-                        <option value="dynamic_web_apps">Dynamic Web Apps</option>
-                        <option value="single_page_apps">Single Page Apps</option>
-                        <option value="multiple_page_apps">Multiple Page Apps</option>
-                        <option value="animated_web_apps">Animated Web Apps</option>
-                        <option value="content_management_system">Content Management System</option>
-                        <option value="e_commerse_apps">E-commerse Apps</option>
-                        <option value="portal_web_apps">Portal Web Apps</option>
-                        <option value="progressive_web_apps">Progressive Web Apps</option>
-                    </select> 
-                    
-                
+                                        <label htmlFor="size_large">
+                                            
+                                            <input
+                                                {...register("size_of_project")}
+                                                type="radio"
+                                                name="size_of_project"
+                                                value="large"
+                                                id="size_large"
+                                            />
+                                            large
+                                        </label>
+                                    
+                                    </div>
+                                </div>
+                                    
 
-                <label htmlFor="technologies">Technologies:
-                </label>
-                    <select {...register("technologies")} defaultValue={'DEFAULT'}
-                    id="technologies" name="technologies">
-                            <option value="DEFAULT" disabled>Select...</option>
-                            <option value="python">Python</option>
-                            <option value="java">Java</option>
-                            <option value="c">C</option>
-                            <option value="c++">C++</option>
-                            <option value="javascript">JavaScript</option>
-                            <option value="php">PHP</option>
-                            <option value="go">Go</option>
-                            <option value="r">R</option>
-                            <option value="typescript">Typescript</option>
-                            <option value="c">c</option>
-                            <option value="d">d</option>
-                    </select>
+                                <label htmlFor="type_of_project">Select type of project:</label>
+                                    <select 
+                                        {...register("type_of_project")} defaultValue={'DEFAULT'}
+                                        name="type_of_project"
+                                        id="type_of_project">
+                                        <option value="DEFAULT" disabled>Select type of project...</option>
+                                        <option value="static_web_apps">Static Web Apps</option>
+                                        <option value="dynamic_web_apps">Dynamic Web Apps</option>
+                                        <option value="single_page_apps">Single Page Apps</option>
+                                        <option value="multiple_page_apps">Multiple Page Apps</option>
+                                        <option value="animated_web_apps">Animated Web Apps</option>
+                                        <option value="content_management_system">Content Management System</option>
+                                        <option value="e_commerce_apps">E-commerce Apps</option>
+                                        <option value="portal_web_apps">Portal Web Apps</option>
+                                        <option value="progressive_web_apps">Progressive Web Apps</option>
+                                    </select>
 
-                    
-                <p>Stage of project:</p>
-                <label htmlFor="stage_first_steps">
-                    <input
-                        {...register("stage_of_project")}
-                        type="radio"
-                        name="stage_of_project"
-                        value="first steps"
-                        id="stage_first_steps"
-                    />
-                    first steps
-                </label>
+                                    <label htmlFor="technologies">Technologies:</label>
+                                    <select {...register("technologies")} defaultValue={'DEFAULT'} 
+                                    id="technologies" name="technologies">
+                                            <option value="DEFAULT" disabled>Select technologies...</option>
 
-                <label htmlFor="stage_in_construction">
-                    <input
-                        {...register("stage_of_project")}
-                        type="radio"
-                        name="stage_of_project"
-                        value="in construction"
-                        id="stage_in_construction"
-                    />
-                    in construction
-                </label>
+                                            <option value="python">Python</option>
+                                            <option value="java">Java</option>
+                                            <option value="c">C</option>
+                                            <option value="c++">C++</option>
+                                            <option value="javascript">JavaScript</option>
+                                            <option value="php">PHP</option>
+                                            <option value="go">Go</option>
+                                            <option value="r">R</option>
+                                            <option value="typescript">Typescript</option>
+                                            <option value="mongodb">Mongodb</option>
+                                            <option value="reactjs">Reactjs</option>
+                                    </select>
+                            </div>
+                                
+                            <div className="right_side">
+                                <label htmlFor="participants">Add participants:</label>
+                                        <input
+                                            {...register("participants")}
+                                            type="text"
+                                            name="participants"
+                                            id="participants"
+                                            // placeholder="Add participants"
+                                        />
+                                
 
-                <label htmlFor="stage_done">
-                    <input
-                        {...register("stage_of_project")}
-                        type="radio"
-                        name="stage_of_project"
-                        value="done"
-                        id="stage_done"
-                    />
-                    done
-                </label>
 
-                <label htmlFor="add_link">Add Link:
-                </label>
-                    <input
-                        {...register("add_link")}
-                        type="text"
-                        name="add_link"
-                        id="add_link"
-                    />
-                    
+                                    <label htmlFor="add_link">Add Link:</label>
+                                    <input
+                                        {...register("add_link")}
+                                        // placeholder="Add link"
+                                        type="text"
+                                        name="add_link"
+                                        id="add_link"
+                                    />
 
-                <label htmlFor="few_words">
-                    <textarea
-                        {...register("few_words")}
-                        type="text"
-                        name="few_words"
-                        placeholder="Please share a few words about your project..."
-                        id="few_words"
-                    />
-                </label>
-                
-                <input type="submit" value="Create" />
-                <button onClick={getProjects}>list of projects</button>
-            </form>
-        </div>
+                                <div className="size_and_stage">
+                                <p>Stage of project:</p>
+                                    <div className="radioBtn">
+                                        <label htmlFor="stage_initiation">
+                                            <input
+                                                {...register("stage_of_project")}
+                                                type="radio"
+                                                name="stage_of_project"
+                                                value="initiation"
+                                                id="stage_initiation"
+                                            />
+                                            Initiation
+                                        </label>
+
+                                        <label htmlFor="stage_planning">
+                                            <input
+                                                {...register("stage_of_project")}
+                                                type="radio"
+                                                name="stage_of_project"
+                                                value="planning"
+                                                id="stage_planning"
+                                            />
+                                            Planning
+                                        </label>
+
+                                        <label htmlFor="stage_execution">
+                                            <input
+                                                {...register("stage_of_project")}
+                                                type="radio"
+                                                name="stage_of_project"
+                                                value="execution"
+                                                id="stage_execution"
+                                            />
+                                            Execution
+                                        </label>
+
+                                        <label htmlFor="stage_closure">
+                                            <input
+                                                {...register("stage_of_project")}
+                                                type="radio"
+                                                name="stage_of_project"
+                                                value="closure"
+                                                id="stage_closure"
+                                            />
+                                            Closure
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                                    
+
+                                    <label htmlFor="few_words">Please share a few words about your project:</label>
+                                    <textarea
+                                        {...register("few_words")}
+                                        type="text"
+                                        name="few_words"
+                                        // placeholder="Please share a few words about your project..."
+                                        id="few_words"
+                                    />
+                                
+                                
+                                
+                            </div>
+                            <button className="create_Btn" type="submit" value="Create" onClick={handleSubmit}>Create</button>
+                            </form>
+                            
+                        </div>
+                </div>
+            )}
+        </>
     )
 }
 

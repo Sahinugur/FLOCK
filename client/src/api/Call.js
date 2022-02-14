@@ -13,7 +13,7 @@ const makeCall = async (
   return new Promise((resolve, reject) => {
     let params = {method: method};
     if(method!=="GET"){
-       params = {
+      params = {
         ...params,
         headers: headers,
         body: JSON.stringify(payload),

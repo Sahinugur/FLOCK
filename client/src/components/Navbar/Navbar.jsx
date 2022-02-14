@@ -1,4 +1,4 @@
-import React, {useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChatContext } from "../../context/SharedContext";
 import Menu from "../LeftSidebarLinks/LeftSideBarLinks";
@@ -9,7 +9,7 @@ import "./navbar.css";
 import "../../pages/home.css";
 
 export default function NavBar() {
-  const [selected,setSelected] = useState("Menu");
+  const [selected, setSelected] = useState("Menu");
   const { state, dispatch } = useContext(ChatContext);
 
   const logout = () => {
@@ -17,10 +17,9 @@ export default function NavBar() {
   };
 
   return (
-    
-      <div className="navbar">
+    <div className="navbar">
       <span className="logo">
-        <Link className="link" to="/">
+        <Link className="link" to="/home">
           Flock
         </Link>
       </span>
@@ -28,26 +27,21 @@ export default function NavBar() {
       {/* Searchbar */}
       <input className="searchBar" type="text" placeholder="Search.."></input>
 
-    {/* Dropdown checks his own name! :) */}
-    {/* < Menu selected={selected} setSelected={setSelected} />  */}
+      {/* Dropdown checks his own name! :) */}
+      {/* < Menu selected={selected} setSelected={setSelected} />  */}
 
-        <ul className="list">
-          <li className="listItem">
-            <img
-              src={state.user.profilePhoto}
-              alt=""
-              className="avatar"
-            />
-          </li>
+      <ul className="list">
+        <li className="listItem">
+          <img src={state.user.profilePhoto} alt="" className="avatar" />
+        </li>
 
-          {/* line 39 displays username! */}
-          {/* <li className="listItem">{state.user.source ==='google'?state.user.firstName + ' ' + state.user.lastName:state.user.userName}</li> */}
-          
-          <li className="listItem" onClick={logout}>
-            Logout
-          </li>
-        </ul>  
-      </div>
-    
-  )
+        {/* line 39 displays username! */}
+        {/* <li className="listItem">{state.user.source ==='google'?state.user.firstName + ' ' + state.user.lastName:state.user.userName}</li> */}
+
+        <li className="listItem" onClick={logout}>
+          Logout
+        </li>
+      </ul>
+    </div>
+  );
 }

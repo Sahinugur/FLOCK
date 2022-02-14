@@ -12,13 +12,15 @@ const {
 
   //Sorting function added as default to getAllposts route
   getLatest,
-
+likePost,
   updatePost,
   deletePost,
 } = require("../controllers/PostController");
 
 router.get("/", getAllPosts);
 router.get("/post/:pid", getPost);
+//new
+router.patch('/like/:pid/:uid',likePost) // /:uid added by fahim
 router.put("/updatepost/:pid", updatePost);
 router.delete("/deletepost", deletePost);
 // router.get("/getLatest", getLatest);

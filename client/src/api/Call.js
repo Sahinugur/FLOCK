@@ -8,7 +8,6 @@ const makeCall = async (
     Accept: "application/json",
     "Content-Type": "application/json",
   }
-  
 ) => { 
   return new Promise((resolve, reject) => {
     let params = {method: method};
@@ -38,5 +37,6 @@ const makeCall = async (
       .catch(error =>console.log(error));
   });
 };
+
 
 export default makeCall;

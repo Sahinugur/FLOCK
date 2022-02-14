@@ -46,6 +46,7 @@ async function getAllPosts(req, res, next) {
   try {
     const posts = await postSchema.find().populate("author", "userName");
     res.status(200).send(posts);
+    
   } catch (error) {
     next(error);
   }
@@ -57,6 +58,7 @@ async function getAllPosts(req, res, next) {
       .find()
       .sort({ createdTime: -1 })
       .populate("author", "userName");
+      
     res.status(200).send(latestPost);
   } catch (error) {
     next(error);
@@ -77,6 +79,24 @@ async function updatePost(req, res, next) {
   }
 }
 
+//added by hiba
+async function likePost (req,res,next){
+  try {
+    //extract postid and userid
+    let postID = req.params.pid;
+    let userID = req.params.uid
+    //findByIdAndUpdate 
+    const addLike = await postSchema.findByIdAndUpdate(postID,{$push:{likes:userID}},{new:true})
+    const post = await postSchema.findById(postID)
+    res.send(post)
+    console.log("postID", postID,"userID",userID)
+  } catch (error) {
+    next(error)
+  }
+}
+
+//like a post (which post?, who liked the post?)
+
 async function deletePost(req, res, next) {
   try {
     // let ownershipCheck = await postSchema.findById(req.param.pid);
@@ -90,4 +110,4 @@ async function deletePost(req, res, next) {
   }
 }
 
-module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost };
+module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost ,likePost};

@@ -1,0 +1,148 @@
+.postOuterWrap {
+  grid-area: post;
+  position: absolute;
+  font-family: "Raleway",sans-serif;
+}
+.posts {
+  border-radius: 20px;
+  margin: 1.5rem;
+  padding: 2rem;
+  
+  position: relative;
+  top: 10rem;
+  left: 24rem;
+  width: 25rem;
+ 
+  /* background-color: rgb(173, 230, 210);
+  background-color: lightgoldenrodyellow;
+  background-color: rgba(0,20,20,0.4); */
+  /* background-color: rgb(224, 228, 31); */
+  /* background-color: #362cf9; */
+  /* background:rgb(252, 78, 15); */
+
+  
+  flex-direction: column; 
+  justify-content: flex-start;
+  /* box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+  /* align-items: center; */
+/* background-color: rgba(102, 16, 83, 0.698); */
+  /* border: 1px solid  black; */
+  
+}
+
+
+/* @keyframes animation{
+  50% {background-color: rgb(255, 255, 255)}
+}
+.posts:hover{
+  background-color: rgb(182, 237, 209);
+  animation-name: animation;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;    
+  animation-play-state: running;
+} */
+
+.postContainer {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 35vh;
+  width: 25vw;
+
+  position: relative;
+  top: 20rem;
+  left: 12rem;
+
+  margin: 30px ;
+  font-family: "Raleway",sans-serif;
+
+  /* background-color: rgb(182, 237, 209); */
+  /*  background-color: rgba(255, 225, 240, 0.1); */
+  /*  background: #6cbbb8bb; */
+  /* background: radial-gradient(circle, rgba(216,174,238,1) 0%, rgba(148,187,233,1) 100%); */
+  /*  background: #E8ECD6; */
+
+  background: rgb(231, 235, 184);
+
+  
+}
+
+
+  /* .posts p {
+    align-items:flex-startstate.user.firstName
+  } */
+  
+  .postImg {
+    margin: 0.5rem;
+    width: 100%;
+    height: 15rem;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: 1.2rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+  }
+  
+  .iconHeart {
+    color: #df4930;
+  }
+
+  .comment {
+    color: black;
+    background: rgba(250,250,250,1);
+    font-family: "Raleway",sans-serif;
+    position: relative;
+    top: 0.5rem;
+    margin: 1.2rem;
+    padding: 0.8rem;
+    height: 9vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  
+  .fa-bookmark {
+    margin-right: 1em;
+  }
+  
+  /* .button {
+    margin: 0.5rem;
+    background-color: rgb(215, 29, 122);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: right;
+    float: right;
+    font-weight: bold;
+  } */
+  
+
+  
+  .author {
+    margin: 0.5rem;
+    color: gray;
+    font-family: "Raleway",sans-serif;
+   
+  
+  }
+  
+  .content {
+    font-size: 20px;
+    margin: 0.5rem;
+    font-family: "Raleway";
+    font-weight: bold;
+    
+  }
+  
+  .date {
+    font-family: "Raleway";
+  }
+  

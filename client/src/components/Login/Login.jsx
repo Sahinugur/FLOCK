@@ -1,14 +1,18 @@
 import React, { useState, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import makeCall from "../api/Call";
-import { ChatContext } from "../context/SharedContext";
+import makeCall from "../../api/Call";
+import { ChatContext } from "../../context/SharedContext";
 import { useNavigate } from "react-router-dom";
-import Google from "../img/google.png";
-import Github from "../img/github.png";
-import env from "../api/env";
+import Google from "../../img/google.png";
+import Github from "../../img/github.png";
+import env from "../../api/env";
+import "./login.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// import { MyComponent } from "./Vanta/Vanta";
+
+
 
 const schema = yup
   .object()
@@ -21,6 +25,7 @@ const schema = yup
       .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   })
   .required();
+  
 export default function Login() {
   const {
     register,
@@ -63,11 +68,18 @@ export default function Login() {
   };
 
   return (
+  
     <div className="login">
+      
       <div className="wrapper">
-        <div>here gonna rock the animation</div>
+      
+        <div id="animation">
+      {/* <MyComponent />BIRDY ANIMATION */}
+      </div>
+
         <div className="right">
-          <h1 className="loginTitle">Choose a Login Method</h1>
+        <h1><span>Login to</span> Flock</h1>
+          <h1 className="loginTitle">Login </h1>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />
             Google
@@ -78,7 +90,7 @@ export default function Login() {
           </div>
           <div className="center">
             <div className="line" />
-            <div className="or">OR</div>
+            <div className="or"></div>
           </div>
           <form
             onFocus={handleErrors}
@@ -104,10 +116,10 @@ export default function Login() {
           </form>
 
           <li>
-            <Link to="/users/resetpassword">Password forgotten?</Link>
+            <Link to="/users/resetpassword" className="password-forgotten" >Password forgotten?</Link>
           </li>
           <li>
-            <Link to="/register">Create an account</Link>
+            <Link to="/register" className="create-account" >Create an account</Link>
           </li>
         </div>
       </div>

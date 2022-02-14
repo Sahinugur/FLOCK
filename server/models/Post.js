@@ -8,6 +8,7 @@ const postSchema = new Schema({
   createdTime: { type: Date, default: Date.now },
   deletedTime: { type: Date, default: Date.now },
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  
   filePath: { type: String },
   // contentType: [{ type: String }, { enum: ["image", "video", "file", "none"] }],
   link: { type: String, minlength: 3, maxlength: 255 },

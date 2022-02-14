@@ -32,33 +32,34 @@ function Post() {
     //How to understand who (userid) logged in?
 
     //is this user liked the post
-    const filteredPost =await posts.find((post)=> post._id === postId);
+    const filteredPost = await posts.find((post) => post._id === postId);
     console.log(filteredPost);
 
-    const isUserLikedPost = await filteredPost.likes.some(user=> user === userId)
-    if(isUserLikedPost){
+    const isUserLikedPost = await filteredPost.likes.some(
+      (user) => user === userId
+    );
+    if (isUserLikedPost) {
       //what should happend if user already liked the post and clicked again
-     console.log('user already liked the post');
+      console.log("user already liked the post");
 
-     const res = await axios
-      .patch(`http://localhost:5001/posts/unlike/${postId}/${userId}`)
-      .then((response) => {
-        console.log(response);
-        setIsLiked(!isLiked);
-        /* console.log(res);  */
-      })
-      .catch((err) => console.log(err));
-    }else{
-
-    //make call
-    const res = await axios
-      .patch(`http://localhost:5001/posts/like/${postId}/${userId}`)
-      .then((response) => {
-        console.log(response);
-        setIsLiked(!isLiked);
-        /* console.log(res);  */
-      })
-      .catch((err) => console.log(err));
+      const res = await axios
+        .patch(`http://localhost:5001/posts/unlike/${postId}/${userId}`)
+        .then((response) => {
+          console.log(response);
+          setIsLiked(!isLiked);
+          /* console.log(res);  */
+        })
+        .catch((err) => console.log(err));
+    } else {
+      //make call
+      const res = await axios
+        .patch(`http://localhost:5001/posts/like/${postId}/${userId}`)
+        .then((response) => {
+          console.log(response);
+          setIsLiked(!isLiked);
+          /* console.log(res);  */
+        })
+        .catch((err) => console.log(err));
     }
     // posts.filter((post)=>{
     //  //return post._id===id?setLikes(likes+1):"not match"
@@ -79,7 +80,7 @@ function Post() {
             //start of a single post
 
             return (
-              <div key={index} class="postContainer">
+              <div key={index} className="postContainer">
                 <div>{/* avatar */}</div>
                 <p className="author">{post.author.userName}</p>
                 <h3 className="content">{post.content}</h3>

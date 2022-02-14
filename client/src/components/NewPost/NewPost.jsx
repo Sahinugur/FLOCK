@@ -25,8 +25,7 @@ function StyledUploadBTN(props) {
         type="file"
         ref={hiddenFileInput}
         onChange={handleChange}
-        // style={{ display: "none" }}
-      ></input>
+        style={{ display: "none" }}></input>
     </>
   );
 }

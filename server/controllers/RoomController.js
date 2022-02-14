@@ -6,11 +6,12 @@ const { options } = require("../routes/roomRoute");
 //Creating a Room - Admin rule is required in future?
 async function createRoom(req, res, next) {
   try {
+    console.log(req.params.uid);
     const newRoom = await roomSchema.create({
       title: req.body.title,
       content: [],
-      creator: req.params.uid,
-      admin: [req.params.uid],
+      creatorID: req.params.uid,
+      admins: [req.params.uid],
       joinedUsers: [],
     });
     res.status(200).send(newRoom);

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/Navbar";
 import Post from "../components/Post/Post";
 import Dummie from "../components/Dummie/Dummie";
-import Options from "../components/LeftSidebarLinks/LeftSideBarLinks"
-
+import Options from "../components/LeftSidebarLinks/LeftSideBarLinks";
+import CreateNewPost from "../components/NewPost/NewPost";
 import "./home.css";
 
 export default function Home() {
@@ -36,7 +36,6 @@ export default function Home() {
 
   // console.log("state", state);
   return (
-    
     <div className="grid-container">
       <NavBar />
       {/* <h1 className = "head">this is the Home page</h1> */}
@@ -46,11 +45,10 @@ export default function Home() {
       ) : (
         <h2>{state.user.firstName}</h2>
       )} */}
-      
+
       <Options />
       <Post />
       <Dummie />
     </div>
-    
   );
 }

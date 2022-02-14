@@ -13,7 +13,7 @@ const {
 } = require("../controllers/RoomController");
 
 //Create roomroute, passing UID in query for validation checks  or adding user as Admin/Owner
-router.put("/createRoom/:uid&&:rid", createRoom);
+router.put("/create/:uid", createRoom);
 router.get("/getallrooms", getAllRooms);
 router.get("/:rid", getRoom);
 

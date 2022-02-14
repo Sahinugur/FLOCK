@@ -8,6 +8,7 @@ const roomSchema = new Schema({
     maxLength: 255,
     unique: true,
   },
+  creatorID: { type: String, unique: true },
   content: [{ type: Schema.Types.ObjectId, ref: "Posts" }],
   admins: [{ type: Schema.Types.ObjectId, ref: "User" }],
   joinedUsers: [{ type: Schema.Types.ObjectId, ref: "User" }],

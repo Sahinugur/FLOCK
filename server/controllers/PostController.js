@@ -43,7 +43,7 @@ async function getPost(req, res, next) {
   try {
     const post = await postSchema
       .findById(req.params.pid)
-      .populate("author", "userName");
+      .populate("authorID", "userName");
     console.log(post);
     res.status(200).send(post);
   } catch (error) {
@@ -53,9 +53,8 @@ async function getPost(req, res, next) {
 // ------ Get all posts
 async function getAllPosts(req, res, next) {
   try {
-    const posts = await postSchema.find().populate("author", "userName");
+    const posts = await postSchema.find().populate("authorID", "userName");
     res.status(200).send(posts);
-    
   } catch (error) {
     next(error);
   }
@@ -66,8 +65,7 @@ async function getAllPosts(req, res, next) {
     const latestPost = await postSchema
       .find()
       .sort({ createdTime: -1 })
-      .populate("author", "userName");
-      
+      .populate("authorID", "userName");
     res.status(200).send(latestPost);
   } catch (error) {
     next(error);
@@ -80,7 +78,7 @@ async function updatePost(req, res, next) {
     const id = req.params.pid;
     let updatedVersion = await postSchema
       .findByIdAndUpdate(id, req.body, { new: true })
-      .populate("author", "userName");
+      .populate("authorID", "userName");
     //not needed block >>
     // updatedVersion = await postSchema.findById(id);<<
     res.status(200).send(updatedVersion);
@@ -90,18 +88,22 @@ async function updatePost(req, res, next) {
 }
 
 //added by hiba
-async function likePost (req,res,next){
+async function likePost(req, res, next) {
   try {
     //extract postid and userid
     let postID = req.params.pid;
-    let userID = req.params.uid
-    //findByIdAndUpdate 
-    const addLike = await postSchema.findByIdAndUpdate(postID,{$push:{likes:userID}},{new:true})
-    const post = await postSchema.findById(postID)
-    res.send(post)
-    console.log("postID", postID,"userID",userID)
+    let userID = req.params.uid;
+    //findByIdAndUpdate
+    const addLike = await postSchema.findByIdAndUpdate(
+      postID,
+      { $push: { likes: userID } },
+      { new: true }
+    );
+    const post = await postSchema.findById(postID);
+    res.send(post);
+    console.log("postID", postID, "userID", userID);
   } catch (error) {
-    next(error)
+    next(error);
   }
 }
 
@@ -120,4 +122,11 @@ async function deletePost(req, res, next) {
   }
 }
 
-module.exports = { createPost, getAllPosts, getPost, updatePost, deletePost ,likePost};
+module.exports = {
+  createPost,
+  getAllPosts,
+  getPost,
+  updatePost,
+  deletePost,
+  likePost,
+};

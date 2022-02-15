@@ -74,13 +74,13 @@ function Post() {
   return (
     <div className="postOuterWrap">
       {console.log("posts", posts)}
-      <div className="posts">
+      <div className="postsContainer">
         {posts.length > 0 ? (
           posts.map((post, index) => {
             //start of a single post
 
             return (
-              <div key={index} className="postContainer">
+              <div key={index} class="postCard">
                 <div>{/* avatar */}</div>
                 <p className="author">{post.author.userName}</p>
                 <h3 className="content">{post.content}</h3>
@@ -95,7 +95,6 @@ function Post() {
                   }
                   alt="image of the post"
                 />
-                setLikes(result.likes)
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}

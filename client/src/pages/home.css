@@ -75,10 +75,10 @@ body {
 
   display: grid;
   width: 100vw;
-  height: 250rem;
+  height: 100vh;
 
-  grid-template-columns: 3fr 1fr 1fr;
-  grid-template-rows: 300px;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 12vh;
 
   grid-template-areas:
     "nav nav nav nav nav"

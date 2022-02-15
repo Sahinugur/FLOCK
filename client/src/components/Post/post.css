@@ -1,17 +1,11 @@
 .postOuterWrap {
   grid-area: post;
-  /* position: absolute; */
   font-family: "Raleway", sans-serif;
 }
-.posts {
+.postsContainer {
   border-radius: 20px;
-  margin: 1.5rem;
+  margin: 0.5rem;
   padding: 2rem;
-
-  /* position: relative;
-  top: 10rem;
-  left: 24rem;
-  width: 25rem; */
 
   /* background-color: rgb(173, 230, 210);
   background-color: lightgoldenrodyellow;
@@ -40,18 +34,24 @@
   animation-play-state: running;
 } */
 
-.postContainer {
+.postCard {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  height: 35vh;
-  width: 25vw;
-
-  /* position: relative;
-  top: 20rem;
-  left: 12rem; */
-
-  margin: 30px;
+  height: 25rem;
+  width: 40vw;
+  margin: 20px auto;
+  padding: 1rem 2rem;
   font-family: "Raleway", sans-serif;
+  /* Eperiment with grid */
+  display: grid;
+  grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end];
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    "author . ."
+    "img content content"
+    "img content content"
+    "img . icons"
+    "img comments comments";
 
   /* background-color: rgb(182, 237, 209); */
   /*  background-color: rgba(255, 225, 240, 0.1); */
@@ -67,19 +67,23 @@
   } */
 
 .postImg {
-  margin: 0.5rem;
-  width: 100%;
+  margin: 0 0rem;
+
+  width: 15rem;
   height: 15rem;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  grid-area: img;
 }
 
 .icons {
+  grid-area: icons;
   display: flex;
-  justify-content: right;
-  position: relative;
+  justify-self: end;
+  /* justify-content: right; */
+  /* position: relative;
   top: 1.2rem;
   margin-top: 1rem;
-  margin-right: 2rem;
+  margin-right: 2rem; */
 }
 
 .iconHeart {
@@ -87,17 +91,16 @@
 }
 
 .comment {
+  padding: 0.7rem;
   color: black;
   background: rgba(250, 250, 250, 1);
   font-family: "Raleway", sans-serif;
-  position: relative;
-  top: 0.5rem;
-  margin: 1.2rem;
-  padding: 0.8rem;
-  height: 9vh;
+
+  height: 7rem;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  grid-area: comments;
 }
 
 .fa-bookmark {
@@ -123,6 +126,7 @@
   margin: 0.5rem;
   color: gray;
   font-family: "Raleway", sans-serif;
+  grid-area: author;
 }
 
 .content {
@@ -130,6 +134,7 @@
   margin: 0.5rem;
   font-family: "Raleway";
   font-weight: bold;
+  grid-area: content;
 }
 
 .date {

@@ -5,7 +5,7 @@ import makeCall from "../../api/Call";
 import env from "../../api/env";
 import axios from "axios";
 import "./post.css";
-import "../../pages/home.css";
+// import "../../pages/home.css";
 import { useContext } from "react";
 import { ChatContext } from "../../context/SharedContext";
 

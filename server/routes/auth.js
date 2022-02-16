@@ -92,13 +92,10 @@ router.post("/auth/local/signup", async (req, res) => {
     req.flash("error", "Error creating a new account. Try a different login method.");
     res.redirect("/local/signup")
   }
-
   res.redirect("/local/signin")
 });
 
 router.post("/local/signin",
-
-
   passport.authenticate("local", {
     successRedirect: "/login/success",
     failureRedirect: "/local/signin",

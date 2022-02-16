@@ -15,7 +15,7 @@ async function createPost(req, res, next) {
         title: req.body.title,
         roomID: req.params.rid,
         content: req.body.content,
-        authorID: req.params.uid,
+        author: req.params.uid,
         filePath: req.filePath,
         likes: [],
         link: req.body.link,
@@ -43,7 +43,7 @@ async function getPost(req, res, next) {
   try {
     const post = await postSchema
       .findById(req.params.pid)
-      .populate("authorID", "userName");
+      .populate("author", "userName");
     console.log(post);
     res.status(200).send(post);
   } catch (error) {
@@ -53,7 +53,7 @@ async function getPost(req, res, next) {
 // ------ Get all posts
 async function getAllPosts(req, res, next) {
   try {
-    const posts = await postSchema.find().populate("authorID", "userName");
+    const posts = await postSchema.find().populate("author", "userName");
     res.status(200).send(posts);
   } catch (error) {
     next(error);
@@ -65,7 +65,7 @@ async function getAllPosts(req, res, next) {
     const latestPost = await postSchema
       .find()
       .sort({ createdTime: -1 })
-      .populate("authorID", "userName");
+      .populate("author", "userName");
     res.status(200).send(latestPost);
   } catch (error) {
     next(error);
@@ -78,7 +78,7 @@ async function updatePost(req, res, next) {
     const id = req.params.pid;
     let updatedVersion = await postSchema
       .findByIdAndUpdate(id, req.body, { new: true })
-      .populate("authorID", "userName");
+      .populate("author", "userName");
     //not needed block >>
     // updatedVersion = await postSchema.findById(id);<<
     res.status(200).send(updatedVersion);

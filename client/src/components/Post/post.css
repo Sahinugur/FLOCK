@@ -42,7 +42,8 @@
   margin: 20px auto;
   padding: 1rem 2rem;
   font-family: "Raleway", sans-serif;
-  /* Eperiment with grid */
+  grid-area: postCards;
+  /* Experiment with grid */
   display: grid;
   grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end];
   grid-template-columns: 1fr 2fr 1fr;

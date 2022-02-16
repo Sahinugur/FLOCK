@@ -12,7 +12,6 @@ body {
 .newPost {
   margin: 0rem auto 1rem auto;
   width: 50rem;
-
   display: flex;
   flex-flow: column;
 }

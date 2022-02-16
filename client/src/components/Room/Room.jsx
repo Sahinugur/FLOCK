@@ -7,11 +7,14 @@ import "./room.css";
 
 export default function Room() {
   return (
+    //Why the class is taking CSS from home.css
     <div className="grid-container">
       <NavBar />
-      <CreateNewPost />
       <LeftComponent />
-      <Post />
+      <CreateNewPost />
+      {/* <div> */}
+      {/* <Post /> */}
+      {/* </div> */}
     </div>
   );
 }

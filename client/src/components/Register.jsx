@@ -67,7 +67,7 @@ export default function Registration() {
           className="registration-form "
         >
           <h1>Registration</h1>
-          <input
+          <input 
             type="text"
             placeholder="first name"
             id="first_name"

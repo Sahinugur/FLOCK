@@ -22,7 +22,7 @@ const schema = yup.object().shape({
         type_of_project: yup
             .string(),
         technologies: yup
-            .string(),
+            .array(),
         stage_of_project: yup
             .string(),
         add_link: yup
@@ -55,9 +55,9 @@ export default function ProjectForm({reload, setReload}) {
             await makeCall(env.LOGPROJECT, "POST", logs)
             .then((result) => {
                 setReload(!reload);
-                console.log("result of projectForm", result)
                 navigate(`/projects`);
                 toggleModal();
+                console.log("result of projectForm", result)
             })
         };
 
@@ -65,10 +65,11 @@ export default function ProjectForm({reload, setReload}) {
             console.log(`errors`, errors);
             setErrorMsg("");
         }
-
+    
+        
     return (
         <>
-        <button onClick={toggleModal} className="btn_prModal_container">Create Project</button>
+        <button onClick={toggleModal} className="btn_prModal_cont">Create Project</button>
             {modal && (
                 <div className="prModal">
                     <div onClick={toggleModal} className="prOverlay"></div>
@@ -99,7 +100,7 @@ export default function ProjectForm({reload, setReload}) {
                                         id="founder"
                                         name="founder"
                                         // placeholder="Username:"
-                                        // value={state.user._id}
+                                        // value={state.user.firstName}
                                         {...register("founder", { required: "Please provide username" })}
                                     />
                                 <p>{errors.password?.message}</p>
@@ -165,7 +166,42 @@ export default function ProjectForm({reload, setReload}) {
                                         <option value="progressive_web_apps">Progressive Web Apps</option>
                                     </select>
 
+                            
                                     <label htmlFor="technologies">Technologies:</label>
+                                        <label htmlFor="technologies">
+                                        <input 
+                                            type="checkbox" 
+                                            id="technologies" 
+                                            name="technologies"
+                                            value="python"
+                                            />Python
+                                        </label>
+                                        <label htmlFor="technologies">
+                                        <input 
+                                            type="checkbox" 
+                                            id="technologies" 
+                                            name="technologies"
+                                            value="java"
+                                            />Java
+                                        </label>
+                                        <label htmlFor="technologies">
+                                        <input 
+                                            type="checkbox" 
+                                            id="technologies" 
+                                            name="technologies"
+                                            value="javascript"
+                                            />Javascript
+                                        </label>
+                                        <label htmlFor="technologies">
+                                        <input 
+                                            type="checkbox" 
+                                            id="technologies" 
+                                            name="technologies"
+                                            value="go"
+                                            />Go
+                                        </label>
+                                        
+                                        
                                     <select {...register("technologies")} defaultValue={'DEFAULT'} 
                                     id="technologies" name="technologies">
                                             <option value="DEFAULT" disabled>Select technologies...</option>
@@ -208,29 +244,29 @@ export default function ProjectForm({reload, setReload}) {
                                 <div className="size_and_stage">
                                 <p>Stage of project:</p>
                                     <div className="radioBtn">
-                                        <label htmlFor="stage_initiation">
+                                        <label htmlFor="stage_first_steps">
                                             <input
                                                 {...register("stage_of_project")}
                                                 type="radio"
                                                 name="stage_of_project"
-                                                value="initiation"
-                                                id="stage_initiation"
+                                                value="first_steps"
+                                                id="stage_first_steps"
                                             />
-                                            Initiation
+                                            First steps
                                         </label>
 
-                                        <label htmlFor="stage_planning">
+                                        <label htmlFor="stage_in_construction">
                                             <input
                                                 {...register("stage_of_project")}
                                                 type="radio"
                                                 name="stage_of_project"
-                                                value="planning"
-                                                id="stage_planning"
+                                                value="in_construction"
+                                                id="stage_in_construction"
                                             />
-                                            Planning
+                                            In construction
                                         </label>
 
-                                        <label htmlFor="stage_execution">
+                                        {/* <label htmlFor="stage_execution">
                                             <input
                                                 {...register("stage_of_project")}
                                                 type="radio"
@@ -239,17 +275,17 @@ export default function ProjectForm({reload, setReload}) {
                                                 id="stage_execution"
                                             />
                                             Execution
-                                        </label>
+                                        </label> */}
 
-                                        <label htmlFor="stage_closure">
+                                        <label htmlFor="stage_done">
                                             <input
                                                 {...register("stage_of_project")}
                                                 type="radio"
                                                 name="stage_of_project"
-                                                value="closure"
-                                                id="stage_closure"
+                                                value="done"
+                                                id="stage_done"
                                             />
-                                            Closure
+                                            Done
                                         </label>
                                     </div>
                                 </div>

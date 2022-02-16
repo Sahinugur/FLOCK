@@ -1,6 +1,8 @@
 import React, {useContext } from "react";
 import { Link } from "react-router-dom";
 import { ChatContext } from "../context/SharedContext";
+
+
 export default function NavBar() {
   const { state, dispatch } = useContext(ChatContext);
   const logout = () => {

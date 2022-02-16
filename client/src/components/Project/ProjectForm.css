@@ -1,29 +1,27 @@
-.btn_prModal_container {
-    
+/* CREATE PROJECT BUTTON ON PROJECTS PAGE, not the one on the form*/
+.btn_prModal_cont{
     grid-area: post;
-    /* position: absolute; */
     font-family: "Raleway",sans-serif;
-    width: 40%;
-    height: 4rem;
+    width: 100%;
+    height: 3rem;
     color: #2c2d48;
     background-color: #fcf8f5;
-    box-shadow: 0px 0px 10px 1px #CFCCCA;
+    box-shadow: 0px 0px 3px 1px #CFCCCA;
     text-align: center;
     /* border-radius: 15px; */
     font-size: 1.8rem;
     font-weight: bold;
     border-radius: 20px;
-    margin: 1.5rem;
+    margin: 1.5rem 0;
 }
 
-.btn_prModal_container:hover {
-    left: 10px;
+.btn_prModal_cont:hover{
     border-radius: 40px;
     transition: 1s;
     text-decoration: underline 1px solid;
 }
 
-
+/* Modal styling */
 .prOverlay {
     width: 100vw;
     height: 100vh;
@@ -32,7 +30,6 @@
     position: fixed;
     background: rgba(49, 49, 49, 0.8);
 }
-
 
 .prModal-content {
     position: absolute;
@@ -70,35 +67,7 @@
     color: #f1356d;
 }
 
-.left_side,
-.right_side{
-    display: flex;
-    flex-direction: column;
-    flex:0;
-    width:75%;
-    height: 70%;
-    flex: 1; 
-}
-
-.size_and_stage {
-    width: 90%;
-    display: flex;
-    margin: 0.8rem;
-}
-
-.size_and_stage p{
-    flex: 0 0 40%;
-    width: 45; 
-    
-}
-
-.radioBtn input[type="radio"]{
-    display: inline-flex;
-    flex-direction: column;
-    width: 40%;
-    /* flex: 0 0 40%; */
-}
-
+/* Form styling */
 .pr_form p {
     width: 90%;
     align-self: center;
@@ -110,12 +79,11 @@
 .pr_form select {
     width: 90%;
     height: 10%;
-    padding: 1rem;
-    margin: 0.4rem;
+    margin: 0.6rem;
+    padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     border: none;
-    /* line-height: 1.4; */
 }
 
 .pr_form input[type="text"] {
@@ -123,11 +91,45 @@
 }
 
 .pr_form textarea[type="text"] {
-    padding: 1.5rem;
     border: 1px solid #ddd;
+    width: inherit;
+    
+}
+/* Inside flexbox */
+.left_side,
+.right_side{
+    display: flex;
+    flex-direction: column;
+    flex:0;
+    width:75%;
+    height: 80%;
+    flex: 1; 
+}
+
+/* Inside flexbox */
+.size_and_stage {
+    width: 90%;
+    /* display: flex; */
+    justify-content: center;
+    
+    /* align-items: flex-start;
+    margin: 0.8rem;
+    /* flex: 0 30%; */
+}
+
+.size_and_stage p{
+    flex: 0 50%;
+}
+
+.radioBtn input[type="radio"]{
+    /* display: inline-flex; */
+    /* flex-direction: column; */
+    width: 40%;
+    /* flex: 0 0 40%; */
 }
 
 
+/* Buttons on the form */
 .prModal-content button {
     background: #f1356d;
     color: #fff;
@@ -143,4 +145,19 @@
     margin: 0 0.8rem;
     bottom: 4rem;
     right: auto;
+}
+
+@media screen and (max-width: 992px) {
+
+    .prModal-content {
+        top: 53%;
+        height: 100%;
+        justify-content: center;
+    }
+    .pr_form{
+        height: 120%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

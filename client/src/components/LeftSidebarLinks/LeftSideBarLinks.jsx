@@ -1,14 +1,20 @@
 import React from 'react'
-import './LeftSideBar.css';
 import { useNavigate } from "react-router-dom";
-// import "../../pages/home.css";
+import './LeftSideBar.css';
 
 export default function LeftSideBarLinks() {
     const navigate = useNavigate();
 
+    function viewRooms() {
+        navigate("/room")
+    }
 
     function viewProjects() {
         navigate("/projects")
+    }
+
+    function viewEvents() {
+        navigate("/events")
     }
 
     return (
@@ -20,7 +26,7 @@ export default function LeftSideBarLinks() {
                     <li><a href=""></a></li>
                     <li><a href=""></a></li>
                 </ul>
-                <button className="options">View more Rooms</button>
+                <button onClick={viewRooms} className="options">View more Rooms</button>
             </div> 
 
             <div className="projects_section">
@@ -40,7 +46,7 @@ export default function LeftSideBarLinks() {
                     <li><a href=""></a></li>
                     <li><a href=""></a></li>
                 </ul>
-                <button className ="options">View more Events</button>
+                <button onClick={viewEvents} className ="options">View more Events</button>
             </div>
         </div>
     )

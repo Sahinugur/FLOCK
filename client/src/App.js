@@ -9,7 +9,7 @@ import {
 import SharedContext from "./context/SharedContext";
 import Login from "./components/Login.jsx";
 import Home from "./pages/Home.js";
-import Projects from "./pages/Projects.js";
+import Projects from "./pages/Projects.jsx";
 import Register from "./components/Register";
 
 // import Post from "./components/Post.jsx";

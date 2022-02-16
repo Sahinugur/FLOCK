@@ -42,7 +42,7 @@ export default function Login() {
       dispatch({ type: "AUTHENTICATED", payload: {user: result.user, projects: result.projects} });
       console.log(`result.status`, result);
       localStorage.setItem('state', JSON.stringify({
-        username:result.user.username, 
+        username:result.user.firstName, 
         id: result.user.id,
         // avatar: result.user.avatar
       }))

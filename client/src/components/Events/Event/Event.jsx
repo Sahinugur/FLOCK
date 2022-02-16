@@ -4,36 +4,55 @@ import "./event.css";
 import { ChatContext } from "../../../context/SharedContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { motion } from "framer-motion";
+import { MdDelete } from "react-icons/md";
 
-const Event = ({ post }) => {
+const url = "http://localhost:5001/events";
+
+const Event = ({ event }) => {
   const { state, dispatch } = useContext(ChatContext);
+
+  const deleteEvent = (id) => axios.delete(`${url}/${id}`);
+
   return (
     <>
-      <div class="container">
+      <motion.div
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        layout
+        class="container"
+      >
         <div class="card">
           <div class="card__body">
-            <span class="tag tag-blue">{post.category}</span>
-            <h4>{post.title}</h4>
-            <p>{post.description}</p>
+            <span class="tag tag-blue">{event.category}</span>
+            <h4>{event.title}</h4>
+            <p>{event.description}</p>
           </div>
 
           <div class="card__footer">
             <div class="user">
               <img src={state.user.profilePhoto} alt="" className="avatar" />
               <div class="user__info">
-                <h5>{post.creator}</h5>
-                <small>{moment(post.createdAt).fromNow()}</small>
+                <h5>{event.creator}</h5>
+                <small>{moment(event.createdAt).fromNow()}</small>
               </div>
             </div>
           </div>
 
           <div class="button">
-            <Link to="/events">
+            <Link to={`/events/${event._id}`}>
               <button className="btn">join</button>
             </Link>
+            <MdDelete
+              size="1.5rem"
+              color="#e50914"
+              onClick={() => dispatch(deleteEvent(event._id))}
+            />
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

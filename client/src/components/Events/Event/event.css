@@ -26,7 +26,8 @@
   overflow: hidden;
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1em;
-  background: linear-gradient(to right, #ffffff, #ece9e6);
+  background: #ece9e6;
+  margin: 20px;
 }
 
 .card__body {
@@ -83,9 +84,11 @@
   border-radius: 1em;
   font-size: 1rem;
   border-style: none;
+  width: 10rem;
+  margin-left: 6rem;
 }
 
 .button {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }

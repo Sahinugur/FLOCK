@@ -3,6 +3,7 @@ import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import Post from "../components/Post";
+import "./Home.css";
 
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);

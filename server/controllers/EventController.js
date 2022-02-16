@@ -12,6 +12,26 @@ async function getEvents(req, res) {
   }
 }
 
+async function getEvent(req, res) {
+  try {
+    const event = await Event.findById(req.params.id);
+    res.json(event);
+  } catch (error) {
+    console.log({ message: error });
+  }
+}
+
+//Get Filtered Events
+async function getFilteredEvents(req, res) {
+  try {
+    const Events = await Event.find({ category: req.params.id });
+    console.log("testE", Events);
+    res.status(200).json({ Events });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
+
 //CREATE EVENT
 async function createEvent(req, res) {
   const event = req.body;
@@ -23,6 +43,18 @@ async function createEvent(req, res) {
     res.status(409).json({ error: error.message });
     next(error);
   }
+}
+
+//DELETE
+
+async function deleteEvent(req, res) {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).send("No post with that id");
+  }
+  await Event.findByIdAndRemove(id);
+
+  res.json({ message: "Post deleted successfully" });
 }
 
 //UPDATE EVENT
@@ -42,4 +74,11 @@ async function updatedEvent(req, res) {
   res.json(updatedEvent);
 }
 
-module.exports = { createEvent, updatedEvent, getEvents };
+module.exports = {
+  createEvent,
+  updatedEvent,
+  getEvents,
+  deleteEvent,
+  getEvent,
+  getFilteredEvents,
+};

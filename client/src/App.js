@@ -11,6 +11,7 @@ import Login from "./components/Login.jsx";
 import Home from "./pages/Home.js";
 import Register from "./components/Register";
 import Events from "./components/Events/Events.jsx";
+import EventDetails from "./components/EventDetails/EventDetails";
 
 // import Post from "./components/Post.jsx";
 export default function App() {
@@ -23,10 +24,8 @@ export default function App() {
           <Route path="/register" element={<Register />}></Route>
           {/* <Route path="/posts" element={<Post />}></Route> */}
           {/* <Route path="/join" element={<Join />}></Route> */}
-          <Route path="/events" element={<Events />}>
-            {" "}
-            HEllo world
-          </Route>
+          <Route path="/events" exact element={<Events />}></Route>
+          <Route path="/events/:id" exact element={<EventDetails />}></Route>
         </Routes>
       </div>
     </SharedContext>

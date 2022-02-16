@@ -7,7 +7,8 @@ import Home from "./pages/Home.js";
 import Register from "./components/Register/Register";
 import Projects from "./pages/Projects.jsx";
 import Post from "./components/Post/Post";
-import { MyComponent } from "./components/Login/Vanta/Vanta.jsx";
+import Events from "./components/Events/Events.jsx";
+import EventDetails from "./components/EventDetails/EventDetails";
 
 // import Post from "./components/Post.jsx";
 export default function App() {
@@ -24,6 +25,10 @@ export default function App() {
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/posts" element={<Post />}></Route>
           {/* <Route path="/join" element={<Join />}></Route>  */}
+          {/* <Route path="/posts" element={<Post />}></Route> */}
+          {/* <Route path="/join" element={<Join />}></Route> */}
+          <Route path="/events" exact element={<Events />}></Route>
+          <Route path="/events/:id" exact element={<EventDetails />}></Route>
         </Routes>
       </SharedContext>
     </>

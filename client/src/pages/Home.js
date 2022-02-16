@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ChatContext } from "../context/SharedContext";
 import { Link } from "react-router-dom";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/Navbar/Navbar";
 import LeftSideBarLinks from "../components/LeftSidebarLinks/LeftSideBarLinks";
-import Post from "../components/Post";
-import ProjectForm from "../components/Project/ProjectForm";
+import Post from "../components/Post/Post";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 
@@ -33,10 +32,6 @@ export default function Home() {
     };
     getUser();
   }, []);
-
-  function viewProjects() {
-    navigate("/projects");
-  }
 
   console.log("state of Homepage", state);
   return (

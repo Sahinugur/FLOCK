@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 import Home from "./pages/Home.js";
 import Register from "./components/Register/Register";
 import Projects from "./pages/Projects.jsx";
-import Post from "./components/Post";
+import Post from "./components/Post/Post";
 import { MyComponent } from "./components/Login/Vanta/Vanta.jsx";
 
 // import Post from "./components/Post.jsx";

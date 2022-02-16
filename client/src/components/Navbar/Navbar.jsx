@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChatContext } from "../../context/SharedContext";
 import Menu from "../LeftSidebarLinks/LeftSideBarLinks";
+import bird from '../../img/bird.svg';
 
 // the style of the menu is not right!! thats the white thing in the navbar!!!
 import "../Dropdown/Dropdown";
@@ -17,7 +18,8 @@ export default function NavBar() {
   };
 
   return (
-    <div className="navbar">
+      <div className="navbar">
+         <img className = "bird" src={bird} alt="bird"></img>
       <span className="logo">
         <Link className="link" to="/home">
           Flock

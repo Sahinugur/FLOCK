@@ -48,7 +48,7 @@ export default function Home() {
         <h2>{state.user.firstName}</h2>
       )}
       <LeftSideBarLinks />
-      <Post />
+      <Post />{" "}
     </div>
   );
 }

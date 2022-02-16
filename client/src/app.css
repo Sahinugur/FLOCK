@@ -221,7 +221,8 @@ body {
   }
   .wrapper {
     width: 65%;
-    height: 90%;
+    /* width: 100px; */
+    /* transition: width 2s; */
     flex-direction: column;
   }
   .loginTitle {

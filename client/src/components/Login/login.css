@@ -14,9 +14,9 @@
   .wrapper {
     width: 80%;
     height: 90%;
-    background: rgba(255, 253, 248, 1);
+    /* background: rgba(255, 253, 248, 1); */
     /* box-shadow: 0 8px 32px 0 rgba(199, 199, 211, 0.904); */
-    backdrop-filter: blur( 4px );
+    /* backdrop-filter: blur( 4px ); */
     /* -webkit-backdrop-filter: blur( 4px ); */
     border-radius: 10px;
     border: 1px solid rgba(41, 41, 41, 0);
@@ -26,13 +26,9 @@
     
   }
 
-
-
-  #animation {
-    min-height: 300px;
-    color: black;
-    padding: 20px;
-    font-size: 24px;
+  .bird{
+   height:100px;
+    backgroundColor: white;
   }
 
 
@@ -40,30 +36,30 @@
     flex: 1;
     justify-content: space-around;
     text-align: center;
-
   }
 
   h1{
-    font-size: 20px;
+    font-size: 40px;
     width: 180px;
   }
 
   span{
-    color: rgb(201, 201, 220);
+    font-size: 20px;
+    color: rgb(109, 96, 100);
+  }
+
+  h1:hover{
+    transition:  font-size 0.5s ease-in-out;
+    font-size: 70px;
   }
   
   .right {
-    
     height: 52rem;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
     width: 20rem;
-    
-    
   } 
 
   .loginTitle {

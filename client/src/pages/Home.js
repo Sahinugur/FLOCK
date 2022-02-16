@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/Navbar";
 import Post from "../components/Post/Post";
 import Dummie from "../components/Dummie/Dummie";
-import Options from "../components/LeftSidebarLinks/LeftSideBarLinks"
+import Options from "../components/LeftSidebarLinks/LeftSideBarLinks";
+import bird from '../img/bird.svg'; 
+
 
 import "./home.css";
 

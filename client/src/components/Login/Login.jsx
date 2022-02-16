@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MyComponent } from "./Vanta/Vanta";
 import BIRDS from 'vanta/dist/vanta.birds.min';
+import bird from '../../img/bird.svg'; 
 
 
 
@@ -110,7 +111,7 @@ export default function Login() {
       <div className="wrapper">
         <div className="right">
         <h1><span>Login to</span> Flock</h1>
-
+        <img className = "bird" src={bird} alt="bird"></img>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />
             Google

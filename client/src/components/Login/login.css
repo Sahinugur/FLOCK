@@ -26,13 +26,9 @@
     
   }
 
-
-
-  #animation {
-    min-height: 300px;
-    color: black;
-    padding: 20px;
-    font-size: 24px;
+  .bird{
+   height:100px;
+    backgroundColor: white;
   }
 
 
@@ -40,7 +36,6 @@
     flex: 1;
     justify-content: space-around;
     text-align: center;
-
   }
 
   h1{
@@ -59,17 +54,12 @@
   }
   
   .right {
-    
     height: 52rem;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
     width: 20rem;
-    
-    
   } 
 
   .loginTitle {

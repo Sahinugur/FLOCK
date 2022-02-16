@@ -1,13 +1,7 @@
-
-/* i dont know to what these propertys belong to.... */
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
-
 }
 
 :root {
@@ -15,13 +9,34 @@
 }
 
 body {
-  
+  font-size: 1.6rem;
+}
+
+.navbar {
+  height: 50px;
+  background-color: rgba(102, 16, 83, 0.698);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* i dont know to what these propertys belong to.... */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
   font-size: 1.6rem;
   width: 100vw;
 }
-
-
-
 
 .avatar {
   width: 32px;
@@ -96,12 +111,100 @@ body {
   font-size: 18px;
   line-height: 24px;
 }
-.link{
-  margin-left: 2rem;
-  color: inherit;
-  text-decoration: none;
+
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.wrapper {
+  width: 80%;
+  height: 90%;
+  -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: space-around;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.or {
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  padding: 10px;
+  color: gray;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: lightgray;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.loginButton {
+  width: 150px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.google {
+  background-color: #df4930;
+}
+.facebook {
+  background-color: #507cc0;
+}
+.github {
+  background-color: black;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* input {
+  width: 200px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+} */
 
 /* SearchBar */
 
@@ -109,7 +212,7 @@ body {
   position: relative;
   left: 12rem;
   font-size: 25px;
-  };
+}
 
 @media screen and (max-width: 992px) {
   .card {
@@ -124,7 +227,7 @@ body {
   .loginTitle {
     display: none;
   }
-  .or{
+  .or {
     border: 2px solid lightgray;
     border-radius: 50%;
     padding: 10px;
@@ -132,7 +235,7 @@ body {
     background-color: white;
     font-weight: bold;
   }
-  .facebook{
+  .facebook {
     background-color: #507cc0;
   }
 
@@ -143,32 +246,28 @@ body {
   .searchBar {
     position: absolute;
     font-size: 25px;
-    };
-
   }
+}
 
-    .facebook {
-      background-color: #507cc0;
-    }
-   
-    
-    .link {
-      color: inherit;
-      text-decoration: none;
-    }
-    
-      .center {
-        width: 100%;
-        position: relative;
-      } 
-    
-       .right {
-        padding: 20px;
-      }
-    
-      .line {
-        height: 0.5px;
-        width: 300px;
-      }
-  
-    
+.facebook {
+  background-color: #507cc0;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.center {
+  width: 100%;
+  position: relative;
+}
+
+.right {
+  padding: 20px;
+}
+
+.line {
+  height: 0.5px;
+  width: 300px;
+}

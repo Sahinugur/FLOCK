@@ -1,19 +1,29 @@
 import React, { useContext, useState, useEffect } from "react";
+import makeCall from "../api/Call";
+import env from "../api/env";
 import { ChatContext } from "../context/SharedContext";
-import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import LeftSideBarLinks from "../components/LeftSidebarLinks/LeftSideBarLinks";
-import Post from "../components/Post";
 import ProjectForm from "../components/Project/ProjectForm";
-import { useNavigate } from "react-router-dom";
-import "./home.css";
+import ProjectFeed from "../components/Project/ProjectFeed";
+import "./projects.css";
 
-export default function Home() {
+export default function Projects() {
   const { state, dispatch } = useContext(ChatContext);
-
-  const navigate = useNavigate();
+  const [projects, setProjects] = useState([]);
+  const [reload, setReload] = useState(true);
+  useEffect(() => {
+    const getUser = () => {
+      console.log("beginning of useEffect");
+    };
+  });
 
   useEffect(() => {
+    makeCall(env.PROJECTS).then((data) => {
+      console.log(data);
+      setProjects(data);
+    });
+
     const getUser = () => {
       console.log("beginning of useEffect");
       fetch("http://localhost:5001/auth/login/success", {
@@ -24,31 +34,26 @@ export default function Home() {
           if (response.status === 200) return response.json();
           throw new Error("authentication has been failed!");
         })
-        .then((resObject) => {
-          dispatch({ type: "AUTHENTICATED", payload: resObject.user });
+        .then((response) => {
+          dispatch({ type: "AUTHENTICATED", payload: response.user });
         })
         .catch((err) => {
           console.log(err);
         });
     };
     getUser();
-  }, []);
+  }, [reload]);
 
-  function viewProjects() {
-    navigate("/projects");
-  }
+  //   useEffect(() => {
 
-  console.log("state of Homepage", state);
+  //   }, []);
+
   return (
     <div className="grid-container">
       <NavBar />
-      {state.user.source !== "github" ? (
-        <h2>{state.user.email}</h2>
-      ) : (
-        <h2>{state.user.firstName}</h2>
-      )}
       <LeftSideBarLinks />
-      <Post />
+      <ProjectForm reload={reload} setReload={setReload} />
+      <ProjectFeed projects={projects} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 const UserSchema = require("../models/User");
+const projectSchema = require("../models/Project");
 const { validationResult } = require("express-validator");
 const { compare } = require('../lib/encryption');
 const uuid = require("uuid");
@@ -134,8 +135,9 @@ async function loginUser(req, res, next) {
     let username = req.body.username;
     //find a user with the given username{userName:username}
     const user = await UserSchema.findOne({ userName: username })
+    const projects = await projectSchema.find({founder: user._id})
     console.log('user', user);
-
+    
 
    
         //if there is no user in db with the given username
@@ -148,7 +150,7 @@ async function loginUser(req, res, next) {
 
         else if (await compare(req.body.password, user.password)) {
             res.status(200)
-                .json({ msg: 'You logged in successfully.', status: true, user: user })
+                .json({ msg: 'You logged in successfully.', status: true, user: user, projects: projects })
         } else {
             res.send({ msg: 'Username or password is wrong. Please try again.', status: false })
         }

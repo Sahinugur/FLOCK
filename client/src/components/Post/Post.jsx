@@ -80,7 +80,7 @@ function Post() {
             //start of a single post
 
             return (
-              <div key={index} class="postCard">
+              <div key={index} className="postCard">
                 <div>{/* avatar */}</div>
                 <p className="author">{post.author.userName}</p>
                 <h3 className="content">{post.content}</h3>

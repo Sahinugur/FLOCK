@@ -1,0 +1,10 @@
+.filter {
+  background: #62ce60;
+  color: #fafafa;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 1rem;
+  border-style: none;
+  width: 10rem;
+  margin: 1rem;
+}

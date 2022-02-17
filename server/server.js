@@ -10,24 +10,25 @@ const path = require("path");
 
 const usersRoute = require("./routes/usersRoute");
 const postRoute = require("./routes/postRoute");
+const projectRoute = require("./routes/projectRoute");
 const passportSetup = require("./passport");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const emailRouter = require("./routes/confirmations.js");
 const cookieSession = require("cookie-session");
 const { mainErrorHandler } = require("./middleware/errorHandler");
+const eventRoute = require("./routes/eventRoute");
 /*Middlewares*/
 
-
- app.use(cors(corsOptions));
- app.use(
-   cors({
-     origin: "http://localhost:3000",
-     methods: "GET,POST,PUT,DELETE",
-     headers: "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept",
-     credentials: true,
-   })
- );
+app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    headers: "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -59,8 +60,10 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/confirm", emailRouter);
+app.use("/events", eventRoute);
 
 app.use("/posts", postRoute);
+app.use("/projects", projectRoute);
 //Test images folder connection
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 

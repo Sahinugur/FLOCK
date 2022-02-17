@@ -80,8 +80,13 @@ export default function Login() {
   function login(inputValues) {
     //e.preventDefault();
     makeCall(env.LOGIN, "POST", inputValues).then((result) => {
-      dispatch({ type: "AUTHENTICATED", payload: result.user });
+      dispatch({ type: "AUTHENTICATED", payload: {user: result.user, projects: result.projects} });
       console.log(`result.status`, result);
+      localStorage.setItem('state', JSON.stringify({
+        username:result.user.firstName, 
+        id: result.user.id,
+        // avatar: result.user.avatar
+      }))
       if (result.status) {
         navigate(`/home`);
       } else {

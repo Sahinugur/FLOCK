@@ -1,23 +1,3 @@
-.grid-container {
-  /* background-image: url('../img/alex.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: 100%;
-    background-repeat: no-repeat; */
-
-  /* background: rgba(199, 196, 193, 0.2); */
-
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-
-  /* grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 12vh;
-
-  grid-template-areas:
-    "nav nav nav nav nav"
-    "left post . . . "; */
-}
 .feedContainer {
   display: grid;
   grid-template-rows: 1fr 1fr;

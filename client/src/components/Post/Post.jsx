@@ -8,6 +8,7 @@ import "./post.css";
 // import "../../pages/home.css";
 import { useContext } from "react";
 import { ChatContext } from "../../context/SharedContext";
+import CreateNewPost from "../NewPost/NewPost";
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -39,7 +40,6 @@ function Post() {
       (user) => user === userId
     );
     if (isUserLikedPost) {
-      //what should happend if user already liked the post and clicked again
       console.log("user already liked the post");
 
       const res = await axios
@@ -61,19 +61,12 @@ function Post() {
         })
         .catch((err) => console.log(err));
     }
-    // posts.filter((post)=>{
-    //  //return post._id===id?setLikes(likes+1):"not match"
-    //  if(post._id==id){
-    //     const data =  axios.post(`http://localhost:5001/posts/${id}`)
-    //     console.log(data);
-    //  }
-    //})
-    // console.log("FE postID",postID, "FE userID",userID)
   };
 
   return (
     <div className="postOuterWrap">
       {console.log("posts", posts)}
+      <CreateNewPost className="newPostForm"></CreateNewPost>
       <div className="postsContainer">
         {posts.length > 0 ? (
           posts.map((post, index) => {
@@ -83,11 +76,10 @@ function Post() {
               <div key={index} className="postCard">
                 <div>{/* avatar */}</div>
                 <p className="author">{post.author.userName}</p>
-                <h3 className="content">{post.content}</h3>
+                <h3 className="postContent">{post.content}</h3>
                 <h4 className="date">{post.createdTime}</h4>
                 <img
                   className="postImg"
-                  // src="http://localhost:5002/uploads/fadi-xd-I4dR572y7l0-unsplash-1642755615657.jpeg"
                   src={
                     post.filePath
                       ? PUBLIClocation + post.filePath

@@ -1,39 +1,22 @@
 .postOuterWrap {
   grid-area: post;
   font-family: "Raleway", sans-serif;
+  overflow: scroll;
+  margin: 1rem auto 0 auto;
+  display: grid;
+  grid-template-areas: "topFeed ..." "contentFeed ...";
 }
 .postsContainer {
   border-radius: 20px;
-  margin: 0.5rem;
-  padding: 2rem;
-
-  /* background-color: rgb(173, 230, 210);
-  background-color: lightgoldenrodyellow;
-  background-color: rgba(0,20,20,0.4); */
-  /* background-color: rgb(224, 228, 31); */
-  /* background-color: #362cf9; */
-  /* background:rgb(252, 78, 15); */
-
   flex-direction: column;
   justify-content: flex-start;
-  /* box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
-  /* align-items: center; */
-  /* background-color: rgba(102, 16, 83, 0.698); */
-  /* border: 1px solid  black; */
+  grid-area: contentFeed;
 }
-
-/* @keyframes animation{
-  50% {background-color: rgb(255, 255, 255)}
+.newPostForm {
+  grid-area: topFeed;
+  margin: 0 auto;
+  position: sticky;
 }
-.posts:hover{
-  background-color: rgb(182, 237, 209);
-  animation-name: animation;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;    
-  animation-play-state: running;
-} */
-
 .postCard {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -43,7 +26,6 @@
   padding: 1rem 2rem;
   font-family: "Raleway", sans-serif;
   grid-area: postCards;
-  /* Experiment with grid */
   display: grid;
   grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end];
   grid-template-columns: 1fr 2fr 1fr;
@@ -63,10 +45,6 @@
   background: rgb(231, 235, 184);
 }
 
-/* .posts p {
-    align-items:flex-startstate.user.firstName
-  } */
-
 .postImg {
   margin: 0 0rem;
 
@@ -80,11 +58,6 @@
   grid-area: icons;
   display: flex;
   justify-self: end;
-  /* justify-content: right; */
-  /* position: relative;
-  top: 1.2rem;
-  margin-top: 1rem;
-  margin-right: 2rem; */
 }
 
 .iconHeart {
@@ -130,7 +103,7 @@
   grid-area: author;
 }
 
-.content {
+.postContent {
   font-size: 20px;
   margin: 0.5rem;
   font-family: "Raleway";

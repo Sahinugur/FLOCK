@@ -31,64 +31,12 @@
 
 /* pietCOde */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: ‘Roboto’, sans-serif;
-    /*  outline: 2px solid pink; */
-    border: none;
-}
-body {
-    height: 2500px;
-    border-bottom: 2px solid black;
-    color: black; /* hello Lorenzo */
-    width: 100vw;
-
-  /*  background-color:   rgba(245, 212, 197, 0.719);
-    background: rgb(231,229,231);
-    background: linear-gradient(180deg, rgba(231,229,231,1) 0%, rgba(238,79,15,1) 100%);
-    background: rgb(249,246,249);
-    background: linear-gradient(180deg, rgba(249,246,249,1) 0%, rgb(215, 213, 208) 100%); */
-
-  /* background: rgba(200, 200, 250, 0.2);  */
-  /* background: rgb(249,246,249);
-    background: linear-gradient(180deg, rgba(251,249,249,1) 0%, rgb(222, 203, 197) 100%); */
-}
-
-/* navbar = nav */
-/* Container with options on the left =  left */
-/* post = post */
-/* h1 in post = head */
 .head {
-    grid-area: head;
-}
-.grid-container {
-    /* background-image: url('../img/alex.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: 100%;
-    background-repeat: no-repeat; */
-
-    /* background: rgba(199, 196, 193, 0.2); */
-
-    display: grid;
-    width: 100vw;
-    height: 100vh;
-
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 12vh;
-
-    grid-template-areas:
-    "nav nav nav nav nav"
-    "left post . . . ";
+  grid-area: head;
 }
 
 @media (max-width: 768px) {
-    body {
+  body {
     width: 100vw;
-}
+  }
 } ;
-
-

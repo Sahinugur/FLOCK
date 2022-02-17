@@ -61,17 +61,13 @@ mongoose.connection.once("open", () => {
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
 app.use("/confirm", emailRouter);
-<<<<<<< HEAD
 app.use("/posts", postRoute);
 app.use("/room", roomRoute);
-=======
 app.use("/events", eventRoute);
 
-app.use("/posts", postRoute);
 app.use("/projects", projectRoute);
 //Test images folder connection
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
->>>>>>> Development
 
 //Image providing
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

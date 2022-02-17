@@ -6,7 +6,9 @@ const env = {
   GOOGLE: "/auth/google",
   GITHUB: "/auth/github",
   POST: "/posts",
-  LIKE: "/posts/like"
+  LIKE: "/posts/like",
+  LOGPROJECT: "/projects/log",
+  PROJECTS: "/projects",
 };
 
 export default env;

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useRef,useEffect } from "react";
 import { Link } from "react-router-dom";
 import makeCall from "../../api/Call";
 import { ChatContext } from "../../context/SharedContext";
@@ -10,7 +10,10 @@ import "./login.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-// import { MyComponent } from "./Vanta/Vanta";
+import { MyComponent } from "./Vanta/Vanta";
+import BIRDS from 'vanta/dist/vanta.birds.min';
+import bird from '../../img/bird.svg'; 
+
 
 
 
@@ -27,6 +30,39 @@ const schema = yup
   .required();
   
 export default function Login() {
+
+  const [vantaEffect, setVantaEffect] = useState(0);
+  const myRef = useRef(null)
+
+  console.log(myRef.current);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(BIRDS({
+        el: myRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        backgroundColor: 0xffffff,
+        color1: 0xd23434,
+        color2: 0x2153b9,
+        colorMode: "variance",
+        birdSize: 1.50,
+        wingSpan: 40.00,
+        speedLimit: 4.00,
+        separation: 83.00,
+        alignment: 41.00,
+        cohesion: 83.00
+      }))
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect])
+  
   const {
     register,
     handleSubmit,
@@ -44,8 +80,13 @@ export default function Login() {
   function login(inputValues) {
     //e.preventDefault();
     makeCall(env.LOGIN, "POST", inputValues).then((result) => {
-      dispatch({ type: "AUTHENTICATED", payload: result.user });
+      dispatch({ type: "AUTHENTICATED", payload: {user: result.user, projects: result.projects} });
       console.log(`result.status`, result);
+      localStorage.setItem('state', JSON.stringify({
+        username:result.user.firstName, 
+        id: result.user.id,
+        // avatar: result.user.avatar
+      }))
       if (result.status) {
         navigate(`/home`);
       } else {
@@ -69,17 +110,13 @@ export default function Login() {
 
   return (
   
-    <div className="login">
-      
-      <div className="wrapper">
-      
-        <div id="animation">
-      {/* <MyComponent />BIRDY ANIMATION */}
-      </div>
+    <div id='login' className="login"  ref={myRef}>
 
+  <MyComponent />
+      <div className="wrapper">
         <div className="right">
         <h1><span>Login to</span> Flock</h1>
-          <h1 className="loginTitle">Login </h1>
+        <img className = "bird" src={bird} alt="bird"></img>
           <div className="loginButton google" onClick={google}>
             <img src={Google} alt="" className="icon" />
             Google

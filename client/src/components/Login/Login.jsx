@@ -123,10 +123,7 @@ export default function Login() {
             <img src={Github} alt="" className="icon" />
             Github
           </div>
-          <div className="center">
-            <div className="line" />
-            <div className="or"></div>
-          </div>
+       
           <form
             onFocus={handleErrors}
             onSubmit={handleSubmit((d) => login(d))}

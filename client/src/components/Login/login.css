@@ -10,7 +10,6 @@
     background-color:rgb(151, 191, 191);
   }
 
-  
   .wrapper {
     width: 80%;
     height: 90%;
@@ -23,7 +22,6 @@
     display: flex;
     align-items: center;
     border-radius: 20px;
-    
   }
 
   .bird{

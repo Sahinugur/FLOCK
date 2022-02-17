@@ -111,8 +111,6 @@ export default function Login() {
   return (
   
     <div id='login' className="login"  ref={myRef}>
-
-  <MyComponent />
       <div className="wrapper">
         <div className="right">
         <h1><span>Login to</span> Flock</h1>

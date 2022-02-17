@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./leftsidebar.css";
-import "./LeftSideBar.css";
+
 
 export default function LeftSideBarLinks() {
   const navigate = useNavigate();

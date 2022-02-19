@@ -9,6 +9,8 @@ const env = {
   LIKE: "/posts/like",
   LOGPROJECT: "/projects/log",
   PROJECTS: "/projects",
+  EVENTS: "/events",
+  ROOMS: "/room"
 };
 
 export default env;

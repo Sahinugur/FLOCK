@@ -37,15 +37,15 @@ export default function Home() {
   return (
     <div className="grid-container">
       <NavBar />
-      <Link to="/events">
+      {/* <Link to="/events">
         <button className="btn-modal">events</button>
-      </Link>
-      *<h1>this is the Home page</h1>
-      {state.user.source !== "github" ? (
+      </Link> */}
+      {/* *<h1>this is the Home page</h1> */}
+      {/* {state.user.source !== "github" ? (
         <h2>{state.user.email}</h2>
       ) : (
         <h2>{state.user.firstName}</h2>
-      )}
+      )} */}
       <LeftSideBarLinks />
       <Post />{" "}
     </div>

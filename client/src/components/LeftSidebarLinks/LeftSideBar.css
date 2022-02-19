@@ -17,12 +17,22 @@
     align-items: center;
 }
 
-.room_section {
-    
-    
+
+
+.optionLinks a{
+    background-color: rgb(231, 231, 231);
+    text-transform: lowercase;
+    text-decoration: none;
+    color: #2c2d48;
+    padding: 0 2px; 
+    border-radius: 10px;
 }
 
-.options {
+.optionLinks a:hover{
+    /* text-decoration: none; */
+}
+
+.viewMore_btn {
     font-family: "Raleway",sans-serif;
     /* border: 1px solid tomato; */
     font-size: 1.8rem;
@@ -36,14 +46,14 @@
     padding: 0.2rem 0.6rem;
     /* color:black; */
     color: #2c2d48;
-    margin: 1.5rem;
+    margin: 1rem;
     /* align-items: center;  */
     /* text-align: center; */
     /* transform-origin: 0 0;
     transform: rotate(90deg); */    
 }
 
-.options:hover {
+.viewMore_btn:hover {
     left: 10px;
     border-radius: 40px;
     transition: 1s;

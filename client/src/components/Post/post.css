@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: flex-start;
   grid-area: contentFeed;
+  
 }
 .newPostForm {
   grid-area: topFeed;

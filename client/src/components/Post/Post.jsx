@@ -92,7 +92,7 @@ function Post() {
                     icon={faBookmark}
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
-
+                  
                   <FontAwesomeIcon
                     icon={faHeart}
                     className="iconHeart"

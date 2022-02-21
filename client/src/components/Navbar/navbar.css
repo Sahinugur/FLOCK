@@ -1,12 +1,13 @@
-.navbar {
+/* .navbar {
   grid-area: nav;
-  height: 7vh;
+  height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
-}
+} */
+
 .navbar-logo {
   color: rgba(0, 0, 0, 0.74);
   left: 7rem;
@@ -50,9 +51,10 @@
 
 .searchBar {
   position: relative;
-  top: 0.8rem;
-  left: 4rem;
+  top: 1rem;
+  left: 9rem;
   font-size: 15px;
-  width: 31%;
+  width: 50rem;
+  height: 5rem;
   background: white;
 }

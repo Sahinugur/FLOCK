@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./leftsidebar.css";
 
-
 export default function LeftSideBarLinks() {
   const navigate = useNavigate();
 
@@ -21,7 +20,7 @@ export default function LeftSideBarLinks() {
   return (
     <div className="lf_container">
       <div className="room_section">
-        <h4>Popular Rooms</h4>
+        
         <ul>
           <li>
             <a href=""></a>
@@ -34,12 +33,12 @@ export default function LeftSideBarLinks() {
           </li>
         </ul>
         <button onClick={viewRooms} className="options">
-          View more Rooms
+          Show Rooms
         </button>
       </div>
 
       <div className="projects_section">
-        <h4>Popular Projects</h4>
+  
         <ul>
           <li>
             <a href=""></a>
@@ -52,12 +51,11 @@ export default function LeftSideBarLinks() {
           </li>
         </ul>
         <button onClick={viewProjects} className="options">
-          View more Projects
+          Show Projects
         </button>
       </div>
 
       <div className="events_section">
-        <h4>Popular Events</h4>
         <ul>
           <li>
             <a href=""></a>
@@ -70,7 +68,7 @@ export default function LeftSideBarLinks() {
           </li>
         </ul>
         <button onClick={viewEvents} className="options">
-          View more Events
+          Show Events
         </button>
       </div>
     </div>

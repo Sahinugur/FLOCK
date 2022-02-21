@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 
+
+/* 
+background-color: rgb(240, 74, 13); 
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +23,13 @@ body {
 }
 
 .navbar {
-  background-color: rgba(102, 16, 83, 0.698);
-  /* background: rgb(199, 195, 195); */
-  /* background: rgba(240,240,240,1); */
-  color: rgba(0, 0, 0, 0.623);
+  grid-area: nav;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
 }
 
 /* i dont know to what these propertys belong to.... */

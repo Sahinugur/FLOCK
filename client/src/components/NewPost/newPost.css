@@ -1,26 +1,39 @@
 .newPost {
-  margin: 0rem auto 1rem auto;
+  position: relative;
+  top: 3rem;
+  margin: 2.5rem auto;
   width: 50rem;
   display: flex;
   flex-flow: column;
+  outline: 2px solid pink;
 }
+
 .postTextContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-.postTextField {
+  /* display: flex; */
+  /* justify-content: flex-start; */
   width: 40rem;
-  align-self: flex-end;
 }
+
+.postTextField {  
+ align-self: flex-start; 
+ width: 50.1rem;
+ height: 5rem;    
+border:solid 1px rgb(78, 71, 71);
+ border-radius: 60px;
+ }
+
 .btnContainer {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
+
 .uploadBTN {
   border-radius: 9rem;
   width: 9rem;
   height: 3rem;
+  background-color: white;
 }
+
 .publishPostBTN {
   /* border: 1px solid red; */
   border-radius: 2rem;

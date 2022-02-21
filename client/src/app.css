@@ -1,27 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-}
-
-.navbar {
-  height: 50px;
-  background-color: rgba(102, 16, 83, 0.698);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-/* i dont know to what these propertys belong to.... */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 
 * {
   margin: 0;
@@ -30,13 +7,24 @@ body {
 }
 
 :root {
+  font-family: ‘Roboto’, sans-serif;
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
   width: 100vw;
+  height: 100vh;
 }
+
+.navbar {
+  background-color: rgba(102, 16, 83, 0.698);
+  /* background: rgb(199, 195, 195); */
+  /* background: rgba(240,240,240,1); */
+  color: rgba(0, 0, 0, 0.623);
+}
+
+/* i dont know to what these propertys belong to.... */
 
 .avatar {
   width: 32px;
@@ -68,13 +56,26 @@ body {
   margin: 20px 0px;
 }
 
+/* Definition of the Main Grid Container(Posts, Projects,HomePage */
+.main-grid-container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 7vh 88vh;
+
+  grid-template-areas:
+    "nav nav nav nav nav"
+    "left post . . . ";
+}
 .desc {
   color: #333;
   margin-bottom: 20px;
   line-height: 25px;
 }
 
-.cardButton {
+/* .cardButton {
   border: none;
   border-radius: 10px;
   background-color: rgba(53, 16, 102, 0.678);
@@ -82,35 +83,7 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
-}
-
-.post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.postImg {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-.postDesc {
-  padding: 0 100px;
-  font-size: 24px;
-  font-weight: 300;
-  color: gray;
-  margin-top: 50px;
-}
-
-.postLongDesc {
-  padding: 100px;
-  padding-top: 50px;
-  font-size: 18px;
-  line-height: 24px;
-}
+} */
 
 .login {
   height: calc(100vh - 50px);
@@ -200,19 +173,7 @@ body {
   margin-right: 10px;
 }
 
-/* input {
-  width: 200px;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-} */
-
-/* SearchBar */
-
-.searchBar {
-  position: relative;
-  left: 12rem;
-  font-size: 25px;
-}
+/* Unkown mediaquerry? */
 
 @media screen and (max-width: 992px) {
   .card {
@@ -272,3 +233,5 @@ body {
   height: 0.5px;
   width: 300px;
 }
+/******************/
+/*General definitions for stay? For staying  */

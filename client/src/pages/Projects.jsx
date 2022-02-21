@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import makeCall from "../api/Call";
 import env from "../api/env";
 import { ChatContext } from "../context/SharedContext";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/Navbar/Navbar";
 import LeftSideBarLinks from "../components/LeftSidebarLinks/LeftSideBarLinks";
 import ProjectForm from "../components/Project/ProjectForm";
 import ProjectFeed from "../components/Project/ProjectFeed";
@@ -49,7 +49,7 @@ export default function Projects() {
   //   }, []);
 
   return (
-    <div className="grid-container">
+    <div className="main-grid-container">
       <NavBar />
       <LeftSideBarLinks />
       <ProjectForm reload={reload} setReload={setReload} />

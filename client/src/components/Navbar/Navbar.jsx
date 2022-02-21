@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChatContext } from "../../context/SharedContext";
 import Menu from "../LeftSidebarLinks/LeftSideBarLinks";
-import bird from '../../img/bird.svg';
+import bird from "../../img/bird.svg";
 
 // the style of the menu is not right!! thats the white thing in the navbar!!!
 import "../Dropdown/Dropdown";
@@ -18,9 +18,9 @@ export default function NavBar() {
   };
 
   return (
-      <div className="navbar">
-         <img className = "bird" src={bird} alt="bird"></img>
-      <span className="logo">
+    <div className="navbar ">
+      <img className="bird" src={bird} alt="bird"></img>
+      <span className="navbar-logo">
         <Link className="link" to="/home">
           Flock
         </Link>
@@ -32,15 +32,19 @@ export default function NavBar() {
       {/* Dropdown checks his own name! :) */}
       {/* < Menu selected={selected} setSelected={setSelected} />  */}
 
-      <ul className="list">
-        <li className="listItem">
-          <img src={state.user.profilePhoto} alt="" className="avatar" />
+      <ul className="navbar-list">
+        <li className="navbar-listItem">
+          <img src={state.user.profilePhoto} alt="" className="navbar-avatar" />
+        </li>
+        <li>
+          {state.user.source !== "github" ? (
+            <h2>{state.user.email}</h2>
+          ) : (
+            <h2>{state.user.firstName}</h2>
+          )}
         </li>
 
-        {/* line 39 displays username! */}
-        {/* <li className="listItem">{state.user.source ==='google'?state.user.firstName + ' ' + state.user.lastName:state.user.userName}</li> */}
-
-        <li className="listItem" onClick={logout}>
+        <li className="navbar-listItem" onClick={logout}>
           Logout
         </li>
       </ul>

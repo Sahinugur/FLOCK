@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./leftsidebar.css";
 import "./LeftSideBar.css";
 import makeCall from "../../api/Call";
 import env from "../../api/env";

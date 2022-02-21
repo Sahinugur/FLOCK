@@ -26,6 +26,10 @@ router.delete("/deletepost", deletePost);
 // router.get("/getLatest", getLatest);
 
 // router.post("/createPost and upload")
-router.post("/createpost/:uid", uploadFile.single("filePath"), createPost);
+router.post(
+  "/createpost/:uid&&:rid",
+  uploadFile.single("filePath"),
+  createPost
+);
 
 module.exports = router;

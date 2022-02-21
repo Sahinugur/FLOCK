@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,100;1,200&display=swap");
 
-.container {
+.lf_container {
   grid-area: left;
   width: 300px;
   height: 500px;
@@ -15,7 +15,6 @@
 .options {
   font-family: "Raleway", sans-serif;
   /* border: 1px solid tomato; */
-
   width: 250px;
   height: 115px;
   font-size: 1.8rem;

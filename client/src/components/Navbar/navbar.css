@@ -1,19 +1,13 @@
 .navbar {
   grid-area: nav;
-  height: 12vh;
-  /* background: rgb(199, 195, 195); */
-  /* background: rgba(240,240,240,1); */
-  color: rgba(0, 0, 0, 0.623);
+  height: 7vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
-  /* position: relative; */
 }
-.logo {
-  /* position: relative; */
-  font-family: "Courier New", Courier, monospace;
+.navbar-logo {
   color: rgba(0, 0, 0, 0.74);
   left: 7rem;
   font-size: 35px;
@@ -25,7 +19,7 @@
   text-decoration: none;
 }
 
-.list {
+.navbar-list {
   display: flex;
   align-items: center;
   list-style: none;
@@ -34,18 +28,18 @@
   width: 30%;
 }
 
-.listItem {
+.navbar-listItem {
   margin-right: 10px;
   font-weight: 500;
   cursor: pointer;
 }
 
-.listItem:hover {
+.navbar-listItem:hover {
   font-size: 17px;
   color: tomato;
 }
 
-.avatar {
+.navbar-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;

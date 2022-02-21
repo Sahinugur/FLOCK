@@ -3,8 +3,10 @@ import "./app.css";
 import { Routes, Route } from "react-router-dom";
 import SharedContext from "./context/SharedContext";
 import Login from "./components/Login/Login";
-import Home from "./pages/Home.js";
+import Home from "./pages/Home";
 import Register from "./components/Register/Register";
+
+import Room from "./components/Room/Room";
 import Projects from "./pages/Projects.jsx";
 import Post from "./components/Post/Post";
 import Events from "./components/Events/Events.jsx";
@@ -22,6 +24,7 @@ export default function App() {
           <Route path="/" exact element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/room" element={<Room />}></Route>
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/posts" element={<Post />}></Route>
           {/* <Route path="/join" element={<Join />}></Route>  */}

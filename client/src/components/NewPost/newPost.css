@@ -1,0 +1,30 @@
+.newPost {
+  margin: 0rem auto 1rem auto;
+  width: 50rem;
+  display: flex;
+  flex-flow: column;
+}
+.postTextContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+.postTextField {
+  width: 40rem;
+  align-self: flex-end;
+}
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.uploadBTN {
+  border-radius: 9rem;
+  width: 9rem;
+  height: 3rem;
+}
+.publishPostBTN {
+  /* border: 1px solid red; */
+  border-radius: 2rem;
+  width: 14rem;
+  height: 3rem;
+  background-color: papayawhip;
+}

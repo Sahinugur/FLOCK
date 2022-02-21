@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Event from "./Event/Event";
 import axios from "axios";
 import { ModalPopUp } from "../Form/ModalPopUp";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import "./events.css";
 import { ChatContext } from "../../context/SharedContext";
 import { useContext } from "react";

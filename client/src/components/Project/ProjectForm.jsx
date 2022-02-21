@@ -22,7 +22,7 @@ const schema = yup.object().shape({
         type_of_project: yup
             .string(),
         technologies: yup
-            .array(),
+            .string(),
         stage_of_project: yup
             .string(),
         add_link: yup
@@ -51,7 +51,7 @@ export default function ProjectForm({reload, setReload}) {
 
     async function logProject(logs) {
             console.log("hello logs");
-        
+            logs.id = state.user._id;
             await makeCall(env.LOGPROJECT, "POST", logs)
             .then((result) => {
                 setReload(!reload);
@@ -99,8 +99,9 @@ export default function ProjectForm({reload, setReload}) {
                                         type="text"
                                         id="founder"
                                         name="founder"
-                                        // placeholder="Username:"
-                                        // value={state.user.firstName}
+                                        value={state.user.firstName}
+                                        readOnly
+                                        /* data={state.user.id} */
                                         {...register("founder", { required: "Please provide username" })}
                                     />
                                 <p>{errors.password?.message}</p>

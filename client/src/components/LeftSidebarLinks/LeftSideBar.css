@@ -19,7 +19,7 @@
 
 
 
-.optionLinks a{
+.shownLinks a{
     background-color: rgb(231, 231, 231);
     text-transform: lowercase;
     text-decoration: none;
@@ -28,7 +28,7 @@
     border-radius: 10px;
 }
 
-.optionLinks a:hover{
+.shownLinks a:hover{
     /* text-decoration: none; */
 }
 

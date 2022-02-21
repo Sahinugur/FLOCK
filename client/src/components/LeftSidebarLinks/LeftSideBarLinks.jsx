@@ -7,7 +7,7 @@ import env from "../../api/env";
 export default function LeftSideBarLinks() {
   const navigate = useNavigate();
   const [viewOptions, setViewOptions] = useState([]);
-  // const [viewOptions2, setViewOptions2] = useState([]);
+  const [viewPrOptions, setViewPrOptions] = useState([]);
   // const [randomEvents, setRandomEvents] = useState([]);
 
   function viewRooms() {
@@ -23,9 +23,17 @@ export default function LeftSideBarLinks() {
   }
 
   useEffect(() => {
-    makeCall(env.EVENTS, env.PROJECTS)
+    makeCall(env.EVENTS)
     .then((result) => {
-      setViewOptions(result.Options);
+      setViewOptions(result.Events);
+      console.log(result, "test_Leftside");
+    });
+  }, []);
+
+  useEffect(() => {
+    makeCall(env.PROJECTS)
+    .then((result) => {
+      setViewPrOptions(result);
       console.log(result, "test_Leftside");
     });
   }, []);
@@ -55,7 +63,7 @@ export default function LeftSideBarLinks() {
 
   return (
     <div className="lf_container">
-      <div className="optionLinks">
+      <div className="shownLinks">
         <h4>Popular Rooms</h4>
         <ul>
           
@@ -65,24 +73,24 @@ export default function LeftSideBarLinks() {
         </button>
       </div>
 
-      <div className="optionLinks">
+      <div className="shownLinks">
         <h4>Popular Projects</h4>
         <ul>
-        {viewOptions.slice(0, 3).map((test, index) => (
+         {viewOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
-              <a href={`/${test.title}`}>{test.title}</a>
+              <a href={`/${elem.title}`}>{elem.title}</a>
             </li>
-          ))}
+          ))} 
         </ul>
         <button onClick={viewProjects} className="viewMore_btn">
           View more Projects
         </button>
       </div>
 
-      <div className="optionLinks">
+      <div className="shownLinks">
         <h4>Popular Events</h4>
         <ul>
-          {viewOptions.slice(0, 3).map((test, index) => (
+          {viewPrOptions.slice(0, 3).map((test, index) => (
             <li key={index}>
               <a href={`/${test.title}`}>{test.title}</a>
             </li>

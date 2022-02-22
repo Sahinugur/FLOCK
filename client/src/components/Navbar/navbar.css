@@ -31,7 +31,7 @@
 }
 
 .navbar-listItem {
-  background-color: #e5e9e9; 
+
   margin-right: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -58,5 +58,5 @@
   font-size: 15px;
   width: 50rem;
   height: 5rem;
-  background: white;
+  background:white;
 }

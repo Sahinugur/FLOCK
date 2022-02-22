@@ -38,14 +38,12 @@ export default function Home() {
 
   console.log("state of Homepage", state);
   return (
+  
     <div className="main-grid-container home">
       <NavBar />
-      <Link to="/events">
-        <button className="btn-modal">events</button>
-      </Link>
-
       <LeftSideBarLinks />
       <Post />
     </div>
+
   );
 }

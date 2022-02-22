@@ -17,7 +17,14 @@ background-color: rgb(240, 74, 13);
 }
 
 body {
-  background-color: #e5e9e9; 
+  /* background-color: #e5e9e9; 
+  background-color: rgba(103, 140, 121, 0.21); */
+  /* background-color: rgba(111, 111, 236, 0.575); */
+  /* background-color: #323dddd7;
+  background:#5F6CAF; */
+  background: linear-gradient(180deg, rgba(211,210,236,1) 20%, rgba(76,76,215,0.7098283179012346) 100%);
+
+
   font-size: 1.6rem;
   width: 100vw;
   height: 100vh;
@@ -25,13 +32,12 @@ body {
 
 .navbar {
   /* background-color: #232b2b; */
-  background-color: #e5e9e9; 
+  background-color: rgba(246, 242, 242,0.6); 
   grid-area: nav;
   height: 9vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
 }
 

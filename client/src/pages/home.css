@@ -6,6 +6,10 @@
   grid-area: head;
 }
 
+.home{
+  background-color: rgba(252, 74, 9, 0.671);
+}
+
 .btn-modal {
   padding: 10px 20px;
   display: block;

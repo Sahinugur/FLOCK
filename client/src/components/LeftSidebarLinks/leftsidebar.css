@@ -12,6 +12,7 @@
   margin: 6rem auto;
   padding: 1rem;
 }
+
 .options {
   font-family: "Raleway", sans-serif;
   /* border: 1px solid tomato; */
@@ -20,10 +21,9 @@
   font-size: 1.8rem;
   font-weight: bold;
   border-radius: 20px;
-  /* background-color: lightsteelblue;
-    background-color: rgba(165, 183, 238, 0.6); */
+  background-color: black;
 
-  color: black;
+  color: white;
   margin: 1.5rem;
   align-items: center;
   text-align: center;

@@ -43,12 +43,11 @@
   /* background: radial-gradient(circle, rgba(216,174,238,1) 0%, rgba(148,187,233,1) 100%); */
   /*  background: #E8ECD6; */
 
-  background: rgb(231, 235, 184);
-}
+  background-color: #232b2b;
+color: white }
 
 .postImg {
   margin: 0 0rem;
-
   width: 15rem;
   height: 15rem;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

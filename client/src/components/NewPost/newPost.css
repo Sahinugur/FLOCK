@@ -5,7 +5,6 @@
   width: 50rem;
   display: flex;
   flex-flow: column;
-  outline: 2px solid pink;
 }
 
 .postTextContainer {
@@ -18,7 +17,7 @@
  align-self: flex-start; 
  width: 50.1rem;
  height: 5rem;    
-border:solid 1px rgb(78, 71, 71);
+ border:solid 1px rgb(78, 71, 71);
  border-radius: 60px;
  }
 

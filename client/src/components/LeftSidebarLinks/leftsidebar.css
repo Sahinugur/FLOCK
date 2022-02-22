@@ -11,6 +11,7 @@
   left: 1.5rem; */
   margin: 6rem auto;
   padding: 1rem;
+ 
 }
 
 .options {
@@ -20,13 +21,16 @@
   height: 115px;
   font-size: 1.8rem;
   font-weight: bold;
-  border-radius: 20px;
-  background-color: black;
+  border-radius: 10px;
+  /* background-color: black; */
+  /* background-color: #232b2b; */
+  background-color: white;
 
-  color: white;
+  color: black;
   margin: 1.5rem;
   align-items: center;
   text-align: center;
+  border: 1px solid black;
   /* transform-origin: 0 0;
     transform: rotate(90deg); */
 }

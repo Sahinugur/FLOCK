@@ -17,12 +17,15 @@ background-color: rgb(240, 74, 13);
 }
 
 body {
+  background-color: #e5e9e9; 
   font-size: 1.6rem;
   width: 100vw;
   height: 100vh;
 }
 
 .navbar {
+  /* background-color: #232b2b; */
+  background-color: #e5e9e9; 
   grid-area: nav;
   height: 9vh;
   display: flex;

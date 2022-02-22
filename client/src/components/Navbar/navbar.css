@@ -9,7 +9,8 @@
 } */
 
 .navbar-logo {
-  color: rgba(0, 0, 0, 0.74);
+  /* color: rgba(0, 0, 0, 0.74); */
+  color: black;
   left: 7rem;
   font-size: 35px;
   font-weight: bold;
@@ -30,6 +31,7 @@
 }
 
 .navbar-listItem {
+  background-color: #e5e9e9; 
   margin-right: 10px;
   font-weight: 500;
   cursor: pointer;

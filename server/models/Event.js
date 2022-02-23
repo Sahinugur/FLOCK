@@ -9,12 +9,7 @@ const eventSchema = new Schema({
     type: Date,
     default: new Date(),
   },
-<<<<<<< HEAD
-  date: String,
-  time: String,
-=======
   time: String,
   date: String,
->>>>>>> Development
 });
 module.exports = mongoose.model("Event", eventSchema);

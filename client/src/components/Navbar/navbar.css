@@ -31,7 +31,6 @@
 }
 
 .navbar-listItem {
-
   margin-right: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -52,11 +51,12 @@
 /*  searchbar in navbar */
 
 .searchBar {
-  position: relative;
+  /* position: relative;
   top: 1rem;
-  left: 9rem;
+  left: 9rem; */
   font-size: 15px;
   width: 50rem;
-  height: 5rem;
-  background:white;
+  height: 45%;
+  background: white;
+  margin: 2rem 0;
 }

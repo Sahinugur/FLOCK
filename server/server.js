@@ -21,7 +21,7 @@ const { mainErrorHandler } = require("./middleware/errorHandler");
 const eventRoute = require("./routes/eventRoute");
 /*Middlewares*/
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(
   cors({
     origin: "http://localhost:3000",

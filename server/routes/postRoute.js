@@ -12,7 +12,7 @@ const {
 
   //Sorting function added as default to getAllposts route
   getLatest,
-likePost,
+  likePost,
   updatePost,
   deletePost,
 } = require("../controllers/PostController");
@@ -20,16 +20,12 @@ likePost,
 router.get("/", getAllPosts);
 router.get("/post/:pid", getPost);
 //new
-router.patch('/like/:pid/:uid',likePost) // /:uid added by fahim
+router.patch("/like/:pid/:uid", likePost); // /:uid added by fahim
 router.put("/updatepost/:pid", updatePost);
 router.delete("/deletepost", deletePost);
 // router.get("/getLatest", getLatest);
 
 // router.post("/createPost and upload")
-router.post(
-  "/createpost/:uid&&:rid",
-  uploadFile.single("filePath"),
-  createPost
-);
+router.post("/createpost/:uid", uploadFile.single("filePath"), createPost);
 
 module.exports = router;

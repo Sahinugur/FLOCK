@@ -2,35 +2,18 @@
 
 
 .login {
-    height: calc(100vh - 50px);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:rgba(240, 248, 255, 0.938);
+    background-color:rgba(129, 183, 230, 0.938);
     background-color:rgb(151, 191, 191);
-  }
-
-  
-  .wrapper {
-    width: 80%;
-    height: 90%;
-    /* background: rgba(255, 253, 248, 1); */
-    /* box-shadow: 0 8px 32px 0 rgba(199, 199, 211, 0.904); */
-    /* backdrop-filter: blur( 4px ); */
-    /* -webkit-backdrop-filter: blur( 4px ); */
-    border-radius: 10px;
-    border: 1px solid rgba(41, 41, 41, 0);
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    
   }
 
   .bird{
    height:100px;
     backgroundColor: white;
   }
-
 
    .left, .right{
     flex: 1;
@@ -48,10 +31,6 @@
     color: rgb(109, 96, 100);
   }
 
-  h1:hover{
-    transition:  font-size 0.5s ease-in-out;
-    font-size: 70px;
-  }
   
   .right {
     height: 52rem;
@@ -69,86 +48,51 @@
   }
 
   .loginButton {
-    width: 150px;
+    width: 190px;
     padding: 15px 25px;
     border-radius: 5px;
-    color: black;
+    color: white;
     display: flex;
    
     font-weight: bold;
     margin-bottom: 20px;
     cursor: pointer;
     position: relative;
-    top: 3rem;
+    top: 0.5rem;
   } 
 
   .loginButton:hover{
-    
-    
-    width: 150px;
+    width: 180px;
     text-align: center;
     transition: width 0.7s;
   }
 
   .google {
+    color: white;
     width: 190px;
     background-color: rgb(240, 74, 13);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  }
+  };
 
 
-  .github{
+  .github {
     width: 190px;
     background: black;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  }
+  };
 
   .icon {
-    color: black;
+    color: white;
     width: 20px;
     height: 20px;
     margin-right: 10px;
   }
 
-  input {
+  .login input {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  }
-
-  .center{
-    height: 10%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  /* .line {
-    width: 0.5px;
-    height: 70%;
-  } */
-
-
-  .line {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: -1;
-  } 
-
-  .or {
-    padding: 6px;
-    width: 185px;
-    color: white;
-    font-weight: bold;
-    border-bottom: 2px solid black;
   }
 
   .form {
@@ -156,7 +100,7 @@
     flex-direction: column;
   }
 
-  input {
+  .login input {
     width: 190px;
     padding: 15px 20px;
     margin-bottom: 20px;
@@ -172,20 +116,17 @@
     border: none;
     padding: 15px 20px;
     border-radius: 5px;
-
-
-    opacity: 0;
-    transition: opacity 0.7s ease-in-out;
   }
 
 
   .submit:hover {
     align-self: center;
-    /* width: 100px; */
-    /* transition: width 2s; */
+    background-color: rgb(36, 219, 67);
+    width: 180px;
+    color: black;
+    transition: width 0.7s;
+    
 
-    opacity: 1;
-   
   }
 
   li {

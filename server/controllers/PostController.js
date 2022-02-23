@@ -8,7 +8,7 @@ async function createPost(req, res, next) {
     //find the user who wants to add a post
     const user = await userSchema.findById(req.params.uid);
     room = await roomSchema.findById(req.params.rid);
-    console.log(user, room);
+    console.log("it is comming from Create new post route", user, req.body);
     if (user) {
       //add the new post to collection Post
       const newPost = await postSchema.create({

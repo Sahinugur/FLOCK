@@ -25,17 +25,17 @@ const Filter = ({ data, setData }) => {
   return (
     <div>
       <div>
-        <button onClick={getEvents} className="filter">
+        <button onClick={getEvents} className="filterBtn">
           All
         </button>
 
-        <button id="UI-UX Design" onClick={handleClick} className="filter">
+        <button id="UI-UX Design" onClick={handleClick} className="filterBtn">
           UI-UX Design
         </button>
-        <button id="Database" onClick={handleClick} className="filter">
+        <button id="Database" onClick={handleClick} className="filterBtn">
           Database
         </button>
-        <button id="DevOps" onClick={handleClick} className="filter">
+        <button id="DevOps" onClick={handleClick} className="filterBtn">
           DevOps
         </button>
       </div>

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
+import Datepicker from "react-datepicker";
+import { TimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 export const ModalPopUp = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  console.log(selectedDate);
+
   const createEvents = async (postEvent) =>
     axios.post("http://localhost:5001/events", postEvent);
 
@@ -12,6 +17,8 @@ export const ModalPopUp = () => {
     title: "",
     description: "",
     category: "",
+    time: "",
+    date: "",
   });
 
   const toggleModal = () => {
@@ -35,7 +42,7 @@ export const ModalPopUp = () => {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Add New Event</h2>
+            <h2 className="header">Add New Event</h2>
             <form onSubmit={handleSubmit}>
               <label>Event Creator</label>
               <input
@@ -66,6 +73,26 @@ export const ModalPopUp = () => {
                 required
               ></textarea>
 
+              <label>Event Time</label>
+              <input
+                type="time"
+                value={postEvent.time}
+                onChange={(e) =>
+                  setPostEvent({ ...postEvent, time: e.target.value })
+                }
+                required
+              />
+
+              <label>Event Date</label>
+              <input
+                type="date"
+                value={postEvent.date}
+                onChange={(e) =>
+                  setPostEvent({ ...postEvent, date: e.target.value })
+                }
+                required
+              />
+
               <label>Select Category</label>
               <select
                 value={postEvent.category}
@@ -77,7 +104,9 @@ export const ModalPopUp = () => {
                 <option value="UI-UX Design">UI-UX Design</option>
                 <option value="Database">Database</option>
               </select>
-              <button onSubmit={handleSubmit}>Submit</button>
+              <button onSubmit={handleSubmit} className="submitEvent">
+                Submit
+              </button>
             </form>
             <button onClick={toggleModal} className="close-modal">
               Close

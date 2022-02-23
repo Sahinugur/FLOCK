@@ -24,30 +24,34 @@ const Event = ({ event }) => {
         layout
         class="container"
       >
-        <div class="card">
-          <div class="card__body">
-            <span class="tag tag-blue">{event.category}</span>
+        <div class="cardEvent">
+          <div class="card_bodyEvent">
+            <span class="category">{event.category}</span>
             <h4>{event.title}</h4>
             <p>{event.description}</p>
           </div>
 
-          <div class="card__footer">
-            <div class="user">
+          <div class="dateTime">
+              <p>{event}</p>
+          </div>
+
+          <div class="card_footerEvent">
+            <div class="userEvent">
               <img src={state.user.profilePhoto} alt="" className="avatar" />
-              <div class="user__info">
+              <div class="user_infoEvent">
                 <h5>{event.creator}</h5>
                 <small>{moment(event.createdAt).fromNow()}</small>
               </div>
             </div>
           </div>
 
-          <div class="button">
+          <div class="buttonEvent">
             <Link to={`/events/${event._id}`}>
-              <button className="btn">join</button>
+              <button className="btnEvent">join</button>
             </Link>
             <MdDelete
-              size="1.5rem"
-              color="#e50914"
+              size="2rem"
+              color="#0f1730"
               onClick={() => dispatch(deleteEvent(event._id))}
             />
           </div>

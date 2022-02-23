@@ -40,10 +40,6 @@ export default function Home() {
   return (
     <div className="main-grid-container home">
       <NavBar />
-      <Link to="/events">
-        <button className="btn-modal">events</button>
-      </Link>
-
       <LeftSideBarLinks />
       <Post />
     </div>

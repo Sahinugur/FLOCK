@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
-/* Double confirm for delete */
-/* *,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-} */
+}
 
 .container {
   display: flex;
@@ -19,7 +16,7 @@
   margin-right: 20px;
 }
 
-.card {
+.cardEvent {
   display: flex;
   flex-direction: column;
   /* width: clamp(20rem, calc(20rem + 2vw), 22rem); */
@@ -31,7 +28,7 @@
   margin: 20px;
 }
 
-.card__body {
+.card_bodyEvent {
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -49,9 +46,12 @@
   margin-left: 0.5em;
 }
 
-.tag-blue {
+.category {
   background: #62ce60;
   color: #fafafa;
+  width: 20rem;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .card__body h4 {
@@ -59,13 +59,13 @@
   text-transform: capitalize;
 }
 
-.card__footer {
+.card_footerEvent {
   display: flex;
   padding: 1rem;
   margin-top: auto;
 }
 
-.user {
+.userEvent {
   display: flex;
   gap: 0.5rem;
 }
@@ -74,22 +74,22 @@
   border-radius: 50%;
 }
 
-.user__info > small {
+.user_infoEvent > small {
   color: #666;
 }
 
-.btn {
+.btnEvent {
   background: #62ce60;
   color: #fafafa;
   padding: 0.25em 0.75em;
   border-radius: 1em;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-style: none;
   width: 10rem;
   margin-left: 6rem;
 }
 
-.button {
+.buttonEvent {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

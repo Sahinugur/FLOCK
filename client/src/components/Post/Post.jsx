@@ -15,6 +15,7 @@ function Post() {
   const [isLiked, setIsLiked] = useState(false);
   const { state, dispatch } = useContext(ChatContext);
   const [likedPost, setLikedPost] = useState();
+
   //  console.log("userID: ",state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
@@ -92,7 +93,7 @@ function Post() {
                     icon={faBookmark}
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
-
+                  
                   <FontAwesomeIcon
                     icon={faHeart}
                     className="iconHeart"

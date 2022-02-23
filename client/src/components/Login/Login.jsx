@@ -114,7 +114,7 @@ export default function Login() {
 
   return (
     <div id="login" className="login" ref={myRef}>
-      <div className="wrapper">
+     
         <div className="right">
           <h1>
             <span>Login to</span> Flock
@@ -128,10 +128,7 @@ export default function Login() {
             <img src={Github} alt="" className="icon" />
             Github
           </div>
-          <div className="center">
-            <div className="line" />
-            <div className="or"></div>
-          </div>
+
           <form
             onFocus={handleErrors}
             onSubmit={handleSubmit((d) => login(d))}
@@ -165,7 +162,7 @@ export default function Login() {
             </Link>
           </li>
         </div>
-      </div>
+      
     </div>
   );
 }

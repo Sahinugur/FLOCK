@@ -29,13 +29,14 @@
 }
 
 .shownLinks a:hover{
-    /* text-decoration: none; */
+    border-radius: 0;
+    border-bottom: 1px solid #2c2d48;
 }
 
 .viewMore_btn {
     font-family: "Raleway",sans-serif;
     /* border: 1px solid tomato; */
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 20px;
     /* background-color: lightsteelblue;

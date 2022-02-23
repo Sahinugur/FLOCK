@@ -10,7 +10,7 @@ const env = {
   LOGPROJECT: "/projects/log",
   PROJECTS: "/projects",
   EVENTS: "/events",
-  ROOMS: "/room"
+  ROOMS: "/room/getallrooms"
 };
 
 export default env;

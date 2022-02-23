@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./leftsidebar.css";
 import "./LeftSideBar.css";
 import makeCall from "../../api/Call";
 import env from "../../api/env";
 
+
 export default function LeftSideBarLinks() {
   const navigate = useNavigate();
-  const [viewOptions, setViewOptions] = useState([]);
+  const [viewRoOptions, setViewRoOptions] = useState([]);
   const [viewPrOptions, setViewPrOptions] = useState([]);
-  // const [randomEvents, setRandomEvents] = useState([]);
+  const [viewEvOptions, setViewEvOptions] = useState([]);
 
   function viewRooms() {
     navigate("/room");
@@ -24,9 +24,9 @@ export default function LeftSideBarLinks() {
   }
 
   useEffect(() => {
-    makeCall(env.EVENTS)
+    makeCall(env.ROOMS)
     .then((result) => {
-      setViewOptions(result.Events);
+      setViewRoOptions(result);
       console.log(result, "test_Leftside");
     });
   }, []);
@@ -39,13 +39,13 @@ export default function LeftSideBarLinks() {
     });
   }, []);
 
-  // useEffect(async() => {
-  //   const fetchData = await makeCall(env.PROJECTS).then((result) => {
-  //     setViewOptions2(result.Projects);
-  //     // console.log(result, "test_Leftside");
-  //   });
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    makeCall(env.EVENTS)
+    .then((result) => {
+      setViewEvOptions(result.Events);
+      console.log(result, "test_Leftside");
+    });
+  }, []);
 
   // useEffect(() => {
   //   function randomCall() {
@@ -67,7 +67,11 @@ export default function LeftSideBarLinks() {
       <div className="shownLinks">
         <h4>Popular Rooms</h4>
         <ul>
-          
+        {viewRoOptions.slice(0, 3).map((elem, index) => (
+            <li key={index}>
+              <a href={`/${elem.title}`}>{elem.title}</a>
+            </li>
+          ))}
         </ul>
         <button onClick={viewRooms} className="viewMore_btn">
           View more Rooms
@@ -77,7 +81,7 @@ export default function LeftSideBarLinks() {
       <div className="shownLinks">
         <h4>Popular Projects</h4>
         <ul>
-         {viewOptions.slice(0, 3).map((elem, index) => (
+         {viewPrOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
               <a href={`/${elem.title}`}>{elem.title}</a>
             </li>
@@ -91,7 +95,7 @@ export default function LeftSideBarLinks() {
       <div className="shownLinks">
         <h4>Popular Events</h4>
         <ul>
-          {viewPrOptions.slice(0, 3).map((test, index) => (
+          {viewEvOptions.slice(0, 3).map((test, index) => (
             <li key={index}>
               <a href={`/${test.title}`}>{test.title}</a>
             </li>

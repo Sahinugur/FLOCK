@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Select from 'react-select';
 import './ProjectForm.css';
 
 const schema = yup.object().shape({
@@ -22,7 +23,7 @@ const schema = yup.object().shape({
         type_of_project: yup
             .string(),
         technologies: yup
-            .string(),
+            .array(),
         stage_of_project: yup
             .string(),
         add_link: yup
@@ -65,6 +66,32 @@ export default function ProjectForm({reload, setReload}) {
             console.log(`errors`, errors);
             setErrorMsg("");
         }
+
+        /* Creating a multiselect checkboxes*/ 
+        const [selectedOption, setSelectedOption] = useState(null)
+        const options = [
+            { value: 'javascript', label: 'JavaScript' },
+            { value: 'python', label: 'Python' },
+            { value: 'java', label: 'Java' },
+            { value: 'go', label: 'Go' },
+            { value: 'php', label: 'PHP' },
+            { value: 'typescript', label: 'TypeScript' },
+            { value: 'c', label: 'C' },
+            { value: 'c++', label: 'C++' },
+            { value: 'semanticUI', label: 'SemanticUI' },
+            { value: 'html', label: 'HTML' },
+            { value: 'css', label: 'CSS' },
+            { value: 'sql', label: 'SQL' },
+            { value: 'nodejs', label: 'Node.js' },
+            { value: 'kotlin', label: 'Kotlin' },
+            { value: 'webassembly', label: 'WebAssembly' },
+            { value: 'sass', label: 'SASS' },
+            { value: 'bootstrap', label: 'Bootstrap' },
+            { value: 'reactjs', label: 'React' },
+
+          ];
+
+
     
         
     return (
@@ -167,58 +194,14 @@ export default function ProjectForm({reload, setReload}) {
                                         <option value="progressive_web_apps">Progressive Web Apps</option>
                                     </select>
 
-                            
-                                    <label htmlFor="technologies">Technologies:</label>
-                                        <label htmlFor="technologies">
-                                        <input 
-                                            type="checkbox" 
-                                            id="technologies" 
-                                            name="technologies"
-                                            value="python"
-                                            />Python
-                                        </label>
-                                        <label htmlFor="technologies">
-                                        <input 
-                                            type="checkbox" 
-                                            id="technologies" 
-                                            name="technologies"
-                                            value="java"
-                                            />Java
-                                        </label>
-                                        <label htmlFor="technologies">
-                                        <input 
-                                            type="checkbox" 
-                                            id="technologies" 
-                                            name="technologies"
-                                            value="javascript"
-                                            />Javascript
-                                        </label>
-                                        <label htmlFor="technologies">
-                                        <input 
-                                            type="checkbox" 
-                                            id="technologies" 
-                                            name="technologies"
-                                            value="go"
-                                            />Go
-                                        </label>
-                                        
-                                        
-                                    <select {...register("technologies")} defaultValue={'DEFAULT'} 
-                                    id="technologies" name="technologies">
-                                            <option value="DEFAULT" disabled>Select technologies...</option>
-
-                                            <option value="python">Python</option>
-                                            <option value="java">Java</option>
-                                            <option value="c">C</option>
-                                            <option value="c++">C++</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="php">PHP</option>
-                                            <option value="go">Go</option>
-                                            <option value="r">R</option>
-                                            <option value="typescript">Typescript</option>
-                                            <option value="mongodb">Mongodb</option>
-                                            <option value="reactjs">Reactjs</option>
-                                    </select>
+                                    <Select 
+                                    {...register ("technologies")}
+                                        isMulti
+                                        defaultValue={selectedOption}
+                                        onChange={setSelectedOption}
+                                        options={options}
+                                    />
+                                    
                             </div>
                                 
                             <div className="right_side">

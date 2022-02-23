@@ -64,13 +64,8 @@ export default function LeftSideBarLinks() {
 
   return (
     <div className="lf_container">
-<<<<<<< HEAD
-      <div className="room_section">
-        
-=======
       <div className="shownLinks">
         <h4>Popular Rooms</h4>
->>>>>>> Development
         <ul>
         {viewRoOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
@@ -78,15 +73,6 @@ export default function LeftSideBarLinks() {
             </li>
           ))}
         </ul>
-<<<<<<< HEAD
-        <button onClick={viewRooms} className="options">
-          Show Rooms
-        </button>
-      </div>
-
-      <div className="projects_section">
-  
-=======
         <button onClick={viewRooms} className="viewMore_btn">
           View more Rooms
         </button>
@@ -94,7 +80,6 @@ export default function LeftSideBarLinks() {
 
       <div className="shownLinks">
         <h4>Popular Projects</h4>
->>>>>>> Development
         <ul>
          {viewPrOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
@@ -102,14 +87,6 @@ export default function LeftSideBarLinks() {
             </li>
           ))} 
         </ul>
-<<<<<<< HEAD
-        <button onClick={viewProjects} className="options">
-          Show Projects
-        </button>
-      </div>
-
-      <div className="events_section">
-=======
         <button onClick={viewProjects} className="viewMore_btn">
           View more Projects
         </button>
@@ -117,7 +94,6 @@ export default function LeftSideBarLinks() {
 
       <div className="shownLinks">
         <h4>Popular Events</h4>
->>>>>>> Development
         <ul>
           {viewEvOptions.slice(0, 3).map((test, index) => (
             <li key={index}>
@@ -126,14 +102,9 @@ export default function LeftSideBarLinks() {
           ))}
           {/* {randomEvents && randomEvents.map((rand) => rand.title)} */}
         </ul>
-<<<<<<< HEAD
-        <button onClick={viewEvents} className="options">
-          Show Events
-=======
 
         <button onClick={viewEvents} className="viewMore_btn">
           View more Events
->>>>>>> Development
         </button>
       </div>
     </div>

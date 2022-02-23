@@ -90,6 +90,25 @@ export default function ProjectForm({reload, setReload}) {
             { value: 'reactjs', label: 'React' },
 
           ];
+        
+        /*re-styling technologies */
+          const customStyles = {
+            option: (provided, state) => ({
+              borderBottom: '1px solid #gray',
+              color: state.isSelected ? 'yellow' : 'black',
+              backgroundColor: state.isSelected ? 'green' : 'white'
+            }),
+            control: (provided) => ({
+              ...provided,
+              backgroundColor: '#ddd',
+              width: '90%',
+              height: '10%',
+              margin: '0.6rem',
+              borderRadius: '5px',
+              border: 'none',
+              
+            })
+          }
 
 
     
@@ -197,6 +216,7 @@ export default function ProjectForm({reload, setReload}) {
                                     <Select 
                                     {...register ("technologies")}
                                         isMulti
+                                        styles = { customStyles }
                                         defaultValue={selectedOption}
                                         onChange={setSelectedOption}
                                         options={options}

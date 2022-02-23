@@ -12,6 +12,8 @@ export const ModalPopUp = () => {
     title: "",
     description: "",
     category: "",
+    date: "",
+    time: "",
   });
 
   const toggleModal = () => {
@@ -65,6 +67,26 @@ export const ModalPopUp = () => {
                 }
                 required
               ></textarea>
+
+              <label>Event Date</label>
+              <input
+                type="date"
+                value={postEvent.date}
+                onChange={(e) =>
+                  setPostEvent({ ...postEvent, date: e.target.value })
+                }
+                required
+              />
+
+              <label>Event Time</label>
+              <input
+                type="time"
+                value={postEvent.time}
+                onChange={(e) =>
+                  setPostEvent({ ...postEvent, time: e.target.value })
+                }
+                required
+              />
 
               <label>Select Category</label>
               <select

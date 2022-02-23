@@ -31,6 +31,11 @@ const Event = ({ event }) => {
             <p>{event.description}</p>
           </div>
 
+          <div class="dateTime">
+            <p class="dateEvent">{event.date} </p>
+            <p>{event.time}</p>
+          </div>
+
           <div class="card__footer">
             <div class="user">
               <img src={state.user.profilePhoto} alt="" className="avatar" />

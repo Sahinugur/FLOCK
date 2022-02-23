@@ -9,5 +9,7 @@ const eventSchema = new Schema({
     type: Date,
     default: new Date(),
   },
+  date: String,
+  time: String,
 });
 module.exports = mongoose.model("Event", eventSchema);

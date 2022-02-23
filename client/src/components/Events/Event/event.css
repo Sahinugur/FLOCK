@@ -93,3 +93,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.dateTime {
+  display: flex;
+}
+
+.dateEvent {
+  margin-right: 20px;
+}

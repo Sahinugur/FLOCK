@@ -3,41 +3,28 @@
   flex-direction: column;
 }
 .newPost {
-<<<<<<< HEAD
-  position: relative;
-  top: 3rem;
-  margin: 2.5rem auto;
-  width: 50rem;
-=======
   margin: 1rem auto 1rem auto;
   width: 100%;
->>>>>>> Development
   display: flex;
   flex-flow: column;
 }
 
 .postTextContainer {
-<<<<<<< HEAD
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  width: 40rem;
-=======
   display: flex;
   justify-content: flex-end;
 }
 .postTextField {
   width: 100%;
   align-self: flex-end;
->>>>>>> Development
 }
 
-.postTextField {  
- align-self: flex-start; 
- width: 50.1rem;
- height: 5rem;    
- border:solid 1px rgb(78, 71, 71);
- border-radius: 60px;
- }
+.postTextField {
+  align-self: flex-start;
+  width: 50.1rem;
+  height: 5rem;
+  border: solid 1px rgb(78, 71, 71);
+  border-radius: 60px;
+}
 
 .btnContainer {
   display: flex;

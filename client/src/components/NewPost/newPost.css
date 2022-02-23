@@ -1,16 +1,34 @@
+.mainNewPostContainer {
+  display: flex;
+  flex-direction: column;
+}
 .newPost {
+<<<<<<< HEAD
   position: relative;
   top: 3rem;
   margin: 2.5rem auto;
   width: 50rem;
+=======
+  margin: 1rem auto 1rem auto;
+  width: 100%;
+>>>>>>> Development
   display: flex;
   flex-flow: column;
 }
 
 .postTextContainer {
+<<<<<<< HEAD
   /* display: flex; */
   /* justify-content: flex-start; */
   width: 40rem;
+=======
+  display: flex;
+  justify-content: flex-end;
+}
+.postTextField {
+  width: 100%;
+  align-self: flex-end;
+>>>>>>> Development
 }
 
 .postTextField {  
@@ -27,6 +45,9 @@
 }
 
 .uploadBTN {
+  width: 6rem !important;
+  padding: 0.5rem;
+  border: 1px solid grey;
   border-radius: 9rem;
   width: 9rem;
   height: 3rem;
@@ -39,4 +60,27 @@
   width: 14rem;
   height: 3rem;
   background-color: papayawhip;
+}
+#createNewPostFile {
+  width: 20rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NewPost-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.NewPost-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.NewPost-exit {
+  opacity: 1;
+}
+.NewPost-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

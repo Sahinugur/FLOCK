@@ -1,6 +1,8 @@
 export const initialState = {
   user: {},
   rooms: [],
+  projects: [],
+  events: [],
 };
 
 export const reduce = (state = initialState, action) => {
@@ -10,6 +12,8 @@ export const reduce = (state = initialState, action) => {
         ...state,
         user: action.payload,
         rooms: ["family-room", "travelling-room"],
+        // projects: ["flock"], 
+        // events: ["uix"], [""]
       };
 
     default:

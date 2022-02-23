@@ -121,7 +121,7 @@ export default function Registration() {
           name="confirm_password"
         /> */}
           <input type="submit" value="Register" />
-          <button onClick={getUsers}>list of registered users</button>
+          {/* <button onClick={getUsers}>list of registered users</button> */}
         </form>
       </div>
     </div>

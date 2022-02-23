@@ -1,117 +1,149 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./newPost.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
-
-// function FileUploader() {
-//   const fileInput = React.useRef(null);
-
-//   const handleFileInput = (e) => {
-//     const file = e.target.files[0];
-//     if (file.size > 1024) console.log("file is too big");
-//     else console.log(file);
-//     console.log(e.target.files[0]);
-//   };
-
-//   return (
-//     <div className="file-uploader">
-//       <input type="file" onChange={handleFileInput}></input>
-//       <button
-//         onClick={(e) => {
-//           fileInput.current && fileInput.current.click();
-//         }}
-//       />
-//     </div>
-//   );
-// }
+import makeCall from "../../api/Call";
+import env from "../../api/env";
+import { ChatContext } from "../../context/SharedContext";
+import { CSSTransition } from "react-transition-group";
 
 function StyledUploadBTN(props) {
   const hiddenFileInput = React.useRef();
-
-  function handleClick(e) {
-    hiddenFileInput.current.click();
-  }
 
   function handleChange(event) {
     const [fileUploaded] = event.target.files;
     console.log(fileUploaded);
     props.handleState(fileUploaded);
-
-    // props.handleFile(fileUploaded);
   }
   return (
-    <>
-      <input
-        type="file"
-        ref={hiddenFileInput}
-        onChange={handleChange}
-        // style={{ display: "none" }}
-      ></input>
-      <button onClick={handleClick} className="uploadBTN">
-        <FontAwesomeIcon icon={faUpload} />
-      </button>
-    </>
+    <div id="createNewPostFile">
+      <label htmlFor="fileInput">
+        <input
+          id="fileInput"
+          type="file"
+          ref={hiddenFileInput}
+          onChange={handleChange}
+          style={{ display: "none" }}></input>
+        <FontAwesomeIcon icon={faUpload} className="uploadBTN" />
+      </label>
+      <div>
+        {props.selectedFile && props.selectedFile.name ? (
+          <p>{props.selectedFile.name}</p>
+        ) : (
+          <p>Upload</p>
+        )}
+      </div>
+    </div>
   );
 }
 
 //Structure for new post
-//Input required from User: Title, Content, UploadFile
+//Input required from User: Content, UploadFile
 export default function CreateNewPost() {
-  const [text, setText] = useState("");
-  const [newPostData, setNewPostData] = useState("");
+  const { state } = useContext(ChatContext);
+  const [newPostData, setNewPostData] = useState({
+    content: "",
+    fileDescription: "",
+  });
   const [selectedFile, setSelectedFile] = useState({});
+  const [postText, setPostText] = useState("");
+  const [showButton, setShowButton] = useState(true);
+  const [isCollapsed, setCollapse] = useState(false);
 
-  const [postText, setPostText] = useState();
-  // console.log("state:", selectedFile);
+  useEffect(() => {});
+
   function handleState(entry) {
     setSelectedFile(entry);
     console.log("state:", selectedFile, "entry:", entry);
   }
   function handleChange(e) {
-    console.log();
-    setNewPostData(e.target.value);
+    setPostText(e.target.value);
+    setNewPostData({
+      ...newPostData,
+      content: `${postText}`,
+      fileDescription: selectedFile,
+    });
+    console.log(postText);
+  }
+
+  async function PublishPost(newPost, userID) {
+    console.log("triggered");
+    const response = await fetch(
+      `http://localhost:5001/posts/createpost/${userID}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newPost),
+      }
+    ).catch((err) => console.log("error:", err));
   }
   function handleSubmit(e) {
-    console.log(e.target.value);
+    e.preventDefault(e);
+    setCollapse(false);
+
+    console.log(newPostData);
+    PublishPost(newPostData, state.user._id);
+  }
+  function cancelPost(e) {
+    e.preventDefault(e);
+    setCollapse(false);
+  }
+  function collapse() {
+    setCollapse(!isCollapsed);
+    console.log(isCollapsed);
   }
 
   return (
-    <>
-      <form className="newPost">
-        <label className="postTextContainer">
-          <input
-            className="postTextField"
-            type="text"
-            name="postContent"
-            value={text}
-            placeholder="Post something :)"
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
-          />
-        </label>
+    <div className="mainNewPostContainer">
+      {showButton && <button onClick={collapse}>New Post</button>}
+      <CSSTransition
+        in={isCollapsed}
+        timeout={400}
+        classNames="NewPost"
+        unmountOnExit
+        onEnter={() => setShowButton(false)}
+        onExit={() => setShowButton(true)}>
+        <div
+        // className={`collapse-content-${
+        //   isCollapsed ? "collapsed" : "expanded"
+        // }`}
+        >
+          <form className="newPost">
+            <label className="postTextContainer">
+              <input
+                className="postTextField"
+                type="text"
+                name="postContent"
+                value={postText}
+                placeholder="Post something :)"
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+              />
+            </label>
 
-        {/* <label>
-          Please upload image
-          <input type="file" placeholder="Upload File" />
-        </label>
-        <input
-          type="file"
-          value={selectedFile}
-          onChange={(e) => {
-            setSelectedFile(e.target.files[0]);
-          }}
-        /> */}
-
-        <div className="btnContainer">
-          <StyledUploadBTN handleState={handleState} />
-
-          {/* <button onClick={handleSubmit} className="publishPostBTN">
-            Publish post 
-          </button>
-            */}
+            <div className="btnContainer">
+              <StyledUploadBTN
+                handleState={handleState}
+                selectedFile={selectedFile}
+              />
+              <div>
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="publishPostBTN">
+                  Publish post
+                </button>
+                <button
+                  className="cancelBTN publishPostBTN"
+                  onClick={cancelPost}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-    </>
+      </CSSTransition>
+    </div>
   );
 }

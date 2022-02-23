@@ -15,6 +15,7 @@ function Post() {
   const [isLiked, setIsLiked] = useState(false);
   const { state, dispatch } = useContext(ChatContext);
   const [likedPost, setLikedPost] = useState();
+
   //  console.log("userID: ",state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {

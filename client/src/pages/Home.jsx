@@ -40,8 +40,6 @@ export default function Home() {
   return (
     <div className="main-grid-container home">
       <NavBar />
-      
-
       <LeftSideBarLinks />
       <Post />
     </div>

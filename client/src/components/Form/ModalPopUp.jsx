@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
-import Datepicker from "react-datepicker";
+// import Datepicker from "react-datepicker";
 import { TimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 export const ModalPopUp = () => {
@@ -70,15 +70,17 @@ export const ModalPopUp = () => {
                 onChange={(e) =>
                   setPostEvent({ ...postEvent, description: e.target.value })
                 }
-                required
-              ></textarea>
+                required></textarea>
 
               <label>Event Date</label>
+
               <input
                 type="date"
                 value={postEvent.date}
                 onChange={(e) =>
                   setPostEvent({ ...postEvent, date: e.target.value })
+                }
+              />
               <label>Event Time</label>
               <input
                 type="time"
@@ -88,14 +90,13 @@ export const ModalPopUp = () => {
                 }
                 required
               />
-          
+
               <label>Select Category</label>
               <select
                 value={postEvent.category}
                 onChange={(e) =>
                   setPostEvent({ ...postEvent, category: e.target.value })
-                }
-              >
+                }>
                 <option value="DevOps">DevOps</option>
                 <option value="UI-UX Design">UI-UX Design</option>
                 <option value="Database">Database</option>

@@ -88,9 +88,7 @@ export const ModalPopUp = () => {
                 }
                 required
               />
-
-             
-
+          
               <label>Select Category</label>
               <select
                 value={postEvent.category}

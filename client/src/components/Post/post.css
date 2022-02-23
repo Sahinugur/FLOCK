@@ -6,20 +6,22 @@
   display: grid;
   grid-template-areas: "topFeed ..." "contentFeed ...";
   background-color: rgba(244, 240, 240,0.5);
-  width: 67rem;
+  width: 80rem;
   margin: 2rem;
   margin-bottom: -3.5rem;
   margin-top: 5rem;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.116);
   border-radius: 10px;
+
 }
 .postsContainer {
-  margin: 3.5rem;
+  margin: 2.5rem auto;
   border-radius: 20px;
   flex-direction: column;
   justify-content: flex-start;
   grid-area: contentFeed; 
+  width: 90%;
 }
 .newPostForm {
   grid-area: topFeed;
@@ -31,9 +33,9 @@
   border: 1px solid rgba(0, 0, 0,1);
   border-radius: 10px;
   height: 25rem;
-  width: 40vw;
+  width: 90%;
   margin: 20px auto;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   font-family: "Raleway", sans-serif;
   grid-area: postCards;
   display: grid;

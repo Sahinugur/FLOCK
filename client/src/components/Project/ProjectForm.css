@@ -57,7 +57,6 @@
     align-items: flex-start;
     justify-content: space-evenly;
     margin: 7rem 4rem;
-    
 }
 
 .close-modal {
@@ -119,16 +118,55 @@
 
 .size_and_stage p{
     flex: 0 50%;
+    margin: 0.5rem;
 }
 
 .radioBtn input[type="radio"]{
     /* display: inline-flex; */
     /* flex-direction: column; */
+    margin: 0.5rem; 
     width: 40%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     /* flex: 0 0 40%; */
 }
 
+/* Multiselect checkboxes */ 
+  
+  .selectBox {
+    position: relative;
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
 
+  #checkboxes {
+    display: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: 5%;
+    padding: 0.5em;
+    margin-bottom: 0;
+  }
+
+  /* #checkboxes[type="input"] {
+  } */
+  
+  #checkboxes label {
+    display: block;
+  }
+  
+  #checkboxes label:hover {
+    background-color: #1e90ff;
+  }
+  
 /* Buttons on the form */
 .prModal-content button {
     background: #f1356d;

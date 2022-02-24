@@ -89,7 +89,7 @@
     margin-right: 10px;
   }
 
-  input {
+  .login input {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -100,7 +100,7 @@
     flex-direction: column;
   }
 
-  input {
+  .login input {
     width: 190px;
     padding: 15px 20px;
     margin-bottom: 20px;

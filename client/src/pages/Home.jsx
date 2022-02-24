@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/Navbar";
 import LeftSideBarLinks from "../components/LeftSidebarLinks/LeftSideBarLinks";
 import Post from "../components/Post/Post";
-import Dummie from "../components/Dummie/Dummie";
+// import Dummie from "../components/Dummie/Dummie";
 import Options from "../components/LeftSidebarLinks/LeftSideBarLinks";
 import CreateNewPost from "../components/NewPost/NewPost";
 import { useNavigate } from "react-router-dom";

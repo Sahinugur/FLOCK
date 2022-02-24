@@ -23,7 +23,7 @@ const projectSchema = new Schema({
       ],
     },
   ],
-  technologies: String,
+  technologies: Array,
   stage_of_project: [
     { type: String },
     { enum: ["first steps", "in construction", "done"] },

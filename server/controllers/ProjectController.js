@@ -1,5 +1,6 @@
 const projectSchema = require("../models/Project");
 const UserSchema = require("../models/User");
+const mongoose = require('mongoose');
 
 /*********** LIST OF PROJECTS */
 async function getAllProjects(req, res, next) {
@@ -59,7 +60,7 @@ async function createProject(req, res, next) {
   try {
     const newProject = await projectSchema.create({
       title: req.body.title,
-      founder: req.body.founder,
+      founder: mongoose.Types.ObjectId(req.body.id),
       participants: req.body.participants,
       type_of_project: req.body.type_of_project,
       technologies: req.body.technologies,

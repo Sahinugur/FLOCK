@@ -57,7 +57,7 @@ const Events = () => {
       <Navbar />
       <Filter setData={setData} data={data} />
       <ModalPopUp />
-      <motion.div layout className="testflex">
+      <motion.div layout className="testFlex">
         <AnimatePresence>
           {data.Events &&
             data.Events.map((event) => (

@@ -6,6 +6,8 @@
     border-radius: 5px;
     overflow-y: scroll;
     height: 100%;
+    display: flex; 
+    justify-content: center;
 }
 
 ::-webkit-scrollbar {
@@ -13,14 +15,13 @@
 }
 
 .prFeed_container {
-    width: 100%;
+    width: 90%;
     /* width: 300px; */
     border-radius: 20px;
     /* padding: 2rem; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 5rem;
+    /* align-items: flex-start; */
     /* background-color: #fcf8f5;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 1px #CFCCCA;
@@ -37,5 +38,5 @@
 }
 
 .prCard {
-
+    
 }

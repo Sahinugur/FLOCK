@@ -1,3 +1,10 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+@import "react-datepicker/dist/react-datepicker.css";
+
+.header {
+  margin-bottom: 2rem;
+}
+
 body.active-modal {
   overflow-y: hidden;
 }
@@ -11,6 +18,7 @@ body.active-modal {
   font-family: "Courier New", Courier, monospace;
   border-radius: 5px;
   background-color: #58ce60;
+  color: #f1f1f1;
 }
 
 .modal,
@@ -29,7 +37,7 @@ body.active-modal {
 }
 .modal-content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
@@ -50,9 +58,10 @@ body.active-modal {
 /* Create New Event */
 
 .modal-content {
-  max-width: 400px;
+  width: 400px;
   margin: 0 auto;
   text-align: center;
+  padding: 2rem;
 }
 .modal-content label {
   text-align: left;
@@ -73,7 +82,8 @@ body.active-modal {
   box-sizing: border-box;
   display: block;
 }
-.modal-content button {
+.modal-content .close-modal,
+.modal-content .submitEvent {
   background: #f1356d;
   color: #fff;
   border: 0;

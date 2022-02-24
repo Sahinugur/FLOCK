@@ -15,15 +15,17 @@ function Post() {
   const [isLiked, setIsLiked] = useState(false);
   const { state, dispatch } = useContext(ChatContext);
   const [likedPost, setLikedPost] = useState();
+  const [comment, setComment] = useState();
 
   //  console.log("userID: ",state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
-      console.log();
+      // setComments(result);
+      console.log(result);
     });
-  }, [isLiked]);
+  }, [isLiked, comment]);
 
   // makeCall(env.LIKE, "GET").then((result)=>setLikes(result))
   // console.log("RESULT FROM THE LIKES FETCH :",likes)
@@ -63,7 +65,19 @@ function Post() {
         .catch((err) => console.log(err));
     }
   };
+  const addComment = async (pid, uid) => {
+    const filteredPost = await posts.find((post) => post._id === pid);
 
+    if (filteredPost) {
+      const data = await axios.post(
+        `http://localhost:5001/posts/comments/${pid}/${uid}`,
+        {
+          comment,
+        }
+      );
+      console.log(data);
+    }
+  };
   return (
     <div className="postOuterWrap">
       {console.log("posts", posts)}
@@ -103,7 +117,21 @@ function Post() {
                   {post.likes && post.likes.length > 0 ? post.likes.length : ""}
                   {/* (e)=>likePost(e.target.value, state.user.id) */}
                 </div>
-                <h4 className="comment">Write a comment...</h4>
+                <div className="comment">
+                  <input className="comment_input"
+                    onChange={(e) => {
+                      setComment(e.target.value);
+                    }}
+                    // value={comment}
+                    placeholder="Write a comment ..."
+                  />
+                  <button className="comment_btn" onClick={() => addComment(post._id, state.user._id)}>
+                    add
+                  </button>
+
+                </div>
+
+                {post.comments && post.comments.map((com) => <p>{com}</p>)}
                 {/* <button className="buttonL">back to the top</button> */}
               </div>
             );
@@ -121,7 +149,7 @@ function Post() {
               {/* iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark */}
               <FontAwesomeIcon icon={faHeart} className="iconHeart" />
             </div>
-            <h4 className="comment">Write a comment ..</h4>{" "}
+            
           </>
         )}
       </div>

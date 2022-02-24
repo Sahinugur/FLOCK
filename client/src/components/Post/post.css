@@ -83,7 +83,7 @@
 }
 
 .comment {
-  padding: 0.7rem;
+  padding: 0.8rem;
   color: black;
   background-color: rgba(245, 245, 245, 0.845);
   font-family: "Raleway", sans-serif;
@@ -94,6 +94,19 @@
   grid-area: comments;
 }
 
+.comment_input {
+  border: none;
+  background-color: transparent;
+}
+
+.comment_btn {
+  border: 1px solid;
+  padding: 0 5px;
+  background-color: transparent;
+  border-radius: 8px;
+
+  /* color:  */
+}
 .fa-bookmark {
   margin-right: 1em;
 }

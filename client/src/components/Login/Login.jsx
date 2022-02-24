@@ -43,9 +43,9 @@ export default function Login() {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          backgroundColor: 0xffffff,
-          color1: 0xd23434,
-          color2: 0x2153b9,
+          backgroundColor: 0xe3dfc0,
+          color1: 0x4468b6,
+          color2: 0xffe400,
           colorMode: "variance",
           birdSize: 1.5,
           wingSpan: 40.0,
@@ -114,55 +114,53 @@ export default function Login() {
 
   return (
     <div id="login" className="login" ref={myRef}>
-     
-        <div className="right">
-          <h1>
-            <span>Login to</span> Flock
-          </h1>
-          <img className="bird" src={bird} alt="bird"></img>
-          <div className="loginButton google" onClick={google}>
-            <img src={Google} alt="" className="icon" />
-            Google
-          </div>
-          <div className="loginButton github" onClick={github}>
-            <img src={Github} alt="" className="icon" />
-            Github
-          </div>
-
-          <form
-            onFocus={handleErrors}
-            onSubmit={handleSubmit((d) => login(d))}
-            className="form">
-            <input
-              type="text"
-              placeholder="username"
-              name="username"
-              {...register("username", { required: "please enter a username" })}
-            />
-            <p>{errors.username?.message}</p>
-            <input
-              type="password"
-              placeholder="password"
-              name="password"
-              {...register("password")}
-            />
-            {/* <p>{errors.password?.message}</p> */}
-            {errorMsg && <h3> {errorMsg} </h3>}
-            <input type="submit" className="submit" value="Login" />
-          </form>
-
-          <li>
-            <Link to="/users/resetpassword" className="password-forgotten">
-              Password forgotten?
-            </Link>
-          </li>
-          <li>
-            <Link to="/register" className="create-account">
-              Create an account
-            </Link>
-          </li>
+      <div className="right">
+        <h1>
+          <span>Login to</span> Flock
+        </h1>
+        <img className="bird" src={bird} alt="bird"></img>
+        <div className="loginButton google" onClick={google}>
+          <img src={Google} alt="" className="icon" />
+          Google
         </div>
-      
+        <div className="loginButton github" onClick={github}>
+          <img src={Github} alt="" className="icon" />
+          Github
+        </div>
+
+        <form
+          onFocus={handleErrors}
+          onSubmit={handleSubmit((d) => login(d))}
+          className="form">
+          <input
+            type="text"
+            placeholder="username"
+            name="username"
+            {...register("username", { required: "please enter a username" })}
+          />
+          <p>{errors.username?.message}</p>
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            {...register("password")}
+          />
+          {/* <p>{errors.password?.message}</p> */}
+          {errorMsg && <h3> {errorMsg} </h3>}
+          <input type="submit" className="submit" value="Login" />
+        </form>
+
+        <li>
+          <Link to="/users/resetpassword" className="password-forgotten">
+            Password forgotten?
+          </Link>
+        </li>
+        <li>
+          <Link to="/register" className="create-account">
+            Create an account
+          </Link>
+        </li>
+      </div>
     </div>
   );
 }

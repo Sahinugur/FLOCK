@@ -4,24 +4,26 @@
   overflow: scroll;
   /* margin: 1rem auto 0 auto; */
   display: grid;
-  grid-template-areas: "topFeed ..." "contentFeed ...";
-  background-color: rgba(244, 240, 240,0.5);
-  width: 80rem;
-  margin: 2rem;
-  margin-bottom: -3.5rem;
-  margin-top: 5rem;
-  border-radius: 10px;
+  grid-template-areas: "topFeed" "contentFeed ";
+  /* background-color: rgba(244, 240, 240, 0.5); */
+  /* background-color: antiquewhite; */
+  background-color: #fcf8f5f8;
+  background-color: hsla(136, 40%, 54%, 0.178);
+  box-shadow: 0px 0px 10px 1px #cfccca;
+  /* width: 85%; */
+  height: 85%;
+  margin: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.116);
+  /* border-radius: 30px; */
   border-radius: 10px;
-
 }
 .postsContainer {
-  margin: 2.5rem auto;
+  margin: 1rem auto;
   border-radius: 20px;
   flex-direction: column;
-  justify-content: flex-start;
-  grid-area: contentFeed; 
-  width: 90%;
+  align-items: center;
+  grid-area: contentFeed;
+  width: 100%;
 }
 .newPostForm {
   grid-area: topFeed;
@@ -30,9 +32,9 @@
 }
 
 .postCard {
-  border: 1px solid rgba(0, 0, 0,1);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 10px;
-  height: 25rem;
+  height: 20rem;
   width: 90%;
   margin: 20px auto;
   padding: 0.5rem 1rem;
@@ -40,13 +42,12 @@
   grid-area: postCards;
   display: grid;
   grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end];
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 10%;
   grid-template-areas:
-    "author . ."
+    "author date date"
     "img content content"
     "img content content"
-    "img . icons"
-    "img comments comments";
+    "comments comments icons";
 
   /* background-color: rgb(182, 237, 209); */
   /*  background-color: rgba(255, 225, 240, 0.1); */
@@ -54,8 +55,14 @@
   /* background: radial-gradient(circle, rgba(216,174,238,1) 0%, rgba(148,187,233,1) 100%); */
   /*  background: #E8ECD6; */
 
-  background-color: rgba(234, 234, 242, 0.7);
-  color: black };
+  background-color: #669df66c;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  color: black;
+}
 
 .postImg {
   margin: 0 0rem;
@@ -78,12 +85,11 @@
 .comment {
   padding: 0.7rem;
   color: black;
-  background-color: rgba(103, 140, 221, 0.41);
+  background-color: rgba(245, 245, 245, 0.845);
   font-family: "Raleway", sans-serif;
-
-  height: 7rem;
+  height: 5rem;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 2px 0px,
+  box-shadow: inset rgba(0, 0, 0, 0.6) 0px 1px 2px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   grid-area: comments;
 }
@@ -124,4 +130,5 @@
 
 .date {
   font-family: "Raleway";
+  grid-area: date;
 }

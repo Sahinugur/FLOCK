@@ -37,17 +37,17 @@ export default function NavBar() {
           <img src={state.user.profilePhoto} alt="" className="navbar-avatar" />
         </li>
 
-        {/* <li>
+        <li>
           {state.user.source !== "github" ? (
             <h2>{state.user.email}</h2>
           ) : (
             <h2>{state.user.firstName}</h2>
           )}
-        </li> */}
-
-        <li className="navbar-listItem" onClick={logout}>
-          Logout
         </li>
+
+        {/* <li className="navbar-listItem" onClick={logout}>
+          Logout
+        </li> */}
       </ul>
     </div>
   );

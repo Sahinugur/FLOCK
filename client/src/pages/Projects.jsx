@@ -7,6 +7,7 @@ import LeftSideBarLinks from "../components/LeftSidebarLinks/LeftSideBarLinks";
 import ProjectForm from "../components/Project/ProjectForm";
 import ProjectFeed from "../components/Project/ProjectFeed";
 import "./projects.css";
+import RightSideBarLinks from "../components/RightSideBarLinks/RightSideBarLinks";
 
 export default function Projects() {
   const { state, dispatch } = useContext(ChatContext);
@@ -54,6 +55,7 @@ export default function Projects() {
       <LeftSideBarLinks />
       <ProjectForm reload={reload} setReload={setReload} />
       <ProjectFeed projects={projects} />
+      <RightSideBarLinks />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import Options from "../components/LeftSidebarLinks/LeftSideBarLinks";
 import CreateNewPost from "../components/NewPost/NewPost";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
+import RightSideBarLinks from "../components/RightSideBarLinks/RightSideBarLinks";
 
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
@@ -38,12 +39,11 @@ export default function Home() {
 
   console.log("state of Homepage", state);
   return (
-  
     <div className="main-grid-container home">
       <NavBar />
       <LeftSideBarLinks />
+      <RightSideBarLinks />
       <Post />
     </div>
-
   );
 }

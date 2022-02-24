@@ -1,19 +1,24 @@
-/* .navbar {
+.navbar {
+  display: grid;
+  grid-template-areas: "logo searchbar account";
+  grid-template-columns: 1fr 2fr 1fr;
   grid-area: nav;
   height: 8vh;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.365);
   width: 100%;
-} */
+}
 
 .navbar-logo {
+  grid-area: logo;
   /* color: rgba(0, 0, 0, 0.74); */
-  color: black;
+  color: rgba(0, 0, 0, 0.988);
   left: 7rem;
   font-size: 35px;
   font-weight: bold;
+  font-family: "Work Sans", sans-serif;
 }
 
 .link {
@@ -22,12 +27,14 @@
 }
 
 .navbar-list {
+  grid-area: account;
+  width: 15rem;
   display: flex;
   align-items: center;
   list-style: none;
   position: relative;
-  left: 5rem;
-  width: 30%;
+  /* left: 5rem; */
+  /* width: 30%; */
 }
 
 .navbar-listItem {
@@ -51,6 +58,7 @@
 /*  searchbar in navbar */
 
 .searchBar {
+  grid-area: searchbar;
   /* position: relative;
   top: 1rem;
   left: 9rem; */

@@ -67,7 +67,7 @@ function Post() {
   return (
     <div className="postOuterWrap">
       {console.log("posts", posts)}
-      <CreateNewPost className="newPostForm"></CreateNewPost>
+      {/* <CreateNewPost className="newPostForm"></CreateNewPost> */}
       <div className="postsContainer">
         {posts.length > 0 ? (
           posts.map((post, index) => {
@@ -79,7 +79,7 @@ function Post() {
                 <p className="author">{post.author.userName}</p>
                 <h3 className="postContent">{post.content}</h3>
                 <h4 className="date">{post.createdTime}</h4>
-                <img
+                {/* <img
                   className="postImg"
                   src={
                     post.filePath
@@ -87,13 +87,13 @@ function Post() {
                       : PUBLIClocation + ""
                   }
                   alt="image of the post"
-                />
+                /> */}
                 <div className="icons">
                   <FontAwesomeIcon
                     icon={faBookmark}
                     /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
                   />
-                  
+
                   <FontAwesomeIcon
                     icon={faHeart}
                     className="iconHeart"

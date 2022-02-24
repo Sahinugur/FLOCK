@@ -12,6 +12,7 @@ import "./home.css";
 
 export default function Home() {
   const { state, dispatch } = useContext(ChatContext);
+  const [reload, setReload] = useState(true);
 
   const navigate = useNavigate();
 
@@ -34,7 +35,7 @@ export default function Home() {
         });
     };
     getUser();
-  }, []);
+  }, [reload]);
 
   console.log("state of Homepage", state);
   return (

@@ -75,7 +75,15 @@ export default function CreateNewPost() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
       }
-    ).catch((err) => console.log("error:", err));
+    ).then(response =>  {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error(response.status);
+      }
+    }).catch(error => {console.log(error)});
+
+    PublishPost();
   }
   function handleSubmit(e) {
     e.preventDefault(e);

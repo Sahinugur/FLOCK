@@ -65,6 +65,12 @@
   font-size: 15px;
   width: 50rem;
   height: 45%;
-  background: white;
+  background: transparent;
   margin: 2rem 0;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.searchBar:focus {
+  outline: none;
 }

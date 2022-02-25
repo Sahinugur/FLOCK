@@ -100,7 +100,7 @@ function Post() {
                       ? PUBLIClocation + post.filePath
                       : PUBLIClocation + ""
                   }
-                  alt="image of the post"
+                  alt="image inside the post"
                 /> */}
                 <div className="icons">
                   <FontAwesomeIcon
@@ -128,7 +128,7 @@ function Post() {
                   <button className="comment_btn" onClick={() => addComment(post._id, state.user._id)}>
                     add
                   </button>
-
+                  
                 </div>
 
                 {post.comments && post.comments.map((com) => <p>{com}</p>)}

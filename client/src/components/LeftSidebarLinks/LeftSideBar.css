@@ -17,13 +17,15 @@
   align-items: center;
 }
 
+
 .shownLinks a {
-  background-color: rgb(231, 231, 231);
+  
   text-transform: lowercase;
   text-decoration: none;
   color: #2c2d48;
   padding: 0 2px;
   border-radius: 10px;
+  margin: 0.2px;
 }
 
 .shownLinks a:hover {

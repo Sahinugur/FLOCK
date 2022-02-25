@@ -9,7 +9,7 @@ const postSchema = new Schema({
   createdTime: { type: Date, default: Date.now },
   deletedTime: { type: Date, default: Date.now },
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-
+  comments: [{type: String, minLength: 3, maxLength: 255} ],
   filePath: { type: String },
   // contentType: [{ type: String }, { enum: ["image", "video", "file", "none"] }],
   link: { type: String, minLength: 3, maxLength: 255 },

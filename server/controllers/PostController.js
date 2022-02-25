@@ -19,6 +19,7 @@ async function createPost(req, res, next) {
         filePath: req.filePath,
         likes: [],
         link: req.body.link,
+        comments: [],
       });
 
       if (newPost && roomID) {
@@ -107,6 +108,26 @@ async function likePost(req, res, next) {
   }
 }
 
+async function commentPost(req, res, next) {
+  try {
+    //extract postid and userid
+    let postID = req.params.pid;
+    let userId = req.params.uid;
+    let newComment = req.body.comment;
+    //findByIdAndUpdate
+    const addComment = await postSchema.findByIdAndUpdate(
+      postID,
+      { $push: { comments: newComment } },
+      { new: true }
+    );
+    const post = await postSchema.findById(postID);
+    res.send(post);
+    console.log("postID", postID, "newComment", newComment, addComment);
+  } catch (error) {
+    next(error);
+  }
+}
+
 //like a post (which post?, who liked the post?)
 
 async function deletePost(req, res, next) {
@@ -129,4 +150,5 @@ module.exports = {
   updatePost,
   deletePost,
   likePost,
+  commentPost,
 };

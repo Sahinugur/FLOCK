@@ -9,7 +9,7 @@ const {
   getPost,
   createPost,
   getAllPosts,
-
+  commentPost,
   //Sorting function added as default to getAllposts route
   getLatest,
   likePost,
@@ -22,6 +22,7 @@ router.get("/post/:pid", getPost);
 //new
 router.patch("/like/:pid/:uid", likePost); // /:uid added by fahim
 router.put("/updatepost/:pid", updatePost);
+router.post("/comments/:pid/:uid", commentPost);
 router.delete("/deletepost", deletePost);
 // router.get("/getLatest", getLatest);
 

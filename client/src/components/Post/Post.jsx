@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
 import makeCall from "../../api/Call";
@@ -8,6 +8,7 @@ import "./post.css";
 // import "../../pages/home.css";
 import { useContext } from "react";
 import { ChatContext } from "../../context/SharedContext";
+import { CSSTransition } from "react-transition-group";
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,11 @@ function Post() {
   const { state, dispatch } = useContext(ChatContext);
   const [likedPost, setLikedPost] = useState();
   const [comment, setComment] = useState();
+  const [openComment, setOpenComment] = useState(false);
 
+  function initiateComment(e) {
+    setOpenComment(!openComment);
+  }
   //  console.log("userID: ",state.user.id)
   const PUBLIClocation = "http://localhost:5001/uploads/";
   useEffect(() => {
@@ -84,9 +89,9 @@ function Post() {
         {posts.length > 0 ? (
           posts.map((post, index) => {
             //start of a single post
-
+            console.log(post.createdTime.toString());
             return (
-              <div key={index} className="postCard">
+              <div className="postCard" key={post.createdTime.toString()}>
                 <div>{/* avatar */}</div>
                 <p className="author">{post.author.userName}</p>
                 <h3 className="postContent">{post.content}</h3>
@@ -101,42 +106,57 @@ function Post() {
                   alt="image inside the post"
                 /> */}
                 <div className="icons">
-                  <FontAwesomeIcon
-                    icon={faBookmark}
-                    /*  className="iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark" */
-                  />
+                  <FontAwesomeIcon icon={faBookmark} className="iconBookmark" />
 
-                  <FontAwesomeIcon
-                    icon={faHeart}
-                    className="iconHeart"
-                    onClick={(e) => likePost(post._id, state.user._id)}
-                    /* onClick={likePost(post._id, state.user._id)} */
-                  ></FontAwesomeIcon>
-                  {post.likes && post.likes.length > 0 ? post.likes.length : ""}
-                  {/* (e)=>likePost(e.target.value, state.user.id) */}
-                </div>
-                <div className="comment">
-                  <input
-                    className="comment_input"
-                    onChange={(e) => {
-                      setComment(e.target.value);
-                    }}
-                    // value={comment}
-                    placeholder="Write a comment ..."
-                  />
+                  <span className="iconHeart">
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      onClick={(e) =>
+                        likePost(post._id, state.user._id)
+                      }></FontAwesomeIcon>
+                    {post.likes && post.likes.length > 0
+                      ? post.likes.length
+                      : ""}
+                  </span>
+
+                  {/* Opening comment section */}
                   <button
-                    className="comment_btn"
-                    onClick={() => addComment(post._id, state.user._id)}>
-                    add
+                    className="writeComment_btn"
+                    onClick={() => initiateComment()}>
+                    Comment
                   </button>
                 </div>
-
-                {post.comments && post.comments.map((com) => <p>{com}</p>)}
-                {/* <button className="buttonL">back to the top</button> */}
+                <div className="comment">
+                  {/* <CSSTransition></CSSTransition> */}
+                  <div
+                    className={`addComment ${
+                      openComment ? "active" : "inactive"
+                    }`}>
+                    <input
+                      className="comment_input"
+                      onChange={(e) => {
+                        setComment(e.target.value);
+                      }}
+                      placeholder="Write a comment ..."
+                    />
+                    <button
+                      className="comment_btn"
+                      onClick={() => addComment(post._id, state.user._id)}>
+                      add
+                    </button>
+                  </div>
+                  <div>
+                    {post.comments &&
+                      post.comments.map((com) => (
+                        <p className="singleComment">{com}</p>
+                      ))}
+                  </div>
+                </div>
               </div>
             );
           })
         ) : (
+          //If no posts in database>
           <>
             <h3>hello</h3>
             <p>the owner of the post </p>
@@ -146,7 +166,7 @@ function Post() {
             />
             <div className="icons">
               <FontAwesomeIcon icon={faBookmark} className="iconBookmark" />
-              {/* iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark */}
+
               <FontAwesomeIcon icon={faHeart} className="iconHeart" />
             </div>
           </>

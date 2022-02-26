@@ -1,7 +1,7 @@
 .postOuterWrap {
   grid-area: post;
   font-family: "Raleway", sans-serif;
-  overflow: scroll;
+  overflow: hidden scroll;
   /* margin: 1rem auto 0 auto; */
   display: grid;
   grid-template-areas: "topFeed" "contentFeed ";

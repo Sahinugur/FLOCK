@@ -8,7 +8,6 @@ import "./post.css";
 // import "../../pages/home.css";
 import { useContext } from "react";
 import { ChatContext } from "../../context/SharedContext";
-import CreateNewPost from "../NewPost/NewPost";
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -60,7 +59,6 @@ function Post() {
         .then((response) => {
           console.log(response);
           setIsLiked(!isLiked);
-          /* console.log(res);  */
         })
         .catch((err) => console.log(err));
     }
@@ -118,17 +116,19 @@ function Post() {
                   {/* (e)=>likePost(e.target.value, state.user.id) */}
                 </div>
                 <div className="comment">
-                  <input className="comment_input"
+                  <input
+                    className="comment_input"
                     onChange={(e) => {
                       setComment(e.target.value);
                     }}
                     // value={comment}
                     placeholder="Write a comment ..."
                   />
-                  <button className="comment_btn" onClick={() => addComment(post._id, state.user._id)}>
+                  <button
+                    className="comment_btn"
+                    onClick={() => addComment(post._id, state.user._id)}>
                     add
                   </button>
-                  
                 </div>
 
                 {post.comments && post.comments.map((com) => <p>{com}</p>)}
@@ -149,7 +149,6 @@ function Post() {
               {/* iconBofetch(url).then((response)=>{if(response.status===200){response.json().then((data)=>{resolve(data);})catch((error)=>{reject(error)})okmark */}
               <FontAwesomeIcon icon={faHeart} className="iconHeart" />
             </div>
-            
           </>
         )}
       </div>

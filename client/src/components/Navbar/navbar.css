@@ -1,24 +1,29 @@
 .navbar {
   display: grid;
-  grid-template-areas: "logo searchbar account";
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "bird logo searchbar account";
+  /*grid-template-columns: 0.5fr 0.5fr 2fr 1fr; */
   grid-area: nav;
-  height: 8vh;
-  /* display: flex; */
+  /* height: 8vh; */
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   border-bottom: 2px solid rgba(0, 0, 0, 0.365);
   width: 100%;
 }
 
 .navbar-logo {
   grid-area: logo;
+  justify-self: start;
   /* color: rgba(0, 0, 0, 0.74); */
   color: rgba(0, 0, 0, 0.988);
   left: 7rem;
   font-size: 35px;
   font-weight: bold;
   font-family: "Work Sans", sans-serif;
+}
+.bird {
+  width: 7rem;
+  grid-area: bird;
+  justify-self: end;
 }
 
 .link {
@@ -28,7 +33,7 @@
 
 .navbar-list {
   grid-area: account;
-  width: 15rem;
+  width: 23rem;
   display: flex;
   align-items: center;
   list-style: none;
@@ -71,6 +76,41 @@
   border-bottom: 1px solid;
 }
 
+.profileMenuContainer {
+  /* position: relative; */
+}
+.profileMenu {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  width: 19rem;
+  height: 9rem;
+  padding: 1rem;
+  background-color: #f5f5dc;
+  border: 1px solid salmon;
+  border-radius: 1rem;
+}
+.profileMenu li:hover {
+  cursor: pointer;
+}
 .searchBar:focus {
   outline: none;
+}
+.profileDropDown-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.profileDropDown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.profileDropDown-exit {
+  exit: 1;
+}
+.profileDropDown-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+
+  transition: opacity 300ms, transform 300ms;
 }

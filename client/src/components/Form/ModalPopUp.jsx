@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
-// import Datepicker from "react-datepicker";
-import { TimePickerComponent } from "@syncfusion/ej2-react-calendars";
+import FileBase from "react-file-base64";
+import { ChatContext } from "../../context/SharedContext";
+import { useContext } from "react";
 
 export const ModalPopUp = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  console.log(selectedDate);
+  /*  const { state, dispatch } = useContext(ChatContext); */
 
   const createEvents = async (postEvent) =>
     axios.post("http://localhost:5001/events", postEvent);
@@ -19,6 +19,7 @@ export const ModalPopUp = () => {
     category: "",
     date: "",
     time: "",
+    profilePicture: ``,
   });
 
   const toggleModal = () => {
@@ -27,7 +28,6 @@ export const ModalPopUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ postEvent });
     setPostEvent(createEvents(postEvent));
     toggleModal();
   };
@@ -70,7 +70,8 @@ export const ModalPopUp = () => {
                 onChange={(e) =>
                   setPostEvent({ ...postEvent, description: e.target.value })
                 }
-                required></textarea>
+                required
+              ></textarea>
 
               <label>Event Date</label>
 
@@ -90,16 +91,26 @@ export const ModalPopUp = () => {
                 }
                 required
               />
+              {/*      <FileBase
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) =>
+                  setPostEvent({ ...postEvent, profilePicture: base64 })
+                }
+              /> */}
 
               <label>Select Category</label>
               <select
                 value={postEvent.category}
                 onChange={(e) =>
                   setPostEvent({ ...postEvent, category: e.target.value })
-                }>
+                }
+              >
                 <option value="DevOps">DevOps</option>
                 <option value="UI-UX Design">UI-UX Design</option>
                 <option value="Database">Database</option>
+                <option value="IoT">IoT</option>
+                <option value="Cryptography">Cryptography</option>
               </select>
               <button onSubmit={handleSubmit} className="submitEvent">
                 Submit

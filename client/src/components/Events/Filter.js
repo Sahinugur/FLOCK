@@ -38,6 +38,12 @@ const Filter = ({ data, setData }) => {
         <button id="DevOps" onClick={handleClick} className="filterBtn">
           DevOps
         </button>
+        <button id="IoT" onClick={handleClick} className="filterBtn">
+          IoT
+        </button>
+        <button id="Cryptography" onClick={handleClick} className="filterBtn">
+          Cryptography
+        </button>
       </div>
     </div>
   );

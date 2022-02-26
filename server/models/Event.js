@@ -11,5 +11,6 @@ const eventSchema = new Schema({
   },
   time: String,
   date: String,
+  profilePicture: String,
 });
 module.exports = mongoose.model("Event", eventSchema);

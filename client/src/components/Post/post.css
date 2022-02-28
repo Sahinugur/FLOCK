@@ -41,7 +41,7 @@
   font-family: "Raleway", sans-serif;
   grid-area: postCards;
   display: grid;
-  grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end];
+  /* grid-template-rows: [row1-start] 15% [row1-end row2-start] 25% [row2-end]; */
   grid-template-columns: 1fr 2fr 10%;
   grid-template-areas:
     "author date date"
@@ -156,7 +156,7 @@
 .singleComment {
   margin: 1rem;
   width: 60rem;
-  /* height: 4rem; */
+  height: 4rem;
   padding: 0.5rem;
   font-family: "Raleway", sans-serif;
   border: 1px solid salmon;

@@ -45,8 +45,8 @@
   grid-template-columns: 1fr 2fr 10%;
   grid-template-areas:
     "author date date"
-    "img content content"
-    "img content content"
+    "content content content"
+    "content content content"
     "comments comments icons";
 
   /* background-color: rgb(182, 237, 209); */

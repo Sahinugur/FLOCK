@@ -4,7 +4,6 @@ import "./LeftSideBar.css";
 import makeCall from "../../api/Call";
 import env from "../../api/env";
 
-
 export default function LeftSideBarLinks() {
   const navigate = useNavigate();
   const [viewRoOptions, setViewRoOptions] = useState([]);
@@ -24,24 +23,21 @@ export default function LeftSideBarLinks() {
   }
 
   useEffect(() => {
-    makeCall(env.ROOMS)
-    .then((result) => {
+    makeCall(env.ROOMS).then((result) => {
       setViewRoOptions(result);
       console.log(result, "test_Leftside");
     });
   }, []);
 
   useEffect(() => {
-    makeCall(env.PROJECTS)
-    .then((result) => {
+    makeCall(env.PROJECTS).then((result) => {
       setViewPrOptions(result);
       console.log(result, "test_Leftside");
     });
   }, []);
 
   useEffect(() => {
-    makeCall(env.EVENTS)
-    .then((result) => {
+    makeCall(env.EVENTS).then((result) => {
       setViewEvOptions(result.Events);
       console.log(result, "test_Leftside");
     });
@@ -67,11 +63,14 @@ export default function LeftSideBarLinks() {
       <div className="shownLinks">
         <h4>Popular Rooms</h4>
         <ul>
-        {viewRoOptions.slice(0, 3).map((elem, index) => (
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Node</li>
+          {/* {viewRoOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
               <a href={`/${elem.title}`}>{elem.title}</a>
             </li>
-          ))}
+          ))} */}
         </ul>
         <button onClick={viewRooms} className="viewMore_btn">
           View more Rooms
@@ -81,11 +80,11 @@ export default function LeftSideBarLinks() {
       <div className="shownLinks">
         <h4>Popular Projects</h4>
         <ul>
-         {viewPrOptions.slice(0, 3).map((elem, index) => (
+          {viewPrOptions.slice(0, 3).map((elem, index) => (
             <li key={index}>
               <a href={`/${elem.title}`}>{elem.title}</a>
             </li>
-          ))} 
+          ))}
         </ul>
         <button onClick={viewProjects} className="viewMore_btn">
           View more Projects

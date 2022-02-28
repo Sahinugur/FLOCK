@@ -46,9 +46,9 @@
   padding: 0.2rem 0.6rem;
   /* color:black; */
   color: #2c2d48;
-  margin: 1rem;
-  /* align-items: center;  */
-  /* text-align: center; */
+  margin: 1rem 5rem;
+  align-items: center;
+  text-align: center;
   /* transform-origin: 0 0;
     transform: rotate(90deg); */
 }

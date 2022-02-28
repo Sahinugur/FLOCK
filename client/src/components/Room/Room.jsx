@@ -11,9 +11,7 @@ export default function Room() {
     <div className="main-grid-container">
       <NavBar />
       <LeftComponent />
-      {/* <div> */}
       <Post />
-      {/* </div> */}
     </div>
   );
 }

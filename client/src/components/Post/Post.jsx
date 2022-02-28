@@ -14,32 +14,25 @@ function Post() {
   const [posts, setPosts] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
   const { state, dispatch } = useContext(ChatContext);
-  const [likedPost, setLikedPost] = useState();
   const [comment, setComment] = useState();
   const [openComment, setOpenComment] = useState(false);
-
-  function initiateComment(e) {
+  const [buttonValue, setButtonValue] = useState(Number);
+  const postRef = useRef();
+  const PUBLIClocation = "http://localhost:5001/uploads/";
+  let commentedPost;
+  function initiateComment(postNumber) {
+    setButtonValue(postNumber);
     setOpenComment(!openComment);
   }
-  //  console.log("userID: ",state.user.id)
-  const PUBLIClocation = "http://localhost:5001/uploads/";
+
   useEffect(() => {
     makeCall(env.POST).then((result) => {
       setPosts(result);
-      // setComments(result);
       console.log(result);
     });
   }, [isLiked, comment]);
 
-  // makeCall(env.LIKE, "GET").then((result)=>setLikes(result))
-  // console.log("RESULT FROM THE LIKES FETCH :",likes)
-
-  //  makeCall(env.LIKE, "POST", likes ).then((result)=>{})
-
   const likePost = async (postId, userId) => {
-    //How to understand who (userid) logged in?
-
-    //is this user liked the post
     const filteredPost = await posts.find((post) => post._id === postId);
     console.log(filteredPost);
 
@@ -54,7 +47,6 @@ function Post() {
         .then((response) => {
           console.log(response);
           setIsLiked(!isLiked);
-          /* console.log(res);  */
         })
         .catch((err) => console.log(err));
     } else {
@@ -83,28 +75,22 @@ function Post() {
   };
   return (
     <div className="postOuterWrap">
-      {console.log("posts", posts)}
-      {/* <CreateNewPost className="newPostForm"></CreateNewPost> */}
       <div className="postsContainer">
         {posts.length > 0 ? (
           posts.map((post, index) => {
+            post["isShown"] = openComment;
+            post["fronEndIndex"] = index;
+
             //start of a single post
-            console.log(post.createdTime.toString());
             return (
-              <div className="postCard" key={post.createdTime.toString()}>
+              <div key={post._id} className="postCard" index={index}>
                 <div>{/* avatar */}</div>
-                <p className="author">{post.author.userName}</p>
+                <p className="author" key={post.createdTime.toString()}>
+                  {post.author.userName}
+                </p>
                 <h3 className="postContent">{post.content}</h3>
                 <h4 className="date">{post.createdTime}</h4>
-                {/* <img
-                  className="postImg"
-                  src={
-                    post.filePath
-                      ? PUBLIClocation + post.filePath
-                      : PUBLIClocation + ""
-                  }
-                  alt="image inside the post"
-                /> */}
+
                 <div className="icons">
                   <FontAwesomeIcon icon={faBookmark} className="iconBookmark" />
 
@@ -118,33 +104,36 @@ function Post() {
                       ? post.likes.length
                       : ""}
                   </span>
-
-                  {/* Opening comment section */}
                   <button
                     className="writeComment_btn"
-                    onClick={() => initiateComment()}>
+                    value={index}
+                    onClick={(e) => initiateComment(e.target)}>
                     Comment
                   </button>
+                  {/* Opening comment section */}
                 </div>
                 <div className="comment">
-                  {/* <CSSTransition></CSSTransition> */}
-                  <div
-                    className={`addComment ${
-                      openComment ? "active" : "inactive"
-                    }`}>
-                    <input
-                      className="comment_input"
-                      onChange={(e) => {
-                        setComment(e.target.value);
-                      }}
-                      placeholder="Write a comment ..."
-                    />
-                    <button
-                      className="comment_btn"
-                      onClick={() => addComment(post._id, state.user._id)}>
-                      add
-                    </button>
-                  </div>
+                  <CSSTransition
+                    in={post.isShown}
+                    timeout={400}
+                    classNames="addComment"
+                    unmountOnExit>
+                    <div>
+                      <input
+                        className="comment_input"
+                        onChange={(e) => {
+                          setComment(e.target.value);
+                        }}
+                        placeholder="Write a comment ..."
+                      />
+                      <button
+                        className="comment_btn"
+                        onClick={() => addComment(post._id, state.user._id)}>
+                        add
+                      </button>
+                    </div>
+                  </CSSTransition>
+
                   <div>
                     {post.comments &&
                       post.comments.map((com) => (
@@ -159,7 +148,7 @@ function Post() {
           //If no posts in database>
           <>
             <h3>hello</h3>
-            <p>the owner of the post </p>
+            <p key={Date}>the owner of the post </p>
             <img
               className="postImg"
               src="https://www.rismedia.com/wp-content/uploads/2019/05/social_media_post_936185802.jpg"

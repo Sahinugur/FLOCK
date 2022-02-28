@@ -75,13 +75,17 @@ export default function CreateNewPost() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
       }
-    ).then(response =>  {
-      if (response.status === 200) {
-        return response.json();
-      } else {
-        throw new Error(response.status);
-      }
-    }).catch(error => {console.log(error)});
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     PublishPost();
   }
@@ -103,7 +107,11 @@ export default function CreateNewPost() {
 
   return (
     <div className="mainNewPostContainer">
-      {showButton && <button onClick={collapse}>New Post</button>}
+      {showButton && (
+        <button onClick={collapse} className="newPostBTN">
+          New Post
+        </button>
+      )}
       <CSSTransition
         in={isCollapsed}
         timeout={400}

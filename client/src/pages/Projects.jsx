@@ -53,7 +53,7 @@ export default function Projects() {
     <div className="main-grid-container">
       <NavBar />
       <LeftSideBarLinks />
-      <ProjectForm reload={reload} setReload={setReload} />
+      {/* <ProjectForm reload={reload} setReload={setReload} /> */}
       <ProjectFeed projects={projects} />
       <RightSideBarLinks />
     </div>

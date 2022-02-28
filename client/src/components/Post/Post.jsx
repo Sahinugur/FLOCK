@@ -89,7 +89,7 @@ function Post() {
                   {post.author.userName}
                 </p>
                 <h3 className="postContent">{post.content}</h3>
-                <h4 className="date">{post.createdTime}</h4>
+                {/* <h4 className="date">{post.createdTime}</h4> */}
 
                 <div className="icons">
                   <FontAwesomeIcon icon={faBookmark} className="iconBookmark" />

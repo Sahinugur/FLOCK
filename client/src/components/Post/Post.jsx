@@ -30,7 +30,7 @@ function Post() {
       setPosts(result);
       console.log(result);
     });
-  }, [isLiked, comment]);
+  }, [isLiked, comment, posts]);
 
   const likePost = async (postId, userId) => {
     const filteredPost = await posts.find((post) => post._id === postId);
@@ -62,6 +62,7 @@ function Post() {
   };
   const addComment = async (pid, uid) => {
     const filteredPost = await posts.find((post) => post._id === pid);
+    initiateComment();
 
     if (filteredPost) {
       const data = await axios.post(

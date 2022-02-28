@@ -130,7 +130,7 @@
 }
 .comment_input {
   margin: 1rem;
-  width: 60rem;
+  width: 85%;
   /* height: 4rem; */
   padding: 1rem 1rem 2rem 1rem;
   font-family: "Raleway", sans-serif;
@@ -155,7 +155,7 @@
 
 .singleComment {
   margin: 1rem;
-  width: 60rem;
+  width: 85%;
   height: 4rem;
   padding: 0.5rem;
   font-family: "Raleway", sans-serif;
